@@ -6,24 +6,33 @@
 
   <h2 class='my-5'>Here are your trainings <%= current_user.first_name %> !</h2>
 
-  <!-- HEADERS FOR THE TABLE -->
-  <div class='row py-2 border bg-light'>
-        <div class="col-4 border-right"><p style='font-weight: bolder'>Name</p></div>
-        <div class="col-3 border-right"><p style='font-weight: bolder'>Department</p></div>
-        <div class="col-3 border-right"><p style='font-weight: bolder'>Status</p></div>
-        <div class="col-2 text-center"></div>
-      </div>
-
   <!-- WE ITERATE OVER ALL THE TRAININGS FOR A SPECIFIC USER -->
   <% @trainings.each do |training| %>
 
-      <!-- TRAINING DISPLAYED AS A ROW -->
-      <div class='row py-2 border'>
-        <div class="col-4 border-right"><p><%= training.name %></p></div>
-        <div class="col-3 border-right"><p><%= training.department %></p></div>
-        <div class="col-3 border-right"><p>0% completed</p></div>
-        <div class="col-2 text-center"> <%= link_to 'START', training_path(training), class: "btn-primary px-4 py-1" %> </div>
+    <!-- CARD FOR EACH TRAINING -->
+    <div class="col-lg-4">
+      <div class="card-dash card-chart">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12 text-left">
+              <h2 class="card-title"><%= training.name %></h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-trip">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <div class="card-trip-infos">
+              <div>
+                <i class="fas fa-chart-pie"></i> 70%
+              </div>
+              <h2 class="card-trip-pricing"><i class="far fa-arrow-alt-circle-right"></i> <%= link_to 'START', training_path(training)%></h2>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
   <% end %>
 
 </div>
