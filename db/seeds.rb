@@ -19,7 +19,7 @@ company = Company.create!(name: 'Giraffe Corp', address: '123 Fake Street', user
 user.company = company
 user.save!
 training = Training.create!(name: 'Training 101', description: 'Loerm Impsum', department: 'Software engeneer', company: company)
-section = Section.create!(name: 'Safety', length: 3, description: 'blabla', video_url: 'http://www.youtube.com', training: training)
+section = Section.create!(name: 'Safety', length: 3, description: 'blabla', video_url: 'https://www.youtube.com/watch?v=cpxI9eQdeec', training: training)
 questions = Question.create!(content: "What's the best fruit?", answer: 'banana', possible_answers: ['mango', 'apple'], section: section)
 training_user = TrainingUser.create!(user: user, training: training)
 section_user = SectionUser.create!(user: user, section: section, quiz_score: 90)

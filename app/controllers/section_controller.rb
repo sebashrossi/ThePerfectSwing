@@ -4,7 +4,8 @@ class SectionController < ApplicationController
   end
 
   def show
-    @section = Section.find(param[:id])
+    @section = Section.find(params[:id])
+    @questions = Question.where(id: @section)
   end
 
   def new
