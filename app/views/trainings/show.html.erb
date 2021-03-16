@@ -1,2 +1,10 @@
-<h1>Training#show</h1>
-<p>Find me in app/views/training/show.html.erb</p>
+<div class="container">
+
+  <h2 class='my-5'>Welcome back to <strong><%= @training.name %></strong> !</h2>
+
+  <!-- WE ITERATE OVER ALL THE SECTIONS FOR THIS TRAINING -->
+  <% @sections.each do |section|%>
+    <p> <%= section %> </p>
+  <% end %>
+
+</div>
