@@ -1,2 +1,19 @@
-<h1>Training#index</h1>
+<!-- <h1>Training#index</h1>
 <p>Find me in app/views/training/index.html.erb</p>
+ -->
+
+<div class='container'>
+
+  <h2>Your trainings</h2>
+
+  <% @trainings.each do |training| %>
+
+    <!-- TRAINING CARD -->
+    <div class='training-card'>
+        <h5><%= training.name %></h5>
+        <p><%= training.description %></p>
+    </div>
+
+  <% end %>
+
+</div>
