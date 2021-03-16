@@ -8,7 +8,7 @@
     position: relative;
     width: 100%;
     margin-bottom: 30px;
-    box-shadow: 0 1px 2px 0 rgb(0, 0, 0 / 10%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .card-dash {
     display: flex;
@@ -81,7 +81,7 @@
 }
 
 .table-responsive {
-    overflow: scroll;
+    // overflow: scroll;
     padding-bottom: 10px;
 }
 .table-responsive {
