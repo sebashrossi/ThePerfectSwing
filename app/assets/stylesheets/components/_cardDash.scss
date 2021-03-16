@@ -35,9 +35,8 @@
 }
 .card-header {
     padding: 1.25rem 1.5rem;
-    margin-bottom: 0;
-    background-color: #20639B;
-    border-bottom: .0625rem solid rgba(34,42,66,.05);
+    background-color: transparent;
+    border-bottom: 0;
 }
 
 .card-dash .card-header .card-title {
@@ -81,7 +80,6 @@
 }
 
 .table-responsive {
-    // overflow: scroll;
     padding-bottom: 10px;
 }
 .table-responsive {
