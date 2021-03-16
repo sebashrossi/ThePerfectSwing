@@ -1,0 +1,20 @@
+<!-- <h1>Training#index</h1>
+<p>Find me in app/views/training/index.html.erb</p>
+ -->
+
+<div class='container'>
+
+  <h2>Here are your trainings!</h2>
+
+  <!-- WE ITERATE OVER ALL THE TRAININGS FOR A SPECIFIC USER -->
+  <% @trainings.each do |training| %>
+
+      <!-- TRAINING DISPLAYED AS A ROW -->
+      <div class='row py-2 border'>
+        <div class="col-6 border-right"><p style='font-weight: bolder'><%= training.name %></p></div>
+        <div class="col-3 border-right"><p><%= training.department %></p></div>
+        <div class="col-3 text-center"> <%= link_to 'GO', training_path(training), class: "btn-primary px-4 py-1" %> </div>
+      </div>
+  <% end %>
+
+</div>

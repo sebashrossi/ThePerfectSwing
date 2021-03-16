@@ -1,10 +1,10 @@
-class TrainingController < ApplicationController
+class TrainingsController < ApplicationController
   def index
-    @trainings = Training.all
+    @trainings = current_user.trainings
   end
 
   def show
-    @training = Training.find(param[:id])
+    @training = Training.find(params[:id])
   end
 
   def new
