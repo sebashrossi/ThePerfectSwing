@@ -1,0 +1,10 @@
+<h1>here's the quiz</h1>
+<%= simple_form_for :answers, url: section_user_path(@section_user), method: :patch do |f| %>
+  <% @questions.each do |question| %>
+    <p><%= question.content %></p>
+    <%= f.simple_fields_for "question_#{question.id}".to_sym do |z| %>
+      <%= z.collection_radio_buttons :selected_answer, question.shuffle_answers, :first, :last %>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

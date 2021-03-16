@@ -3,6 +3,23 @@ class SectionUsersController < ApplicationController
   end
 
   def update
+    @section_user = SectionUser.find(params[:id])
+    @questions = @section_user.section.questions
+    given_answers = params[:answers]
+    counter = 0
+    given_answers.keys.each do |key|
+      given_answer = given_answers[key][:selected_answer]
+      question_id = key.split("_")[1].to_i
+      correct_answer = @questions.find(question_id).answer
+      if given_answer == correct_answer
+        counter += 1
+      end
+    end
+    final_score = (counter/@questions.length.to_f) * 100
+    @section_user.quiz_score = final_score
+    if @section_user.save
+      redirect_to dashboard_path
+    end
   end
 
   def show

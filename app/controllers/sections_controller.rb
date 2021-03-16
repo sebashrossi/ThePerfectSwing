@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    @questions = Question.where(id: @section)
+    @questions = @section.questions
   end
 
   def new
@@ -33,6 +33,12 @@ class SectionsController < ApplicationController
 
   def destroy
     @section = Section.find(params[:id])
+  end
+  
+  def quiz
+    @section = Section.find(params[:id])
+    @questions = @section.questions
+    @section_user = current_user.section_users.find_by(section: @section)
   end
 
   private
