@@ -6,50 +6,46 @@
       <div class="card-header">
         <div class="row">
           <div class="col-12 text-left">
-            <h2 class="card-title">Welcome User!</h2>
+            <h2 class="card-title">Welcome <%= @user.first_name %> <%= @user.last_name %>!</h2>
           </div>
         </div>
       </div>
     </div>
   </div>
   <h4 class="mb-3">Latest trainings</h4>
-  <div class="row">
+  <div class="row horizontal">
+    <% @trainings.each do |training| %>
     <div class="col-lg-4">
-      <!-- flip-card-container -->
-<div class="flip-card-container" style="--hue: 220">
-  <div class="flip-card">
-
-    <div class="card-front">
-      <figure>
-        <div class="img-bg"></div>
-        <img src="https://images.unsplash.com/photo-1509475826633-fed577a2c71b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Brohm Lake">
-        <figcaption>Brohm Lake</figcaption>
-      </figure>
-    </div>
-
-    <div class="card-back">
-      <figure>
-        <div class="img-bg"></div>
-        <img src="https://images.unsplash.com/photo-1509475826633-fed577a2c71b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Brohm Lake">
-      </figure>
-
-      <button>Book</button>
-
-      <div class="design-container">
-        <span class="design design--1"></span>
-        <span class="design design--2"></span>
-        <span class="design design--3"></span>
-        <span class="design design--4"></span>
-        <span class="design design--5"></span>
-        <span class="design design--6"></span>
-        <span class="design design--7"></span>
-        <span class="design design--8"></span>
+      <div class="flip-card-container" style="--hue: 220">
+        <div class="flip-card">
+          <div class="card-front">
+            <figure>
+              <div class="img-bg"></div>
+              <img src="https://images.unsplash.com/photo-1509475826633-fed577a2c71b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Brohm Lake">
+              <figcaption><%= training.name %></figcaption>
+            </figure>
+          </div>
+          <div class="card-back">
+            <figure>
+              <div class="img-bg"></div>
+              <img src="https://images.unsplash.com/photo-1509475826633-fed577a2c71b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Brohm Lake">
+            </figure>
+            <button><%= link_to 'CONTINUE', training_path(training) %></button>
+            <div class="design-container">
+              <span class="design design--1"></span>
+              <span class="design design--2"></span>
+              <span class="design design--3"></span>
+              <span class="design design--4"></span>
+              <span class="design design--5"></span>
+              <span class="design design--6"></span>
+              <span class="design design--7"></span>
+              <span class="design design--8"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-  </div>
-</div>
-    </div>
+    <% end %>
   </div>
   <div class="row">
     <div class="col-lg-6">
@@ -112,104 +108,24 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <% @trainings.each do |training| %>
                   <tr>
                     <td>
-                      Dakota Rice
+                      <%= training.name %>
                     </td>
                     <td>
-                      Niger
+                      80%
                     </td>
                     <td>
-                      Oud-Turnhout
+                      <% count = 0 %>
+                      <% training.sections.each { |section| count += section.length } %>
+                      <%= count %> hrs
                     </td>
                     <td class="text-center">
-                      $36,738
+                      <%= link_to 'CONTINUE', training_path(training) %>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      Curaçao
-                    </td>
-                    <td>
-                      Sinaai-Waas
-                    </td>
-                    <td class="text-center">
-                      $23,789
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      Netherlands
-                    </td>
-                    <td>
-                      Baileux
-                    </td>
-                    <td class="text-center">
-                      $56,142
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      Korea, South
-                    </td>
-                    <td>
-                      Overland Park
-                    </td>
-                    <td class="text-center">
-                      $38,735
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      Malawi
-                    </td>
-                    <td>
-                      Feldkirchen in Kärnten
-                    </td>
-                    <td class="text-center">
-                      $63,542
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      Chile
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td class="text-center">
-                      $78,615
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Jon Porter
-                    </td>
-                    <td>
-                      Portugal
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td class="text-center">
-                      $98,615
-                    </td>
-                  </tr>
+                  <% end %>
                 </tbody>
               </table>
             </div>

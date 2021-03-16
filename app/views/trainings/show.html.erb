@@ -1,26 +1,44 @@
-<div class="container">
+<%= render 'shared/navbar' %>
+<%= render 'shared/sidebar' %>
 
+<div class="content">
   <h2 class='my-5'>Welcome back to <strong><%= @training.name %></strong> !</h2>
-
-  <!-- HEADERS FOR THE TABLE -->
-  <div class='row py-2 border bg-light'>
-    <div class="col-4 border-right"><p style='font-weight: bolder'>Module</p></div>
-    <div class="col-3 border-right"><p style='font-weight: bolder'>Length</p></div>
-    <div class="col-3 border-right"><p style='font-weight: bolder'>Status</p></div>
-    <div class="col-2 text-center"></div>
-  </div>
-
-  <!-- WE ITERATE OVER ALL THE TRAININGS FOR A SPECIFIC USER -->
-  <% @sections.each do |section| %>
-
-      <!-- TRAINING DISPLAYED AS A ROW -->
-      <div class='row py-2 border'>
-        <div class="col-4 border-right"><p><%= section.name %></p></div>
-        <div class="col-3 border-right"><p><%= section.length %></p></div>
-        <div class="col-3 border-right"><p>0% completed</p></div>
-        <div class="col-2 text-center"> <%= link_to 'START', section_path(section), class: "btn-primary px-4 py-1" %> </div>
-      </div>
-  <% end %>
-
+<div class="table-responsive">
+              <table class="table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Module
+                    </th>
+                    <th>
+                      Status
+                    </th>
+                    <th>
+                      Length
+                    </th>
+                    <th class="text-center">
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @sections.each do |section| %>
+                  <tr>
+                    <td>
+                      <%= section.name %>
+                    </td>
+                    <td>
+                      80%
+                    </td>
+                    <td>
+                      <%= section.length %>
+                    </td>
+                    <td class="text-center">
+                      <%= link_to 'START', section_path(section) %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
 </div>
 

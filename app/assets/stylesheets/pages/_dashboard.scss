@@ -23,3 +23,13 @@ body {
     min-height: calc(100vh - 70px);
 
 }
+
+.horizontal {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.horizontal > .col-lg-4 {
+  display: inline-block;
+  float: none;
+}
