@@ -1,0 +1,122 @@
+.card-chart {
+    overflow: hidden;
+}
+
+.card-dash {
+    background: white;
+    border: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 2px 0 rgb(0, 0, 0 / 10%);
+}
+.card-dash {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: white;
+    background-clip: border-box;
+    border: .0625rem solid rgba(34,42,66,.05);
+    border-radius: .2857rem;
+}
+
+.card-dash .card-header:not([data-background-color]) {
+    background-color: transparent;
+}
+
+.card-dash .card-header {
+    padding: 15px 15px 0;
+    border: 0;
+    color: hsla(0,0%,100%,.8);
+}
+.card-header:first-child {
+    border-radius: 0.2232rem 0.2232rem 0 0;
+}
+.card-header {
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0;
+    background-color: #20639B;
+    border-bottom: .0625rem solid rgba(34,42,66,.05);
+}
+
+.card-dash .card-header .card-title {
+    color: #20639B;
+    font-weight: 100;
+}
+
+.card-dash .card-title {
+    margin-bottom: .75rem;
+}
+
+.card-dash .card-body {
+    padding: 15px;
+}
+.card-body {
+    padding: 1.25rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.5rem;
+}
+
+.card-tasks {
+    height: 473px;
+}
+
+.card-tasks .card-header .title {
+    margin-right: 20px;
+    font-weight: 400;
+}
+
+.card-dash .card-header .card-category {
+    color: #9a9a9a;
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+
+.card-tasks .table-full-width {
+    max-height: 410px;
+    position: relative;
+}
+
+.table-responsive {
+    overflow: scroll;
+    padding-bottom: 10px;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #20639B;
+    background-color: transparent;
+}
+
+.table .form-check {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.form-check {
+    margin-top: .5rem;
+    padding-left: 0;
+}
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.25rem;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
