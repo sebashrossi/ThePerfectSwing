@@ -1,0 +1,37 @@
+.sidebar {
+  background-color: #121832;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 16px;
+  border-right: 1px solid #ACAAFF;
+  li {
+    color: #7C89A9;
+    list-style-type: none;
+    margin-bottom: 8px;
+  }
+  .active {
+  color: #4EE4C1;
+  font-weight: bold;
+  }
+  ul {
+    padding: 0;
+  }
+  h3 {
+    color: white;
+  }
+  p {
+    color: #D0D5E1;
+  }
+}
+
+  .badge {
+  position: absolute;
+  top: 256px;
+  right: 85px;
+  padding: 7px 10px;
+  border-radius: 50%;
+  background: #4EE4C1;
+  color: white;
+  }
+

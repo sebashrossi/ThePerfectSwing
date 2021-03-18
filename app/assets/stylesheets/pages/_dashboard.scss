@@ -1,1 +1,28 @@
+body {
+  font-family: "Bitter", "Helvetica", "sans-serif";
+  background: rgb(43,57,93);
+  background: linear-gradient(180deg, #2B395D 0%, #1A2239 100%);
+  background-repeat: no-repeat;
+}
 
+.main-content {
+  flex-grow: 1;
+}
+
+.top-message {
+  color: #C7D6FB;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.item {
+  padding: 30px;
+  text-align: center;
+  h1 {
+    font-size: 75px;
+    font-weight: bold;
+  }
+  p {
+    color:#C7D6FB;
+  }
+}

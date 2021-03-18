@@ -1,0 +1,82 @@
+<div class="d-flex">
+  <%= render 'shared/sidebar' %>
+  <div class="main-content" style="margin-left: 40px;">
+    <!-- TOP MESSAGE -->
+    <div class="top-message d-flex justify-content-between">
+      <h4>Welcome <%= @user.first_name %> <%= @user.last_name %></h4>
+      <h4><%= @t.strftime("%A, %b %d") %></h4>
+    </div>
+    <!-- MATRIX -->
+    <div class="matrix d-flex">
+      <div class="item">
+        <h1 style="color: #ACAAFF;">32</h1>
+        <p>hours completed</p>
+      </div>
+      <div class="item">
+        <h1 style="color: #FF8DE6;">2</h1>
+        <p>trainings completed</p>
+      </div>
+      <div class="item">
+        <h1 style="color: #FFCB65">12%</h1>
+        <p>overall progress</p>
+      </div>
+    </div>
+    <!-- CARDS -->
+    <div class="cards d-flex justify-content-between mb-5">
+      <% 4.times do %>
+      <% @trainings.each do |training| %>
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <i class="fas fa-globe"></i>
+          <p><%= training.department %></p>
+        </div>
+        <div class="card-body">
+          <h4><%= training.name %></h4>
+          <p><%= training.sections.count %> hrs</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <p>50%</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+
+    <!-- TABLES -->
+
+    <div class="tables d-flex justify-content-between">
+      <div class="trainings-card">
+        <h3 class="mb-5">All trainings</h3>
+        <% @trainings.each do |training| %>
+        <div class="table-item d-flex justify-content-between">
+          <p><%= training.name %></p>
+          <p><%= training.department %></p>
+          <p><%= training.sections.count %> hrs</p>
+          <i class="far fa-play-circle"></i>
+        </div>
+        <% end %>
+      </div>
+      <div class="todolist">
+        <div class="header d-flex justify-content-between">
+          <h3>Tasks</h3>
+          <button class="btn btn-primary">Add</button>
+        </div>
+        <div class="tasks-content d-flex">
+          <i class="far fa-check-circle completed"></i>
+          <p>Todo Item</p>
+        </div>
+        <div class="tasks-content d-flex">
+          <i class="far fa-check-circle"></i>
+          <p>Todo Item</p>
+        </div>
+        <div class="tasks-content d-flex">
+          <i class="far fa-check-circle"></i>
+          <p>Todo Item</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
