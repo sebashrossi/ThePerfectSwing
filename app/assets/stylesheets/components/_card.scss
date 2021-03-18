@@ -1,6 +1,9 @@
 .cards {
   width: 100%;
   padding: 20px;
+  a {
+    text-decoration: none;
+  }
 }
 
 .card {
@@ -9,8 +12,12 @@
   height: 280px;
   border-radius: 8px;
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
   p, i {
     color: rgba(199, 214, 251, 0.6);
+  }
+  &:hover {
+    transform: translateY(-2px);
   }
 }
 
@@ -116,12 +123,16 @@
     color: rgba(208, 213, 225, 0.33);
     font-size: 24px;
     margin-right: 12px;
+    cursor: pointer;
   }
   i:hover {
     color: #4EE4C1;
   }
-  .completed {
+  &.completed i {
     color: #4EE4C1;
+  }
+  &.completed p {
+    text-decoration: line-through;
   }
 }
 

@@ -9,10 +9,16 @@
       <li><%= link_to 'Profile', root_path %></li>
       <li><%= link_to 'Peers', root_path %></li>
       <li><%= link_to 'Company news', root_path %></li>
-      <div class="d-flex">
-        <li><%= link_to 'Announcements', root_path %></li>
+      <div class="d-flex align-items-start">
+        <li class="mr-3"><%= link_to 'Announcements', root_path %></li>
         <span class="badge">2</span>
       </div>
     </ul>
   </div>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+  <div class="logout d-flex justify-content-around">
+    <i class="fas fa-power-off"></i>
+    <h4>Log Out</h4>
+  </div>
+  <% end %>
 </div>
