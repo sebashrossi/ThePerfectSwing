@@ -22,9 +22,10 @@
       </div>
     </div>
     <!-- CARDS -->
-    <div class="cards d-flex justify-content-between mb-5">
+    <div class="cards d-flex mb-5">
       <% 4.times do %>
       <% @trainings.each do |training| %>
+      <%= link_to training_path(training) do %>
       <div class="card">
         <div class="card-header d-flex justify-content-between">
           <i class="fas fa-globe"></i>
@@ -35,12 +36,13 @@
           <p><%= training.sections.count %> hrs</p>
         </div>
         <div class="card-footer d-flex justify-content-between">
-          <p>50%</p>
+          <p> <%= training.progress_of(current_user) %>%</p>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: <%= training.progress_of(current_user) %>%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
       </div>
+      <% end %>
       <% end %>
       <% end %>
     </div>
@@ -53,9 +55,12 @@
         <% @trainings.each do |training| %>
         <div class="table-item d-flex justify-content-between">
           <p><%= training.name %></p>
+          <a tabindex="0" class="popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="<%= training.name %>" data-content="<%= training.description %>"><i class="fas fa-info-circle"></i></a>
           <p><%= training.department %></p>
           <p><%= training.sections.count %> hrs</p>
+          <%= link_to training_path(training) do %>
           <i class="far fa-play-circle"></i>
+          <% end %>
         </div>
         <% end %>
       </div>
@@ -65,15 +70,15 @@
           <button class="btn btn-primary">Add</button>
         </div>
         <div class="tasks-content d-flex">
-          <i class="far fa-check-circle completed"></i>
+          <i class="far fa-check-circle task completed"></i>
           <p>Todo Item</p>
         </div>
         <div class="tasks-content d-flex">
-          <i class="far fa-check-circle"></i>
+          <i class="far fa-check-circle task"></i>
           <p>Todo Item</p>
         </div>
         <div class="tasks-content d-flex">
-          <i class="far fa-check-circle"></i>
+          <i class="far fa-check-circle task"></i>
           <p>Todo Item</p>
         </div>
       </div>
