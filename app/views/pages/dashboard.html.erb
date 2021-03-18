@@ -36,9 +36,9 @@
           <p><%= training.sections.count %> hrs</p>
         </div>
         <div class="card-footer d-flex justify-content-between">
-          <p>50%</p>
+          <p> <%= training.progress_of(current_user) %>%</p>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: <%= training.progress_of(current_user) %>%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
       </div>
