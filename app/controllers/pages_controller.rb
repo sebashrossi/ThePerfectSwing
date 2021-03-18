@@ -5,8 +5,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @t = Time.now
-    @user = current_user
-    @company = @user.company
-    @trainings = @user.trainings
+    @company = current_user.company
+    @trainings = current_user.trainings
   end
 end

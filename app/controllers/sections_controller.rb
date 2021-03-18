@@ -6,6 +6,11 @@ class SectionsController < ApplicationController
   def show
     @section = Section.find(params[:id])
     @questions = @section.questions
+    @company = current_user.company
+    @training_id = Section.find(params[:id]).training_id
+    @training = Training.find(@training_id)
+    @sections = Section.where(id: @training)
+    @section_user = current_user.section_users.find_by(section: @section)
   end
 
   def new
@@ -39,6 +44,11 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     @questions = @section.questions
     @section_user = current_user.section_users.find_by(section: @section)
+  end
+
+  def training
+    @training_id = Section.find(params[:id]).training_id
+    @training = Training.find(@training_id)
   end
 
   private
