@@ -1,0 +1,126 @@
+.cards {
+  padding: 20px;
+}
+
+.card {
+  background-color: #121832;
+  width: 253px;
+  height: 280px;
+  border-radius: 8px;
+  box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.35);
+  p, i {
+    color: rgba(199, 214, 251, 0.6);
+  }
+}
+
+.card-header {
+  align-items: center;
+  border : 0;
+  p {
+    margin: 0;
+  }
+}
+
+.card-body {
+  align-items: center;
+  text-align: center;
+  h4 {
+    margin-top: 40px;
+    color: #C7D6FB;
+  }
+}
+
+.progress {
+  width: 70%;
+  height: 30%;
+  .progress-bar {
+    background-color: #4EE4C1 !important;
+  }
+}
+
+.card-footer {
+  align-items: center;
+  border: 0;
+  p {
+    margin: 0;
+  }
+}
+
+
+// TABLES
+
+.tables {
+  padding: 20px;
+}
+
+
+.trainings-card {
+  width: 797px;
+  height: 473px;
+  background: #1B2235;
+  border: 1px solid #121832;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 20px;
+    h3 {
+    font-size: 24px;
+    color: white;
+    }
+}
+
+.table-item {
+  border-bottom: 1px solid rgba(208, 213, 225, 0.22);
+  margin-bottom: 16px;
+  line-height: 1;
+  p {
+    color: #E8EDFF;
+  }
+  i {
+    color: rgba(208, 213, 225, 0.33);
+    font-size: 24px;
+  }
+    i:hover {
+      color: #4EE4C1;
+    }
+}
+
+.todolist {
+  width: 484px;
+  height: 473px;
+  background: #273353;
+  border-radius: 8px;
+  padding: 20px;
+  h3 {
+    color: white;
+  }
+  .btn {
+    width: 146px;
+    height: 45px;
+    background-color: #504BFF;
+    border-color: #504BFF;
+    color: white;
+    border-radius: 4px;
+  }
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.tasks-content {
+  margin-top: 4px;
+  color: #D0D5E1;
+
+  i {
+    color: rgba(208, 213, 225, 0.33);
+    font-size: 24px;
+    margin-right: 12px;
+  }
+  i:hover {
+    color: #4EE4C1;
+  }
+  .completed {
+    color: #4EE4C1;
+  }
+}
+
