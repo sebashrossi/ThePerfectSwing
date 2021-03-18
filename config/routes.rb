@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
   devise_for :users
-  root to: 'sessions#new'
+  devise_scope :user do 
+  root to: 'devise/sessions#new'
+  end
   resources :trainings
   resources :sections do
     member do
