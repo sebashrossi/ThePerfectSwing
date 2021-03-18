@@ -9,21 +9,20 @@
     <!-- MATRIX -->
     <div class="matrix d-flex">
       <div class="item">
-        <h1 style="color: #ACAAFF;">32</h1>
+        <h1 style="color: #ACAAFF;"><%= current_user.hours_completed_by(current_user) %></h1>
         <p>hours completed</p>
       </div>
       <div class="item">
-        <h1 style="color: #FF8DE6;">2</h1>
+        <h1 style="color: #FF8DE6;"><%= current_user.trainings_completed_by(current_user) %></h1>
         <p>trainings completed</p>
       </div>
       <div class="item">
-        <h1 style="color: #FFCB65">12%</h1>
+        <h1 style="color: #FFCB65"><%= current_user.overall_progress_of(current_user) %>%</h1>
         <p>overall progress</p>
       </div>
     </div>
     <!-- CARDS -->
     <div class="cards d-flex mb-5">
-      <% 4.times do %>
       <% @trainings.each do |training| %>
       <%= link_to training_path(training) do %>
       <div class="card">
@@ -33,7 +32,7 @@
         </div>
         <div class="card-body">
           <h4><%= training.name %></h4>
-          <p><%= training.sections.count %> hrs</p>
+          <p><%= training.training_length %> hrs</p>
         </div>
         <div class="card-footer d-flex justify-content-between">
           <p> <%= training.progress_of(current_user) %>%</p>
@@ -42,7 +41,6 @@
           </div>
         </div>
       </div>
-      <% end %>
       <% end %>
       <% end %>
     </div>
@@ -57,7 +55,7 @@
           <p><%= training.name %></p>
           <a tabindex="0" class="popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="<%= training.name %>" data-content="<%= training.description %>"><i class="fas fa-info-circle"></i></a>
           <p><%= training.department %></p>
-          <p><%= training.sections.count %> hrs</p>
+          <p><%= training.training_length %> hrs</p>
           <%= link_to training_path(training) do %>
           <i class="far fa-play-circle"></i>
           <% end %>
