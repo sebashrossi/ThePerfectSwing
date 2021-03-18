@@ -2,18 +2,24 @@
   <div class="quiz-page d-flex">
     <%= render 'shared/sidebar' %>
     <div class="quiz-section">
-      <div class="text-section">
-        <p>Keep it up <%= current_user.first_name %> <%= current_user.last_name %>!</p>
+    <p class="mb-4">Keep it up <%= current_user.first_name %> <%= current_user.last_name %>!</p>
+    <div class="text-score d-flex justfiy-content-between">
+      <div class="text-section mb-4">
         <h2><%= @training.name %></h2>
-        <h3><%= @section.name %></h3>
+        <h3 class= "mb-4"><%= @section.name %></h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate modi officia sed quos porro nam nisi, est rem ipsa reiciendis ipsam repudiandae tempore deleniti eaque, tempora asperiores, itaque corporis sunt?</p>
-        </div>
-        <div class="mt-5">
+      </div>
+      <div class="score">
+        <h3>Quiz answers</h3>
+        <h2>33/35</h2>
+        <p style="color: white">correct answers</p>
+        <p style="color: $cool-lightsaber">check correction</p>
+      </div>
+      </div>
           <div>
             <iframe width="560" height="300" src="<%= @section.embedded_video_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
         </div>
-        <div class="quiz-section">
+        <div class="quiz-section w-50">
           <div class="quiz-form">
             <%= simple_form_for :answers, url: section_user_path(@section_user), method: :patch do |f| %>
               <% @questions.each do |question| %>
@@ -25,7 +31,7 @@
               <%= f.submit %>
             <% end %>
           </div>
-      </div>
-      </div>
+        </div>
     </div>
+  </div>
 </div>

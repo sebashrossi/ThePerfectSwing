@@ -1,9 +1,18 @@
 body {
-  font-family: "Bitter", "Helvetica", "sans-serif";
+  font-family: 'Roboto', sans-serif;
   background: rgb(43,57,93);
   background: linear-gradient(180deg, #2B395D 0%, #1A2239 100%);
   background-repeat: no-repeat;
   min-height: 100vh;
+
+  p {
+    font-family: 'Roboto', sans-serif;
+    color: $cool-text;
+  }
+
+  li {
+    font-weight: 700;
+  }
 }
 
 .main-content {

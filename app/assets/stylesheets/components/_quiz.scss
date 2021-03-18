@@ -1,14 +1,16 @@
 .section-show {
     height: 100%;
 }
+
 .quiz-section {
-    width: 57vw;
-    margin-left: 80px;
+    width: 78vw;
     margin-top: 30px;
+    margin-left: 80px;
 }
 
 .text-section {
-    
+    width: 85%;
+
     p {
         color: #C7D6FB;
         width: 34.2vw;
@@ -25,4 +27,18 @@
         font-size: 24px;
         color: white;
        }
+}
+
+.score {
+    h3 {
+        font-size: 24px;
+        color: $cool-text;
+        font-weight: 700;
+    }
+
+    h2 {
+        color: $cool-lightsaber;
+        font-size: 75px;
+        font-weight: 700;
+    }
 }

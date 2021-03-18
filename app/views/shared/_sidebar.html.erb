@@ -15,8 +15,8 @@
       </div>
     </ul>
     <% if controller_name == "sections" && action_name == "show"%>
-    <b><p>Training chapters</p></b>
-    <ul>
+    <b><p class="mt-5 mb-3">Training chapters</p></b>
+    <ul class="ml-2">
       <% @sections.each do |section| %>
         <li><i class="fas fa-check-circle mr-2"></i> 
       <%= link_to section.name, section_path(section) %></li>
