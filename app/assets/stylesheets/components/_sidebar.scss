@@ -9,6 +9,10 @@
     list-style-type: none;
     margin-bottom: 8px;
   }
+  a {
+    color: #7C89A9;
+    text-decoration: none;
+  }
   .active {
   color: #4EE4C1;
   font-weight: bold;
@@ -25,12 +29,24 @@
 }
 
   .badge {
-  position: absolute;
-  top: 256px;
-  right: 85px;
   padding: 7px 10px;
   border-radius: 50%;
   background: #4EE4C1;
   color: white;
   }
 
+.logout {
+  align-items: center;
+  position: fixed;
+  bottom: 5%;
+  left: 4%;
+  text-align: center;
+  color: #7C89A9;
+    i {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+    &:hover {
+      color: #4EE4C1;
+    }
+}
