@@ -1,12 +1,31 @@
-<div class="container justify-content-center text-center">
-  <h1><%= @section.name %></h1>
-  <div class="mt-5">
-    <div>
-      <iframe width="560" height="315" src="<%= @section.embedded_video_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="section-show">
+  <div class="quiz-page d-flex">
+    <%= render 'shared/sidebar' %>
+    <div class="quiz-section">
+      <div class="text-section">
+        <p>Keep it up <%= current_user.first_name %> <%= current_user.last_name %>!</p>
+        <h2><%= @training.name %></h2>
+        <h3><%= @section.name %></h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate modi officia sed quos porro nam nisi, est rem ipsa reiciendis ipsam repudiandae tempore deleniti eaque, tempora asperiores, itaque corporis sunt?</p>
+        </div>
+        <div class="mt-5">
+          <div>
+            <iframe width="560" height="300" src="<%= @section.embedded_video_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="quiz-section">
+          <div class="quiz-form">
+            <%= simple_form_for :answers, url: section_user_path(@section_user), method: :patch do |f| %>
+              <% @questions.each do |question| %>
+                <p><%= question.content %></p>
+                <%= f.simple_fields_for "question_#{question.id}".to_sym do |z| %>
+                  <%= z.collection_radio_buttons :selected_answer, question.shuffle_answers, :first, :last %>
+                <% end %>
+              <% end %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+      </div>
+      </div>
     </div>
-  </div>
-  <div class="quiz-buttons mt-3">
-    <%= link_to "Return to Trainings", training_path, class: "btn-secondary py-2 px-4 m-2" %>
-    <%= link_to "Start Quiz", quiz_section_path(@section), class: "btn-primary py-2 px-4 m-2" %>
-  </div>
 </div>

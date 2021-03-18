@@ -14,6 +14,15 @@
         <span class="badge">2</span>
       </div>
     </ul>
+    <% if controller_name == "sections" && action_name == "show"%>
+    <b><p>Training chapters</p></b>
+    <ul>
+      <% @sections.each do |section| %>
+        <li><i class="fas fa-check-circle mr-2"></i> 
+      <%= link_to section.name, section_path(section) %></li>
+      <% end %>
+    </ul>
+    <% end %>
   </div>
   <%= link_to destroy_user_session_path, method: :delete do %>
   <div class="logout d-flex justify-content-around">
