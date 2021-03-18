@@ -8,5 +8,6 @@ class PagesController < ApplicationController
     @user = current_user
     @company = @user.company
     @trainings = @user.trainings
+
   end
 end

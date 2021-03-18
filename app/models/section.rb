@@ -7,5 +7,4 @@ class Section < ApplicationRecord
   def embedded_video_url
     self.video_url.sub 'watch?v=', 'embed/'
   end
-
 end
