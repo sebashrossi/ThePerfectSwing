@@ -20,6 +20,14 @@ user.company = company
 user.save!
 training = Training.create!(name: 'Training 101', description: 'Loerm Impsum', department: 'Software engeneer', company: company)
 section = Section.create!(name: 'Safety', length: 3, description: 'blabla', video_url: 'https://www.youtube.com/watch?v=cpxI9eQdeec', training: training)
+Question.create!(content: "What's the best food?", answer: 'Pad Thai', possible_answers: ['Pizza', 'Burger'], section: section)
+Question.create!(content: "What's the best pet?", answer: 'dog', possible_answers: ['cat', 'parrot'], section: section)
+Question.create!(content: "What's the best food?", answer: 'Pad Thai', possible_answers: ['Pizza', 'Burger'], section: section)
+Question.create!(content: "What's the best pet?", answer: 'dog', possible_answers: ['cat', 'parrot'], section: section)
+Question.create!(content: "What's the best food?", answer: 'Pad Thai', possible_answers: ['Pizza', 'Burger'], section: section)
+Question.create!(content: "What's the best pet?", answer: 'dog', possible_answers: ['cat', 'parrot'], section: section)
+Question.create!(content: "What's the best food?", answer: 'Pad Thai', possible_answers: ['Pizza', 'Burger'], section: section)
+Question.create!(content: "What's the best pet?", answer: 'dog', possible_answers: ['cat', 'parrot'], section: section)
 questions = Question.create!(content: "What's the best fruit?", answer: 'banana', possible_answers: ['mango', 'apple'], section: section)
 training_user = TrainingUser.create!(user: user, training: training)
 
