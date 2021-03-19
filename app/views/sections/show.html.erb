@@ -10,10 +10,9 @@
         <p><%= @section.description %></p>
       </div>
       <div class="score">
-        <h3>Quiz answers</h3>
-        <h2>33/35</h2>
-        <p style="color: white">correct answers</p>
-        <p style="color: $cool-lightsaber">check correction</p>
+        <h3>Previous score</h3>
+        <h2><%= ((@section_user.quiz_score  / 100.0) * @questions.length).round %> / <%= @questions.length %></h2>
+        <%= link_to "previous attempt results", section_path(@section_user.section), id: "previous-quiz-result", info: "Your score was #{@section_user.quiz_score}" %>
       </div>
       </div>
           <div>
@@ -24,7 +23,7 @@
           <h1><%= @section_user.quiz_score %></h1>
             <%= simple_form_for :answers, url: section_user_path(@section_user), method: :patch do |f| %>
                 <% @questions.each_with_index do |question, index| %>
-                <div class="bg-light mb-2 w-50 <%= @questions.first == question ? "" : "d-none"%>" data-step="<%= index %>">
+                <div class=" mb-2 w-50 <%= @questions.first == question ? "" : "d-none"%>" data-step="<%= index %>">
                   <div class="d-flex ">
                   <p><%= question.content %></p>
                   <p><%= index + 1 %>/<%= @questions.length %></p>
