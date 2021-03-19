@@ -24,7 +24,7 @@
     <!-- CARDS -->
     <div class="cards mb-5">
       <% @trainings.each do |training| %>
-      <%= link_to training_path(training) do %>
+      <%= link_to section_path(training.first_unfinished_section(current_user)) do %>
       <div class="card">
         <div class="card-header d-flex justify-content-between">
           <i class="fas fa-globe"></i>
@@ -56,7 +56,7 @@
           <a tabindex="0" class="popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="<%= training.name %>" data-content="<%= training.description %>"><i class="fas fa-info-circle"></i></a>
           <p><%= training.department %></p>
           <p><%= training.training_length / 60%>h<%= training.training_length % 60%>min</p>
-          <%= link_to training_path(training) do %>
+          <%= link_to section_path(training.first_unfinished_section(current_user)) do %>
           <i class="far fa-play-circle"></i>
           <% end %>
         </div>
