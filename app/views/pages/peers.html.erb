@@ -1,0 +1,10 @@
+<div class="d-flex">
+  <%= render 'shared/sidebar' %>
+  <div class="main-content" style="margin-left: 40px;">
+    <ul>
+      <% @peers.each do |peer| %>
+      <li><%= peer.first_name %> <%= peer.last_name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
