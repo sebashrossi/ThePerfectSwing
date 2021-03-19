@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @t = Time.now
     @user = current_user
     @company = @user.company
-    @trainings = @user.trainings
-
+    @trainings = @user.trainings.limit(4)
+    @alltrainings = @user.trainings
   end
 end
