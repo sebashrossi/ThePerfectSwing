@@ -6,7 +6,7 @@
     height: 100vh;
 
     h1 {
-        font-family: Bitter;
+        font-family: Roboto;
         font-style: normal;
         font-weight: normal;
         font-size: 75px;
@@ -22,8 +22,9 @@
     }
 
   .login {
+    position: relative;
     width: 24.375vw;
-    height: 52.803261977573904vh;
+    height: 42.803261977573904vh;
     background: #121832;
     padding: 40px;
     border-radius: 8px;
@@ -47,4 +48,13 @@
   .login-page {
     width: 80%;
     margin: 0 auto;
+  }
+
+  .login-links {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+    a {
+      color: $cool-text;
+    }
   }

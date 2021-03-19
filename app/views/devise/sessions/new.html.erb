@@ -1,7 +1,7 @@
 <!-- Render nav bar here you dipshits -->
 <div class="centered">
   <div class="login-page d-flex justify-content-between">
-    <div class="title"><h1>Your journey begins here</h1></div>
+    <div class="title"><h1>Your journey begins here.</h1></div>
     <div class="login">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
@@ -19,7 +19,7 @@
           <%= f.button :submit, "Login", class: "login-btn" %>
         </div>
       <% end %>
-      <div class="d-flex justify-content-between align-items-end" >
+      <div class="login-links d-flex justify-content-between w-100" >
       <%= render "devise/shared/links" %>
       </div>
     </div>

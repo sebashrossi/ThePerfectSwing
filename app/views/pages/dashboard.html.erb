@@ -47,19 +47,19 @@
 
     <!-- TABLES -->
 
-    <div class="tables d-flex justify-content-between">
+    <div class="tables d-flex">
       <div class="trainings-card scrollbar-hidden">
         <h3 class="mb-5">All trainings</h3>
         <% @alltrainings.each do |training| %>
-        <div class="table-item d-flex justify-content-between">
-          <p><%= training.name %></p>
+        <div class="table-item d-flex justify-content-sm-between">
+           <p style="width: 20%"><%= training.name %></p>
           <a tabindex="0" class="popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="<%= training.name %>" data-content="<%= training.description %>"><i class="fas fa-info-circle"></i></a>
-          <p><%= training.department %></p>
-          <p><%= training.training_length %> hrs</p>
+          <p style="width: 20%"><%= training.department %></p>
+          <p style="width: 10%"><%= training.training_length %> hrs</p>
           <%= link_to training_path(training) do %>
           <i class="far fa-play-circle"></i>
+          </div>
           <% end %>
-        </div>
         <% end %>
       </div>
       <div class="todolist">
