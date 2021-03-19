@@ -1,10 +1,18 @@
 <div class="d-flex">
   <%= render 'shared/sidebar' %>
   <div class="main-content" style="margin-left: 40px;">
-    <ul>
+    <div class="top-message d-flex justify-content-between">
+      <h4>Your peers</h4>
+      <h4><%= @t.strftime("%A, %b %d") %></h4>
+    </div>
+    <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 80%;">
       <% @peers.each do |peer| %>
-      <li><%= peer.first_name %> <%= peer.last_name %></li>
+      <div class="table-item d-flex justify-content-sm-between">
+        <p><%= peer.first_name %> <%= peer.last_name %></p>
+        <p><%= peer.email %></p>
+        <a href="#">Contact</a>
+      </div>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>
