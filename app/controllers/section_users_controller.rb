@@ -18,7 +18,7 @@ class SectionUsersController < ApplicationController
     final_score = (counter/@questions.length.to_f) * 100
     @section_user.quiz_score = final_score
     if @section_user.save
-      redirect_to section_path(@section_user.section), notice: "Your score was #{@section_user.quiz_score}"
+      redirect_to section_path(@section_user.section), info: "Your score was #{@section_user.quiz_score}"
     end
   end
 

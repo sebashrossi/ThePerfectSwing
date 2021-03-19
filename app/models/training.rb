@@ -27,4 +27,13 @@ class Training < ApplicationRecord
     end
     length
   end
+
+  def first_unfinished_section(user)
+    first_unfinished = nil
+    self.sections.each do |section|
+      section_user = user.section_users.find_by(section: section)
+      first_unfinished = section.id if !section_user.completed? && first_unfinished.nil?
+    end
+    first_unfinished
+  end
 end

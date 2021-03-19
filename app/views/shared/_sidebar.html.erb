@@ -4,10 +4,10 @@
     <p>powered by The Perfect Swing™</p>
   </div>
   <div class="side-bar-menu mt-5">
-    <ul>
-      <li class="active">Dashboard</li>
-      <li><%= link_to 'Profile', root_path %></li>
-      <li><%= link_to 'Peers', root_path %></li>
+    <ul class="top-links">
+      <li class="active"><%= link_to 'Dashboard', dashboard_path %></li>
+      <li><%= link_to 'Profile', edit_user_registration_path(current_user) %></li>
+      <li><%= link_to 'Peers', peers_path %></li>
       <li><%= link_to 'Company news', root_path %></li>
       <div class="d-flex align-items-start">
         <li class="mr-3"><%= link_to 'Announcements', root_path %></li>
@@ -16,9 +16,9 @@
     </ul>
     <% if controller_name == "sections" && action_name == "show"%>
     <b><p class="mt-5 mb-3">Training chapters</p></b>
-    <ul class="ml-2">
+    <ul class="ml-2 bottom-links">
       <% @sections.each do |section| %>
-        <li><i class="fas fa-check-circle mr-2"></i> 
+        <li><i class="fas fa-check-circle mr-2"></i>
       <%= link_to section.name, section_path(section) %></li>
       <% end %>
     </ul>
