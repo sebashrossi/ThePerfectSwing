@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { completedTasks } from 'plugins/tasks.js';
 import { initQuizSteps } from 'components/initQuizSteps'
+import { activeLinks } from 'plugins/sidebarLinks'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -37,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   });
   initQuizSteps();
   completedTasks();
+  activeLinks();
 });
