@@ -4,9 +4,36 @@
   background-color: #1B2235;
   position: absolute;
   top: 50px;
-  left: 50%;
+  left: 30%;
   transform: translate(-50px, -50px);
   color: #C7D6FB;
+  box-shadow: 0px 0px 26px rgba(17, 17, 17, 0.494);
+
+  h4{
+    margin-bottom: 30px;
+    margin-left: 40px;
+  }
+
+  a{
+    display: flex;
+    width: 146px;
+    height: 45px;
+    margin-left: 20px;
+    background-color: $cool-btn;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    
+    &:hover {
+      background-color: #413ccc;
+      transition: all 0.3s ease-in-out;
+    }
+  }
 }
 
 #previous-quiz-result {

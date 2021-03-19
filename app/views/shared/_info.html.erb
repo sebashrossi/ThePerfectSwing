@@ -10,12 +10,12 @@
           <% end %>
         </div>
       </div>
-      <div>
+      <div class="mb-3">
       <div class="d-flex">
-      <h2>Section:  </h2><h3 class="mt-1"><%= @section.name %></h3> 
+      <h2 class="mr-2">Section:  </h2><h3 class="mt-1"><%= @section.name %></h3> 
       </div>
       <div class="d-flex">
-      <h3>Quiz Score:  </h3><h3><%= ((@section_user.quiz_score  / 100.0) * @questions.length).round %> / <%= @questions.length %></h3> 
+      <h3 class="mr-2">Quiz Score:  </h3><h3> <%=  ((@section_user.quiz_score  / 100.0) * @questions.length).round %> / <%= @questions.length %></h3> 
       </div>
       </div >
         <% @questions.each_with_index do |question, index| %>
