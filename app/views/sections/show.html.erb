@@ -7,7 +7,7 @@
       <div class="text-section mb-4">
         <h2><%= @training.name %></h2>
         <h3 class= "mb-4"><%= @section.name %></h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate modi officia sed quos porro nam nisi, est rem ipsa reiciendis ipsam repudiandae tempore deleniti eaque, tempora asperiores, itaque corporis sunt?</p>
+        <p><%= @section.description %></p>
       </div>
       <div class="score">
         <h3>Quiz answers</h3>
@@ -35,7 +35,7 @@
                   <div class= "d-flex justify-content-between">
                   <% if question != @questions.last %>
                     <button type="button" data-next-step="<%= index + 1 %>">Next</button>
-                  <% else %> 
+                  <% else %>
                     <%= f.submit %>
                   <% end %>
                   </div>
