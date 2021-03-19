@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
+  get '/peers', to: 'pages#peers', as: :peers
   devise_for :users
   devise_scope :user do
     root to: 'devise/sessions#new'

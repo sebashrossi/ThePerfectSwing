@@ -9,4 +9,7 @@ class PagesController < ApplicationController
     @trainings = current_user.trainings.limit(4)
     @alltrainings = current_user.trainings
   end
+
+  def peers
+  end
 end
