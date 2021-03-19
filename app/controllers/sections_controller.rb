@@ -51,6 +51,11 @@ class SectionsController < ApplicationController
     @training = Training.find(@training_id)
   end
 
+  def calc_quiz_score
+    
+
+  end
+
   private
 
   def section_params
