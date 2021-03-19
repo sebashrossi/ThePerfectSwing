@@ -1,4 +1,7 @@
 .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0 8%;
   width: 100%;
   padding: 20px;
   a {
@@ -8,7 +11,6 @@
 
 .card {
   background-color: #121832;
-  width: 253px;
   height: 280px;
   border-radius: 8px;
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.35);
@@ -64,17 +66,22 @@
 
 
 .trainings-card {
-  width: 797px;
+  width: 68%;
   height: 473px;
   background: #1B2235;
   border: 1px solid #121832;
   box-sizing: border-box;
   border-radius: 8px;
   padding: 20px;
+  overflow: scroll;
     h3 {
     font-size: 24px;
     color: white;
     }
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
 }
 
 .table-item {
@@ -94,7 +101,7 @@
 }
 
 .todolist {
-  width: 484px;
+  width: 28%;
   height: 473px;
   background: #273353;
   border-radius: 8px;
