@@ -17,7 +17,7 @@
         <p>trainings completed</p>
       </div>
       <div class="item">
-        <h1 style="color: #FFCB65"><%= current_user.overall_progress_of(current_user) %>%</h1>
+        <h1 style="color: #FFCB65"><%= current_user.overall_progress_of(current_user).round(2) %>%</h1>
         <p>overall progress</p>
       </div>
     </div>

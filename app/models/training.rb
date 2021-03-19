@@ -8,7 +8,7 @@ class Training < ApplicationRecord
       section_user = user.section_users.find_by(section: section)
       section_user.completed?
     end
-    (count / self.sections.count) * 100
+    (count / self.sections.count.to_f) * 100
   end
 
   def time_spent_on_training_by(user)
