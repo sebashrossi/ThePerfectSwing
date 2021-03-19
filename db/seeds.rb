@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
 puts ""
 puts "------------------"
 puts "Seeding started..."
@@ -65,6 +67,16 @@ puts "#{user.first_name} #{user.last_name} has been assigned to #{company.name}.
 puts "--------------------------------------------"
 puts ""
 sleep 2
+puts ""
+puts "Creating peers for #{user.first_name} #{user.last_name}..."
+20.times do
+  peer = User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: '123456', admin: false )
+end
+sleep 1
+puts ""
+puts "Peers have been created."
+puts ""
+sleep 1
 # TRAINING 1 COMPLETE
 puts "Creating 1st training..."
 training1 = Training.create!(name: 'Onboarding', description: 'Welcome to the Complete Web Development Training, the only training you need to learn to code and become a full-stack web developer. We\'ll take you step-by-step through engaging video tutorials and teach you everything you need to know to succeed as a web developer. The course includes over 50 hours of HD video tutorials and builds your programming knowledge while making real-world websites and web apps.', department: 'Software engineer', company: company)
@@ -300,7 +312,9 @@ section56 = Section.create!(name: 'HTTP & AJAX', length: 10, description: "Letâ€
 section57 = Section.create!(name: 'JavaScript Plugins', length: 22, description: "In this lecture, we will download external JavaScript packages with Yarn and use them in our interfaces. Weâ€™ll also see how to organise our code in several files in a frontend app.", video_url: "https://www.youtube.com/watch?v=g9_6KmiBISk", training: training5)
 
 sleep 1
+puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
 puts ""
+sleep 1
 
 # TRAINING 6 COMPLETED
 
