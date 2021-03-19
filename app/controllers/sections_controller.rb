@@ -9,7 +9,7 @@ class SectionsController < ApplicationController
     @company = current_user.company
     @training_id = Section.find(params[:id]).training_id
     @training = Training.find(@training_id)
-    @sections = Section.where(id: @training)
+    @sections = Section.where(training_id: @training)
     @section_user = current_user.section_users.find_by(section: @section)
   end
 
@@ -39,7 +39,7 @@ class SectionsController < ApplicationController
   def destroy
     @section = Section.find(params[:id])
   end
-  
+
   def quiz
     @section = Section.find(params[:id])
     @questions = @section.questions
