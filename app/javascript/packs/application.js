@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { completedTasks } from 'plugins/tasks.js';
+import { initQuizSteps } from 'components/initQuizSteps'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -34,6 +35,6 @@ document.addEventListener('turbolinks:load', () => {
   $('.popover-dismiss').popover({
   trigger: 'focus'
   });
-
+  initQuizSteps();
   completedTasks();
 });

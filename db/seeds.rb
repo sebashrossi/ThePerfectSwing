@@ -470,4 +470,3 @@ puts " - #{training10.name}"
 puts " - #{training11.name}"
 puts ""
 puts "#############################################"
-

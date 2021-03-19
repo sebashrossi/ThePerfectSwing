@@ -1,12 +1,49 @@
-<div class="container justify-content-center text-center">
-  <h1><%= @section.name %></h1>
-  <div class="mt-5">
-    <div>
-      <iframe width="560" height="315" src="<%= @section.embedded_video_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="section-show">
+  <div class="quiz-page d-flex">
+    <%= render 'shared/sidebar' %>
+    <div class="quiz-section">
+    <p class="mb-4">Keep it up <%= current_user.first_name %> <%= current_user.last_name %>!</p>
+    <div class="text-score d-flex justfiy-content-between">
+      <div class="text-section mb-4">
+        <h2><%= @training.name %></h2>
+        <h3 class= "mb-4"><%= @section.name %></h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate modi officia sed quos porro nam nisi, est rem ipsa reiciendis ipsam repudiandae tempore deleniti eaque, tempora asperiores, itaque corporis sunt?</p>
+      </div>
+      <div class="score">
+        <h3>Quiz answers</h3>
+        <h2>33/35</h2>
+        <p style="color: white">correct answers</p>
+        <p style="color: $cool-lightsaber">check correction</p>
+      </div>
+      </div>
+          <div>
+            <iframe width="560" height="300" src="<%= @section.embedded_video_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="quiz-section w-50">
+          <div class="quiz-form">
+          <h1><%= @section_user.quiz_score %></h1>
+            <%= simple_form_for :answers, url: section_user_path(@section_user), method: :patch do |f| %>
+                <% @questions.each_with_index do |question, index| %>
+                <div class="bg-light mb-2 w-50 <%= @questions.first == question ? "" : "d-none"%>" data-step="<%= index %>">
+                  <div class="d-flex ">
+                  <p><%= question.content %></p>
+                  <p><%= index + 1 %>/<%= @questions.length %></p>
+                  </div>
+                  <%= f.simple_fields_for "question_#{question.id}".to_sym do |z| %>
+                    <%= z.collection_radio_buttons :selected_answer, question.shuffle_answers, :first, :last %>
+                  <% end %>
+                  <div class= "d-flex justify-content-between">
+                  <% if question != @questions.last %>
+                    <button type="button" data-next-step="<%= index + 1 %>">Next</button>
+                  <% else %> 
+                    <%= f.submit %>
+                  <% end %>
+                  </div>
+                </div>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
     </div>
-  </div>
-  <div class="quiz-buttons mt-3">
-    <%= link_to "Return to Trainings", training_path, class: "btn-secondary py-2 px-4 m-2" %>
-    <%= link_to "Start Quiz", quiz_section_path(@section), class: "btn-primary py-2 px-4 m-2" %>
   </div>
 </div>
