@@ -14,7 +14,7 @@
       <h3 class="mx-4 mb-5">Quiz Score: <%= ((@section_user.quiz_score  / 100.0) * @questions.length).round %> / <%= @questions.length %></h3>
       <h4>Correct answers: </h4>
     </div >
-    <div class="displayed-question mb-3">
+    <div class="displayed-question scrollbar-hidden mb-3">
       <% @questions.each_with_index do |question, index| %>
         <h4><%= index + 1 %>- <%= question.content %></h4>
         <p class="correct"><%= question.answer %></p>
