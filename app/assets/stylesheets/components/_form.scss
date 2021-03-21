@@ -1,0 +1,19 @@
+.form-components {
+  padding: 60px 60px 20px 60px;
+  .btn {
+    width: 146px;
+    height: 45px;
+    background-color: #504BFF;
+    border-color: #504BFF;
+    color: white;
+    border-radius: 4px;
+  }
+  label {
+    color: #E8EDFF;
+  }
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 0.8;
+}

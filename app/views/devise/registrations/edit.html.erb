@@ -1,35 +1,74 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+<div class="d-flex">
+  <%= render 'shared/sidebar' %>
+  <div class="main-content" style="margin-left: 40px;">
+    <div class="top-message d-flex justify-content-between">
+      <h4>Profile</h4>
+      <h4><%= Time.now.strftime("%A, %b %d") %></h4>
+    </div>
+    <div class="complete-profile d-flex justify-content-between">
+      <div class="profile-card">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-components">
+        <div class="form-inputs">
+          <div class="d-flex justify-content-between">
+            <%= f.input :first_name, disabled: true %>
+            <%= f.input :last_name, disabled: true %>
+          </div>
+          <%= f.input :email, required: true, autofocus: true, disabled: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+          <%= f.input :password,
+          hint: "leave it blank if you don't want to change it",
+          required: false,
+          input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+          required: false,
+          input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password,
+          hint: "we need your current password to confirm your changes",
+          required: true,
+          input_html: { autocomplete: "current-password" } %>
+          <div class="form-actions">
+            <%= f.button :submit, "Update", class: 'btn btn-primary' %>
+          </div>
+        </div>
+        </div>
+        <% end %>
+        <div style="padding:60px;">
+          <p>Unhappy?</p>
+          <%= link_to "Cancel my account", registration_path(resource_name), class: 'btn btn-outline-danger', data: { confirm: "Are you sure?" }, method: :delete %>
+        </div>
+      </div>
+      <div class="profile-info">
+        <div class="info-header">
+          <img src="https://www.thinkingheads.com/wp-content/uploads/2018/04/jordan-belfort-conferenciante-1.jpg" alt="profile-pic">
+        </div>
+        <div class="info-body mt-4">
+          <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+          <h4><%= current_user.email %></h4>
+        </div>
+        <div class="info-footer text-center mt-3">
+          <h4><%= current_user.company.name %></h4>
+          <h5>Software Engineer</h5>
+          <label>Member since: <%= current_user.created_at %></label>
+        </div>
+        <div class="stats d-flex justify-content-between">
+        <div class="item">
+          <h1 style="color: #ACAAFF;"><%= current_user.trainings.count %></h1>
+          <p>Trainings assigned</p>
+        </div>
+        <div class="item">
+          <h1 style="color: #FF8DE6;"><%= User.all.where.not(id: current_user.id).count %></h1>
+          <p>Peers</p>
+        </div>
+        <div class="item">
+        <h1 style="color: #FFCB65">20+</h1>
+        <p>Connections</p>
+      </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

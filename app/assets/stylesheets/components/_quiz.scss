@@ -11,7 +11,6 @@
 .quiz-section {
     margin-top: 30px;
     width: 37.5%;
-    position: absolute;
     h3 {
         font-size: 24px;
         color: $cool-text;
@@ -74,9 +73,7 @@
         border-radius: 4px;
         border: none;
         color: white;
-        position:absolute;
-         bottom:15px;
-        right:45px;
+        margin-right: 20px;
     }
 
     .submit-btn {
@@ -86,10 +83,12 @@
         border-radius: 4px;
         border: none;
         color: white;
-        position:absolute;
-         bottom:15px;
-        right:45px;
+        margin-right: 20px;
     }
+}
+
+.buttons {
+  justify-content: flex-end;
 }
 
 

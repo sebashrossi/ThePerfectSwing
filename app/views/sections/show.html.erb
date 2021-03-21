@@ -33,11 +33,13 @@
                   <%= z.collection_radio_buttons :selected_answer, question.shuffle_answers, :first, :last %>
                   </div>
                   <% end %>
+                  <div class="buttons d-flex">
                   <% if question != @questions.last %>
                     <button class="next-btn" type="button" data-next-step="<%= index + 1 %>">Next</button>
                   <% else %>
                     <%= f.submit 'Submit', class: 'submit-btn' %>
                   <% end %>
+                  </div>
                 </div>
                 <% end %>
             <% end %>
