@@ -312,10 +312,18 @@ section56 = Section.create!(name: 'HTTP & AJAX', length: 10, description: "Letâ€
 section57 = Section.create!(name: 'JavaScript Plugins', length: 22, description: "In this lecture, we will download external JavaScript packages with Yarn and use them in our interfaces. Weâ€™ll also see how to organise our code in several files in a frontend app.", video_url: "https://www.youtube.com/watch?v=g9_6KmiBISk", training: training5)
 
 sleep 1
-puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
+puts "Creating questions for section #{section51.name}..."
+
+question52_1 = Question.create!(content: "How do you set the background color to red on the whole page?", answer: 'body { background-color: red; }', possible_answers: ['.body { background-color: red; }', 'page { background-color: red; }'], section: section51)
+
+question52_2 = Question.create!(content: "What is the naming convention of a CSS class?", answer: '.class', possible_answers: ['#class', 'class'], section: section51)
+
+question52_3 = Question.create!(content: "What are the three languages your browser speaks?", answer: 'HTML, CSS & JavaScript', possible_answers: ['HTML, Ruby & Python', 'HTML, CSS & Java'], section: section51)
+
+sleep 1
+puts "**** THE OTHER SECTIONS HAVE NO QUESTIONS ****"
 puts ""
 sleep 1
-
 # TRAINING 6 COMPLETED
 
 puts "Creating 6th training..."

@@ -5,6 +5,7 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
 
+
   p {
     font-family: 'Roboto', sans-serif;
     color: $cool-text;
@@ -13,6 +14,19 @@ body {
   li {
     font-weight: 700;
   }
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(43,57,93);        /* color of the tracking area */
+  }
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #121832;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */  /* creates padding around scroll thumb */
 }
 
 .main-content {

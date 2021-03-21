@@ -22,12 +22,14 @@
       </div>
     </div>
     <!-- CARDS -->
+    <h4 class="my-3" style="color: #C7D6FB;">Basic trainings</h4>
     <div class="cards mb-5">
       <% @trainings.each do |training| %>
+      <% if training.progress_of(current_user) != 100 %>
       <%= link_to section_path(training.first_unfinished_section(current_user)) do %>
       <div class="card">
         <div class="card-header d-flex justify-content-between">
-          <i class="fas fa-globe"></i>
+          <i class="fas fa-laptop-code"></i>
           <p><%= training.department %></p>
         </div>
         <div class="card-body">
@@ -43,6 +45,7 @@
       </div>
       <% end %>
       <% end %>
+      <% end %>
     </div>
 
     <!-- TABLES -->
@@ -51,15 +54,19 @@
       <div class="trainings-card scrollbar-hidden">
         <h3 class="mb-5">All trainings</h3>
         <% @alltrainings.each do |training| %>
-        <div class="table-item d-flex justify-content-sm-between">
-           <p style="width: 20%"><%= training.name %></p>
-          <a tabindex="0" class="popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="<%= training.name %>" data-content="<%= training.description %>"><i class="fas fa-info-circle"></i></a>
-          <p style="width: 20%"><%= training.department %></p>
-          <p style="width: 10%"><%= training.training_length / 60%>h<%= training.training_length % 60%>min</p>
-          <%= link_to section_path(training.first_unfinished_section(current_user)) do %>
-          <i class="far fa-play-circle"></i>
+          <div class="table-item d-flex justify-content-sm-between">
+             <p style="width: 20%"><%= training.name %></p>
+              <a tabindex="0" class="popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="<%= training.name %>" data-content="<%= training.description %>"><i class="fas fa-info-circle"></i></a>
+              <p style="width: 20%"><%= training.department %></p>
+              <p style="width: 10%"><%= training.training_length / 60%>h<%= training.training_length % 60%>min</p>
+              <% if training.progress_of(current_user) != 100 %>
+                <%= link_to section_path(training.first_unfinished_section(current_user)) do %>
+                <i class="far fa-play-circle"></i>
+                <% end %>
+              <% else %>
+                <i class="far fa-check-circle" style="color: #4EE4C1;"></i>
+              <% end %>
           </div>
-          <% end %>
         <% end %>
       </div>
       <div class="todolist">
@@ -73,7 +80,7 @@
         </div>
         <div class="tasks-content d-flex">
           <i class="far fa-check-circle task"></i>
-          <p>email Claire from HR</p>
+          <p>Email Claire from HR</p>
         </div>
         <div class="tasks-content d-flex">
           <i class="far fa-check-circle task"></i>

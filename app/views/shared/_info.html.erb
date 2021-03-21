@@ -1,29 +1,24 @@
- <div class="alert alert-dismissible fade show quiz-results" role="alert">
+<div class="alert alert-dismissible fade show quiz-results" role="alert">
   <div class="d-flex h-100 flex-column justify-content-between">
-    <div>
-      <div class="quiz-result-header justify-content-center">
-        <div class="quiz-result-header-greeting d-flex justify-content-center my-3">
-          <% if @section_user.quiz_score > 80 %>
-            <h2>Congratulations!!!</h2>
-          <% else %>
-            <h2>Please try again</h2>
-          <% end %>
-        </div>
-      </div>
-      <div class="mb-3">
-      <div class="d-flex">
-      <h2 class="mr-2">Section:  </h2><h3 class="mt-1"><%= @section.name %></h3> 
-      </div>
-      <div class="d-flex">
-      <h3 class="mr-2">Quiz Score:  </h3><h3> <%=  ((@section_user.quiz_score  / 100.0) * @questions.length).round %> / <%= @questions.length %></h3> 
-      </div>
-      </div >
-        <% @questions.each_with_index do |question, index| %>
-        <div class="displayed-question">
-          <h3><%= index + 1 %>- <%= question.content %></h3>
-            <h4>correct answer:  <%= question.answer %></h4>
-        </div>
+    <div class="quiz-result-header justify-content-center">
+      <div class="quiz-result-header-greeting d-flex justify-content-center my-3">
+        <% if @section_user.quiz_score > 80 %>
+        <h2 class="correct">CONGRATULATIONS!</h2>
+        <% else %>
+        <h2 style="color: red;">PLEASE TRY AGAIN!</h2>
         <% end %>
+      </div>
+    </div>
+    <div class="mb-3">
+      <h3 class="mx-4">Section: <%= @section.name %></h3>
+      <h3 class="mx-4 mb-5">Quiz Score: <%= ((@section_user.quiz_score  / 100.0) * @questions.length).round %> / <%= @questions.length %></h3>
+      <h4>Correct answers: </h4>
+    </div >
+    <div class="displayed-question mb-3">
+      <% @questions.each_with_index do |question, index| %>
+        <h4><%= index + 1 %>- <%= question.content %></h4>
+        <p class="correct"><%= question.answer %></p>
+      <% end %>
     </div>
     <div class="d-flex justify-content-between align-items-end">
       <%= link_to "Return to quiz", section_path %>
@@ -31,7 +26,7 @@
     </div>
   </div>
   <%# keep below  %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>

@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def home
   end
 
@@ -11,8 +10,8 @@ class PagesController < ApplicationController
   end
 
   def peers
-     @t = Time.now
-     @company = current_user.company
-     @peers = User.all.where.not(id: current_user.id)
+    @t = Time.now
+    @company = current_user.company
+    @peers = User.all.where.not(id: current_user.id)
   end
 end
