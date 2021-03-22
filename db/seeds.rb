@@ -139,70 +139,156 @@ section24 = Section.create!(name: 'Hash & Symbols', length: 6, description: "Fin
 sleep 2
 puts "Creating questions for section #{section21.name}..."
 
-question21_1 = Question.create!(content: "Do you know a shortcut to define an array of strings?", answer: '%w', possible_answers: ['$w', '!w'], section: section21)
+question21_1 = Question.create!(content: "Do you know a shortcut to define an array of strings?", answer: '%w', section: section21)
+['$w', '!w'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_1, content: wrong_answer)
+end
 
-question21_2 = Question.create!(content: "What does (1..10).to_a return?", answer: 'An array.', possible_answers: ['An error.', 'A String.'], section: section21)
+question21_2 = Question.create!(content: "What does (1..10).to_a return?", answer: 'An array.', section: section21)
+['An error.', 'A String.'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_2, content: wrong_answer)
+end
 
-question21_3 = Question.create!(content: "How can you sort an array?", answer: '.sort', possible_answers: ['.order', '.map'], section: section21)
+question21_3 = Question.create!(content: "How can you sort an array?", answer: '.sort', section: section21)
+['.order', '.map'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_3, content: wrong_answer)
+end
 
-question21_4 = Question.create!(content: "Do you know what a ? at the end of a method name returns?", answer: 'A boolean.', possible_answers: ['An Error.', 'A String.'], section: section21)
+question21_4 = Question.create!(content: "Do you know what a ? at the end of a method name returns?", answer: 'A boolean.', section: section21)
+['An Error.', 'A String.'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_4, content: wrong_answer)
+end
 
-question21_5 = Question.create!(content: "How can you get the number of items contained in an array?", answer: '.count', possible_answers: ['.number', '.quantity'], section: section21)
+question21_5 = Question.create!(content: "How can you get the number of items contained in an array?", answer: '.count', section: section21)
+['.number', '.quantity'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_5, content: wrong_answer)
+end
 
-question21_6 = Question.create!(content: "Do you know how to split a String sentence into an Array of words?", answer: '.split', possible_answers: ['.to_a', '.words'], section: section21)
+question21_6 = Question.create!(content: "Do you know how to split a String sentence into an Array of words?", answer: '.split', section: section21)
+['.to_a', '.words'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_6, content: wrong_answer)
+end
 
-question21_7 = Question.create!(content: "How can you tell if an Integer is even?", answer: '.even?', possible_answers: ['.even', '.pair'], section: section21)
+question21_7 = Question.create!(content: "How can you tell if an Integer is even?", answer: '.even?', section: section21)
+['.even', '.pair'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_7, content: wrong_answer)
+end
 
-question21_8 = Question.create!(content: "How do you use interpollation?", answer: '#{}', possible_answers: ['${}', '#()'], section: section21)
+question21_8 = Question.create!(content: "How do you use interpollation?", answer: '#{}', section: section21)
+['${}', '#()'].each do |wrong_answer|
+  WrongAnswer.create!(question: question21_8, content: wrong_answer)
+end
+
+
 
 sleep 1
 puts "Creating questions for section #{section22.name}..."
 
-question22_1 = Question.create!(content: "How do you append an element to an array?", answer: '.push', possible_answers: ['.append', '>>'], section: section22)
+question22_1 = Question.create!(content: "How do you append an element to an array?", answer: '.push', section: section22)
+['.append', '>>'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_1, content: wrong_answer)
+end
 
-question22_2 = Question.create!(content: "How do you write code that runs only if a condition is satisfied?", answer: 'if', possible_answers: ['.condition', '.if'], section: section22)
+question22_2 = Question.create!(content: "How do you write code that runs only if a condition is satisfied?", answer: 'if', section: section22)
+['.condition', '.if'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_2, content: wrong_answer)
+end
 
-question22_3 = Question.create!(content: "How can you get the first item of an array?", answer: '.first', possible_answers: ['array[1]', 'array[first]'], section: section22)
+question22_3 = Question.create!(content: "How can you get the first item of an array?", answer: '.first', section: section22)
+['array[1]', 'array[first]'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_3, content: wrong_answer)
+end
 
-question22_4 = Question.create!(content: "How can you get the last item of an array?", answer: '.last', possible_answers: ['array[last]', '.to_last'], section: section22)
+question22_4 = Question.create!(content: "How can you get the last item of an array?", answer: '.last', section: section22)
+['array[last]', '.to_last'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_4, content: wrong_answer)
+end
 
-question22_5 = Question.create!(content: "How can you delete an item from an array?", answer: '.delete', possible_answers: ['.destroy', 'array[-1]'], section: section22)
+question22_5 = Question.create!(content: "How can you delete an item from an array?", answer: '.delete', section: section22)
+['.destroy', 'array[-1]'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_5, content: wrong_answer)
+end
 
-question22_6 = Question.create!(content: "What is the opposite of while?", answer: 'until', possible_answers: ['.not_while', '.until'], section: section22)
+question22_6 = Question.create!(content: "What is the opposite of while?", answer: 'until', section: section22)
+['.not_while', '.until'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_6, content: wrong_answer)
+end
 
-question22_7 = Question.create!(content: "How can you test the opposite of a given condition?", answer: '!', possible_answers: ['?', '^'], section: section22)
+question22_7 = Question.create!(content: "How can you test the opposite of a given condition?", answer: '!', section: section22)
+['?', '^'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_7, content: wrong_answer)
+end
 
-question22_8 = Question.create!(content: "Do you know how to test if condition_1 AND condition_2 are satisfied?", answer: '&&', possible_answers: ['==', '$$'], section: section22)
+question22_8 = Question.create!(content: "Do you know how to test if condition_1 AND condition_2 are satisfied?", answer: '&&', section: section22)
+['==', '$$'].each do |wrong_answer|
+  WrongAnswer.create!(question: question22_8, content: wrong_answer)
+end
 
 sleep 1
 puts "Creating questions for section #{section23.name}..."
 
-question23_1 = Question.create!(content: "How do you clean an Array from items matching a condition?", answer: '.reject', possible_answers: ['.choose', '.clean'], section: section23)
+question23_1 = Question.create!(content: "How do you clean an Array from items matching a condition?", answer: '.reject', section: section23)
+['.choose', '.clean'].each do |wrong_answer|
+  WrongAnswer.create!(question: question23_1, content: wrong_answer)
+end
 
-question23_2 = Question.create!(content: "How can you compute the sum of integers stored in an Array?", answer: '.sum', possible_answers: ['.add', '++'], section: section23)
+question23_2 = Question.create!(content: "How can you compute the sum of integers stored in an Array?", answer: '.sum', section: section23)
+['.add', '++'].each do |wrong_answer|
+  WrongAnswer.create!(question: question23_2, content: wrong_answer)
+end
 
-question23_3 = Question.create!(content: "How do you define a method that can accept a block as an argument?", answer: 'yield', possible_answers: ['block', '.yield'], section: section23)
+question23_3 = Question.create!(content: "How do you define a method that can accept a block as an argument?", answer: 'yield', section: section23)
+['block', '.yield'].each do |wrong_answer|
+  WrongAnswer.create!(question: question23_3, content: wrong_answer)
+end
 
-question23_4 = Question.create!(content: "What is the simplest way to iterate through the items of an Array?", answer: '.each', possible_answers: ['.forEach', '.iterate'], section: section23)
+question23_4 = Question.create!(content: "What is the simplest way to iterate through the items of an Array?", answer: '.each', section: section23)
+['.forEach', '.iterate'].each do |wrong_answer|
+  WrongAnswer.create!(question: question23_4, content: wrong_answer)
+end
 
-question23_5 = Question.create!(content: "What is a destructive method? Give an example.", answer: '.map!', possible_answers: ['.destructive', '.each'], section: section23)
+question23_5 = Question.create!(content: "What is a destructive method? Give an example.", answer: '.map!', section: section23)
+['.destructive', '.each'].each do |wrong_answer|
+  WrongAnswer.create!(question: question23_5, content: wrong_answer)
+end
 
-question23_6 = Question.create!(content: "How would you sort an Array with a given sorting criteria?", answer: '.sort_by', possible_answers: ['.reject', '.order'], section: section23)
+question23_6 = Question.create!(content: "How would you sort an Array with a given sorting criteria?", answer: '.sort_by', section: section23)
+['.reject', '.order'].each do |wrong_answer|
+  WrongAnswer.create!(question: question23_6, content: wrong_answer)
+end
 
 sleep 1
 puts "Creating questions for section #{section24.name}..."
 
-question24_1 = Question.create!(content: "How can you get all the values of a Hash in an array?", answer: '.values', possible_answers: ['.reveal', '.keys'], section: section24)
+question24_1 = Question.create!(content: "How can you get all the values of a Hash in an array?", answer: '.values', section: section24)
+['.reveal', '.keys'].each do |wrong_answer|
+  WrongAnswer.create!(question: question24_1, content: wrong_answer)
+end
 
-question24_2 = Question.create!(content: "What method should you use on a Hash if you just need to iterate over its keys?", answer: '.each_key', possible_answers: ['.each', '.key'], section: section24)
+question24_2 = Question.create!(content: "What method should you use on a Hash if you just need to iterate over its keys?", answer: '.each_key', section: section24)
+['.each', '.key'].each do |wrong_answer|
+  WrongAnswer.create!(question: question24_2, content: wrong_answer)
+end
 
-question24_3 = Question.create!(content: "How can you tell if a key is present in a Hash", answer: '.key?', possible_answers: ['.key_present?', '.key'], section: section24)
+question24_3 = Question.create!(content: "How can you tell if a key is present in a Hash", answer: '.key?', section: section24)
+['.key_present?', '.key'].each do |wrong_answer|
+  WrongAnswer.create!(question: question24_3, content: wrong_answer)
+end
 
-question24_4 = Question.create!(content: "How can you tell if a value is present in a Hash?", answer: '.value?', possible_answers: ['.values?', '.value_present?'], section: section24)
+question24_4 = Question.create!(content: "How can you tell if a value is present in a Hash?", answer: '.value?', section: section24)
+['.values?', '.value_present?'].each do |wrong_answer|
+  WrongAnswer.create!(question: question24_4, content: wrong_answer)
+end
 
-question24_5 = Question.create!(content: "How can you retrieve all the keys of a Hash into an array?", answer: '.keys', possible_answers: ['.all_keys', '.values'], section: section24)
+question24_5 = Question.create!(content: "How can you retrieve all the keys of a Hash into an array?", answer: '.keys', section: section24)
+['.all_keys', '.values'].each do |wrong_answer|
+  WrongAnswer.create!(question: question24_5, content: wrong_answer)
+end
 
-question24_6 = Question.create!(content: "Which ruby module included in Array is also included in Hash?", answer: 'Enumerable', possible_answers: ['Inumerables', 'Models'], section: section24)
+question24_6 = Question.create!(content: "Which ruby module included in Array is also included in Hash?", answer: 'Enumerable', section: section24)
+['Inumerables', 'Models'].each do |wrong_answer|
+  WrongAnswer.create!(question: question24_6, content: wrong_answer)
+end
 
 sleep 1
 puts ""
@@ -281,20 +367,38 @@ section44 = Section.create!(name: 'Associations & Validations', length: 11, desc
 sleep 1
 puts "Creating questions for section #{section41.name}..."
 
-question41_1 = Question.create!(content: "What is the SQL keyword to retrieve content from the DB?", answer: 'SELECT', possible_answers: ['RETRIEVE', 'CHOOSE'], section: section41)
+question41_1 = Question.create!(content: "What is the SQL keyword to retrieve content from the DB?", answer: 'SELECT', section: section41)
+['RETRIEVE', 'CHOOSE'].each do |wrong_answer|
+  WrongAnswer.create!(question: question41_1, content: wrong_answer)
+end
 
-question41_2 = Question.create!(content: "What do you need to link two N:N related tables?", answer: 'Join table', possible_answers: ['Seperate table', 'A cable'], section: section41)
+question41_2 = Question.create!(content: "What do you need to link two N:N related tables?", answer: 'Join table', section: section41)
+['Seperate table', 'A cable'].each do |wrong_answer|
+  WrongAnswer.create!(question: question41_2, content: wrong_answer)
+end
 
-question41_3 = Question.create!(content: "What is the SQL keyword to specify a filtering condition clause in a query?", answer: 'WHERE', possible_answers: ['FILTER', 'REJECT'], section: section41)
+question41_3 = Question.create!(content: "What is the SQL keyword to specify a filtering condition clause in a query?", answer: 'WHERE', section: section41)
+['FILTER', 'REJECT'].each do |wrong_answer|
+  WrongAnswer.create!(question: question41_3, content: wrong_answer)
+end
 
 sleep 1
 puts "Creating questions for section #{section42.name}..."
 
-question42_1 = Question.create!(content: "How would you establish a connection and send a query to a Sqlite DB with Ruby?", answer: '.execute', possible_answers: ['.conect', '.query'], section: section42)
+question42_1 = Question.create!(content: "How would you establish a connection and send a query to a Sqlite DB with Ruby?", answer: '.execute', section: section42)
+['.conect', '.query'].each do |wrong_answer|
+  WrongAnswer.create!(question: question42_1, content: wrong_answer)
+end
 
-question42_2 = Question.create!(content: "Whose responsibility is it to set the id of a new model instance?", answer: 'The database', possible_answers: ['The user', 'The developer'], section: section42)
+question42_2 = Question.create!(content: "Whose responsibility is it to set the id of a new model instance?", answer: 'The database', section: section42)
+['The user', 'The developer'].each do |wrong_answer|
+  WrongAnswer.create!(question: question42_2, content: wrong_answer)
+end
 
-question42_3 = Question.create!(content: "How do you Read (CRUD) in SQL?", answer: 'SELECT', possible_answers: ['READ', 'CHOOSE'], section: section42)
+question42_3 = Question.create!(content: "How do you Read (CRUD) in SQL?", answer: 'SELECT', section: section42)
+['READ', 'CHOOSE'].each do |wrong_answer|
+  WrongAnswer.create!(question: question42_3, content: wrong_answer)
+end
 
 sleep 1
 puts ""
