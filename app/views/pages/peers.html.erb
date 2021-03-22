@@ -1,28 +1,56 @@
-<div class="d-flex">
-  <%= render 'shared/sidebar' %>
-  <div class="main-content" style="margin-left: 40px;">
-    <div class="top-message d-flex justify-content-end">
-      <h4><%= @t.strftime("%A, %b %d") %></h4>
-    </div>
-      <h4 class="mb-4" style="color:#C7D6FB;">Head of Training:</h4>
-      <div class="notification">
-        <img src='https://philanthropynewsdigest.org/var/ezflow_site/storage/images/site_pnd/news/reed-hastings-creates-100-million-education-fund/14439051-2-eng-US/reed-hastings-creates-100-million-education-fund_full_image.jpg' class="avatar-large" />
-        <div class="notification-content">
-          <p><%= @admin[0].first_name %> <%= @admin[0].last_name %></p>
-        </div>
-        <div class="notification-actions">
-          <a href="#" class="btn">Contact<i class="far fa-comments ml-2"></i></a>
+<% if current_user.admin %>
+  <div class="d-flex">
+    <%= render 'shared/adminsidebar' %>
+    <div class="main-content" style="margin-left: 40px;">
+      <div class="top-message d-flex justify-content-end">
+        <h4><%= @t.strftime("%A, %b %d") %></h4>
+      </div>
+        <h4 class="mb-4" style="color:#C7D6FB;">Employees:</h4>
+        <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
+          <% @peers.each do |peer| %>
+          <div class="table-item d-flex justify-content-sm-between">
+          <div class="name" style="width: 15%">
+            <p><%= peer.first_name %> <%= peer.last_name %></p>
+            </div>
+            <p style="width: 20%"><%= peer.email %></p>
+            <p>Software Engineering</p>
+            <div class="icons">
+            <i class="fas fa-pen mr-3"></i>
+            <i class="fas fa-trash-alt mr-3"></i>
+            <i class="fas fa-envelope"></i>
+           </div>
+          </div>
+          <% end %>
         </div>
       </div>
-      <h4 class="mb-4" style="color:#C7D6FB;">Peers:</h4>
-      <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
-        <% @peers.each do |peer| %>
-        <div class="table-item d-flex justify-content-sm-between">
-          <p><%= peer.first_name %> <%= peer.last_name %></p>
-          <p><%= peer.email %></p>
-          <a href="#" style="color: #504BFF; text-decoration: none;">Contact</a>
+    </div>
+<% else  %>
+  <div class="d-flex">
+    <%= render 'shared/sidebar' %>
+    <div class="main-content" style="margin-left: 40px;">
+      <div class="top-message d-flex justify-content-end">
+        <h4><%= @t.strftime("%A, %b %d") %></h4>
+      </div>
+        <h4 class="mb-4" style="color:#C7D6FB;">Head of Training:</h4>
+        <div class="notification">
+          <img src='https://philanthropynewsdigest.org/var/ezflow_site/storage/images/site_pnd/news/reed-hastings-creates-100-million-education-fund/14439051-2-eng-US/reed-hastings-creates-100-million-education-fund_full_image.jpg' class="avatar-large" />
+          <div class="notification-content">
+            <p><%= @admin[0].first_name %> <%= @admin[0].last_name %></p>
+          </div>
+          <div class="notification-actions">
+            <a href="#" class="btn">Contact<i class="far fa-comments ml-2"></i></a>
+          </div>
         </div>
-        <% end %>
+        <h4 class="mb-4" style="color:#C7D6FB;">Peers:</h4>
+        <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
+          <% @peers.each do |peer| %>
+          <div class="table-item d-flex justify-content-sm-between">
+            <p><%= peer.first_name %> <%= peer.last_name %></p>
+            <p><%= peer.email %></p>
+            <a href="#" style="color: #504BFF; text-decoration: none;">Contact</a>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+ <% end %>
