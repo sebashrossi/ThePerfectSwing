@@ -24,7 +24,6 @@
     <!-- CARDS -->
     <div class="cards mb-5">
       <% @trainings.each do |training| %>
-      <% if training.progress_of(current_user) != 100 %>
       <%= link_to section_path(training.first_unfinished_section(current_user)) do %>
       <div class="card">
         <div class="card-header d-flex justify-content-between">
@@ -42,7 +41,6 @@
           </div>
         </div>
       </div>
-      <% end %>
       <% end %>
       <% end %>
     </div>
