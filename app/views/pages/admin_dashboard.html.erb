@@ -1,0 +1,79 @@
+<div class="d-flex">
+  <%= render 'shared/adminsidebar' %>
+  <div class="main-content" style="margin-left: 40px;">
+    <!-- TOP MESSAGE -->
+    <div class="top-message d-flex justify-content-between">
+      <h4>Welcome <%= current_user.first_name %> <%= current_user.last_name %></h4>
+      <h4><%= @t.strftime("%A, %b %d") %></h4>
+    </div>
+    <!-- TOP SECTION -->
+    <div class="d-flex justify-content-between">
+      <!-- MAIN CHART -->
+      <div class="reg-chart">
+        <div class="main ml-2">
+          <canvas id="regChart" width="600" height="400"></canvas>
+        </div>
+      </div>
+      <div class="right-charts">
+        <div class="train-chart">
+          <div class="train">
+            <div class="d-flex justify-content-center">
+              <p class="mr-3"><i class="far fa-user mr-2"></i>Users</p>
+              <p><i class="fas fa-chart-line mr-2"></i>Trainings</p>
+            </div>
+            <canvas id="trainChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+        <div class="prog-chart">
+          <div class="prog">
+            <canvas id="progChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TABLES -->
+    <div class="tables d-flex justify-content-between">
+      <div class="todolist" style="width: 47.5%">
+        <div class="header d-flex justify-content-between">
+          <h3>Tasks</h3>
+          <button class="btn btn-primary">Add</button>
+        </div>
+        <div class="tasks-content d-flex">
+          <i class="far fa-check-circle task completed"></i>
+          <p>Finish Programming basics of Ruby training</p>
+        </div>
+        <div class="tasks-content d-flex">
+          <i class="far fa-check-circle task"></i>
+          <p>Email Claire from HR</p>
+        </div>
+        <div class="tasks-content d-flex">
+          <i class="far fa-check-circle task"></i>
+          <p>Complete banking info on profile</p>
+        </div>
+      </div>
+      <div class="trainings-card scrollbar-hidden" style="width: 46.5%">
+        <h3 class="mb-5">Timeline</h3>
+        <div class="timeline-item" date-is='23-03-2021'>
+          <p>Andrew stopped crying.</p>
+        </div>
+        <div class="timeline-item" date-is='20-03-2021'>
+          <p>Spencer Schaefer shared a file</p>
+          <div class="file d-flex">
+          <img class="mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="file icon">
+          <div class="actions d-flex">
+            <i class="fas fa-file-download"></i>
+            <i class="fas fa-external-link-alt"></i>
+          </div>
+          <div>
+          <h6>Netflix Analytics</h6>
+          <p style="font-size: 12px; margin: 0;">analytics.pdf</p>
+          <p style="font-size: 10px;">88 KB</p>
+          </div>
+          </div>
+        </div>
+        <div class="timeline-item" date-is='21-03-2021'>
+          <p>Jordan Belfort has finished OOP training successfully.</p>
+        </div>
+      </div>
+    </div>
+  </div>

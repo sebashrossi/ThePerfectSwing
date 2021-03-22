@@ -38,17 +38,17 @@ puts ""
 puts "Database is empty."
 puts ""
 sleep 2
-puts "Creating user..."
+puts "Creating Admin..."
 sleep 1
-user = User.create!(first_name: 'Jordan', last_name: 'Belfort', email: 'jordanbelfort@netflix.com', password: '123456', admin: false)
+admin = User.create!(first_name: 'Wilmot Reed', last_name: 'Hastings Jr.', email: 'reedhastings@netflix.com', password: '123456', admin: true)
 puts ""
 puts "-------------------------------------"
-puts "User #{user.first_name} #{user.last_name} has been created."
+puts "Admin #{admin.first_name} #{admin.last_name} has been created."
 puts "-------------------------------------"
 puts ""
 sleep 2
 puts "Creating company..."
-company = Company.create!(name: 'Netflix', address: '123 Fake Street', user: user)
+company = Company.create!(name: 'Netflix', address: '123 Fake Street', user: admin)
 sleep 1
 puts ""
 puts "---------------------------------"
@@ -56,10 +56,21 @@ puts "Company #{company.name} has been created."
 puts "---------------------------------"
 puts ""
 sleep 2
+puts "Creating Employee..."
+sleep 1
+user = User.create!(first_name: 'Jordan', last_name: 'Belfort', email: 'jordanbelfort@netflix.com', password: '123456', admin: false)
 puts ""
-puts "Assigning #{user.first_name} #{user.last_name} to #{company.name}..."
+puts "-------------------------------------"
+puts "Employee #{user.first_name} #{user.last_name} has been created."
+puts "-------------------------------------"
+puts ""
+sleep 2
+puts ""
+puts "#{admin.first_name} #{admin.last_name} is assigning #{user.first_name} #{user.last_name} to #{company.name}..."
 user.company = company
 user.save!
+admin.company = company
+admin.save!
 sleep 1
 puts ""
 puts "--------------------------------------------"
@@ -68,13 +79,13 @@ puts "--------------------------------------------"
 puts ""
 sleep 2
 puts ""
-puts "Creating peers for #{user.first_name} #{user.last_name}..."
+puts "Creating batchmates for #{user.first_name} #{user.last_name}..."
 20.times do
-  peer = User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: '123456', admin: false )
+  peer = User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: "#{Faker::Name.unique.first_name}@netflix.com", password: '123456', admin: false )
 end
 sleep 1
 puts ""
-puts "Peers have been created."
+puts "Batchmates have been created."
 puts ""
 sleep 1
 # TRAINING 1 COMPLETE

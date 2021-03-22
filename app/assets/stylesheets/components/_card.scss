@@ -61,7 +61,7 @@
 // TABLES
 
 .tables {
-  padding: 20px;
+  padding: 20px 20px 20px 0px;
 }
 
 .trainings-card {
@@ -195,5 +195,56 @@
   }
 }
 
+// ADMIN CARD
 
+.notification {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 30%;
+    height: 5%;
+    background: #1B2235;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0px 40px rgba(0,0,0,0.35);
+    margin-left: 65px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    img {
+      width: 100px;
+      position: absolute;
+      left: -66px;
+      border: 6px solid #1B2235;
+      box-shadow: 0 0px 40px rgba(0,0,0,0.35);
+    }
+}
+
+.notification .notification-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.notification p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notification .notification-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.notification:hover .notification-actions {
+  opacity: 1;
+}
+
+.notification .notification-actions a {
+  background-color: #504BFF;
+  color: white;
+  margin-left: 16px;
+  font-size: 14px;
+}
 

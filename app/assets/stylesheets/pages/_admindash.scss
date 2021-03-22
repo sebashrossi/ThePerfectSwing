@@ -1,0 +1,70 @@
+$border-color: rgba(#4EE4C1, .3);
+
+.timeline-item {
+  padding: 3em 2em 2em;
+  position: relative;
+  color: #7C89A9;
+  border-left: 6px solid $border-color;
+
+  img {
+    width: 50px;
+    height: 60px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  &::before {
+    content: attr(date-is);
+    position: absolute;
+    left: 2em;
+    font-weight: bold;
+    top: 1em;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: regular;
+    font-size: .785rem;
+  }
+
+  &::after {
+    width: 17px;
+    height: 17px;
+    display: block;
+    top: 14px;
+    position: absolute;
+    left: -11.3px;
+    border-radius: 10px;
+    content: '';
+    border: 3px solid #4EE4C1;
+    background: transparent;
+  }
+
+  &:last-child {
+    border-image: linear-gradient(
+      to bottom,
+      $border-color 60%,
+      rgba($border-color, 0)) 1 100%
+    ;
+  }
+}
+
+
+.actions {
+  position: absolute;
+  bottom: 65px;
+  right: 10px;
+  i {
+    margin-left: 20px;
+    font-size: 28px;
+    color: #4EE4C1;
+    opacity: 0;
+  }
+}
+
+.file:hover {
+  i {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
