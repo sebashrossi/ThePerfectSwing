@@ -34,6 +34,7 @@ class Training < ApplicationRecord
       section_user = user.section_users.find_by(section: section)
       first_unfinished = section.id if !section_user.completed? && first_unfinished.nil?
     end
+    first_unfinished = self.sections.last if first_unfinished.nil?
     first_unfinished
   end
 end

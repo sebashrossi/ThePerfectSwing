@@ -24,7 +24,6 @@
     <!-- CARDS -->
     <div class="cards mb-5">
       <% @trainings.each do |training| %>
-      <% if training.progress_of(current_user) != 100 %>
       <%= link_to section_path(training.first_unfinished_section(current_user)) do %>
       <div class="card">
         <div class="card-header d-flex justify-content-between">
@@ -36,13 +35,12 @@
           <p><%= training.training_length / 60 %>h<%= training.training_length % 60 %>min</p>
         </div>
         <div class="card-footer d-flex justify-content-between">
-          <p> <%= training.progress_of(current_user) %>%</p>
+          <p> <%= training.progress_of(current_user).round(2) %>%</p>
           <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: <%= training.progress_of(current_user) %>%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
       </div>
-      <% end %>
       <% end %>
       <% end %>
     </div>
