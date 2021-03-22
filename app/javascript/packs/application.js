@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -28,6 +29,7 @@ import { completedTasks } from 'plugins/tasks.js';
 import { initQuizSteps } from 'components/initQuizSteps'
 import Chart from 'chart.js';
 import { mainChart, regChart, progChart } from 'plugins/chart.js'
+import { initSelect2 } from 'components/init_select2';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -42,4 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   mainChart();
   regChart();
   progChart();
+  initSelect2();
 });
