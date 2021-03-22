@@ -17,16 +17,6 @@
       <li><%= link_to 'Events', root_path %></li>
       <li><%= link_to 'SCRUM', root_path %></li>
     </ul>
-    <% if controller_name == "sections" && action_name == "show"%>
-    <b><p class="mt-5 mb-3">Training chapters</p></b>
-    <ul class="ml-2 bottom-links navigation">
-      <% @sections.each do |section| %>
-        <li class="<%= 'active' if current_page?(section_path(section)) %>">
-          <i class="fas fa-check-circle mr-2 <%= 'active' if SectionUser.completed?(section, current_user) %>"></i>
-      <%= link_to section.name, section_path(section) %></li>
-      <% end %>
-    </ul>
-    <% end %>
   </div>
   <%= link_to destroy_user_session_path, method: :delete do %>
   <div class="logout d-flex justify-content-around">

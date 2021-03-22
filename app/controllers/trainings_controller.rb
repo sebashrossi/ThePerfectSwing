@@ -12,15 +12,16 @@ class TrainingsController < ApplicationController
     @training = Training.new
   end
 
-  # def create
-  #   @training = Training.new
-  #   @training.user = current_user
-  #   if @training.save!
-  #     redirect_to training_path(@training)
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @training = Training.new
+    @training.user = current_user
+    @training.company = current_user.company
+    if @training.save!
+      redirect_to trainings_path
+    else
+      render :new
+    end
+  end
 
   # def edit
   #   @training = Training.find(params[:id])

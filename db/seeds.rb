@@ -99,26 +99,61 @@ section12 = Section.create!(name: 'Terminal 101', length: 72, description: "As a
 sleep 2
 puts "Creating questions for section #{section11.name}..."
 sleep 1
-question11_1 = Question.create!(content: "How do you open your project in Visual Studio Code?", answer: 'File -> Open', possible_answers: ['Edit -> Copy', 'File -> Save'], section: section11)
+question11_1 = Question.create!(content: "How do you open your project in Visual Studio Code?", answer: 'File -> Open', section: section11)
 
-question11_2 = Question.create!(content: "How do you save your project in Visual Studio Code?", answer: 'File -> Save', possible_answers: ['Edit -> Copy', 'File -> Open'], section: section11)
+['Edit -> Copy', 'File -> Save'].each do |wrong_answer|
+  WrongAnswer.create!(question: question11_1, content: wrong_answer)
+end
+question11_2 = Question.create!(content: "How do you save your project in Visual Studio Code?", answer: 'File -> Save', section: section11)
 
+['Edit -> Copy', 'File -> Open'].each do |wrong_answer|
+  WrongAnswer.create!(question: question11_2, content: wrong_answer)
+end
 
-question11_3 = Question.create!(content: "How do you copy a text in Visual Studio Code?", answer: 'Edit -> Copy', possible_answers: ['File -> Copy', 'Edit -> Paste'], section: section11)
+question11_3 = Question.create!(content: "How do you copy a text in Visual Studio Code?", answer: 'Edit -> Copy', section: section11)
+
+['File -> Copy', 'Edit -> Paste'].each do |wrong_answer|
+  WrongAnswer.create!(question: question11_3, content: wrong_answer)
+end
 
 puts "Creating questions for section #{section12.name}..."
 
-question12_1 = Question.create!(content: "How do you go from current directory to any folder?", answer: 'cd <path_to_folder>', possible_answers: ['mkdir <path_to_folder>', 'rm <path_to_folder>'], section: section12)
+question12_1 = Question.create!(content: "How do you go from current directory to any folder?", answer: 'cd <path_to_folder>', section: section12)
 
-question12_2 = Question.create!(content: "How do you go from current directory to a child folder?", answer: 'cd <folder_name>', possible_answers: ['rm <folder_name>', 'mkdir <folder_name>'], section: section12)
+['mkdir <path_to_folder>', 'rm <path_to_folder>'].each do |wrong_answer|
+  WrongAnswer.create!(question: question12_1, content: wrong_answer)
+end
 
-question12_3 = Question.create!(content: "How can you retrieve a command you recently typed in your terminal?", answer: 'Press the up arrow until you retrieve it', possible_answers: ['Press the left arrow until you retrieve it', 'Press the down arrow until you retrieve it'], section: section12)
+question12_2 = Question.create!(content: "How do you go from current directory to a child folder?", answer: 'cd <folder_name>', section: section12)
 
-question12_4 = Question.create!(content: "How do you print the path of the current directory in the terminal?", answer: 'pwd', possible_answers: ['print <current_directory>', 'pcd'], section: section12)
+['rm <folder_name>', 'mkdir <folder_name>'].each do |wrong_answer|
+  WrongAnswer.create!(question: question12_2, content: wrong_answer)
+end
 
-question12_5 = Question.create!(content: "How do you go back to your computer’s home directory?", answer: 'cd', possible_answers: ['rm', 'pwd'], section: section12)
+question12_3 = Question.create!(content: "How can you retrieve a command you recently typed in your terminal?", answer: 'Press the up arrow until you retrieve it', section: section12)
 
-question12_6 = Question.create!(content: "How do you print in the terminal the list of folders and files in current directory?", answer: 'ls', possible_answers: ['cd', 'lf'], section: section12)
+['Press the left arrow until you retrieve it', 'Press the down arrow until you retrieve it'].each do |wrong_answer|
+  WrongAnswer.create!(question: question12_3, content: wrong_answer)
+end
+
+question12_4 = Question.create!(content: "How do you print the path of the current directory in the terminal?", answer: 'pwd', section: section12)
+
+['print <current_directory>', 'pcd'].each do |wrong_answer|
+  WrongAnswer.create!(question: question12_4, content: wrong_answer)
+end
+
+question12_5 = Question.create!(content: "How do you go back to your computer’s home directory?", answer: 'cd', section: section12)
+
+['rm', 'pwd'].each do |wrong_answer|
+  WrongAnswer.create!(question: question12_5, content: wrong_answer)
+end
+
+question12_6 = Question.create!(content: "How do you print in the terminal the list of folders and files in current directory?", answer: 'ls', section: section12)
+
+['cd', 'lf'].each do |wrong_answer|
+  WrongAnswer.create!(question: question12_6, content: wrong_answer)
+end
+
 sleep 1
 puts ""
 # TRAINING 2 COMPLETE
@@ -139,70 +174,70 @@ section24 = Section.create!(name: 'Hash & Symbols', length: 6, description: "Fin
 sleep 2
 puts "Creating questions for section #{section21.name}..."
 
-question21_1 = Question.create!(content: "Do you know a shortcut to define an array of strings?", answer: '%w', possible_answers: ['$w', '!w'], section: section21)
+# question21_1 = Question.create!(content: "Do you know a shortcut to define an array of strings?", answer: '%w', possible_answers: ['$w', '!w'], section: section21)
 
-question21_2 = Question.create!(content: "What does (1..10).to_a return?", answer: 'An array.', possible_answers: ['An error.', 'A String.'], section: section21)
+# question21_2 = Question.create!(content: "What does (1..10).to_a return?", answer: 'An array.', possible_answers: ['An error.', 'A String.'], section: section21)
 
-question21_3 = Question.create!(content: "How can you sort an array?", answer: '.sort', possible_answers: ['.order', '.map'], section: section21)
+# question21_3 = Question.create!(content: "How can you sort an array?", answer: '.sort', possible_answers: ['.order', '.map'], section: section21)
 
-question21_4 = Question.create!(content: "Do you know what a ? at the end of a method name returns?", answer: 'A boolean.', possible_answers: ['An Error.', 'A String.'], section: section21)
+# question21_4 = Question.create!(content: "Do you know what a ? at the end of a method name returns?", answer: 'A boolean.', possible_answers: ['An Error.', 'A String.'], section: section21)
 
-question21_5 = Question.create!(content: "How can you get the number of items contained in an array?", answer: '.count', possible_answers: ['.number', '.quantity'], section: section21)
+# question21_5 = Question.create!(content: "How can you get the number of items contained in an array?", answer: '.count', possible_answers: ['.number', '.quantity'], section: section21)
 
-question21_6 = Question.create!(content: "Do you know how to split a String sentence into an Array of words?", answer: '.split', possible_answers: ['.to_a', '.words'], section: section21)
+# question21_6 = Question.create!(content: "Do you know how to split a String sentence into an Array of words?", answer: '.split', possible_answers: ['.to_a', '.words'], section: section21)
 
-question21_7 = Question.create!(content: "How can you tell if an Integer is even?", answer: '.even?', possible_answers: ['.even', '.pair'], section: section21)
+# question21_7 = Question.create!(content: "How can you tell if an Integer is even?", answer: '.even?', possible_answers: ['.even', '.pair'], section: section21)
 
-question21_8 = Question.create!(content: "How do you use interpollation?", answer: '#{}', possible_answers: ['${}', '#()'], section: section21)
+# question21_8 = Question.create!(content: "How do you use interpollation?", answer: '#{}', possible_answers: ['${}', '#()'], section: section21)
 
 sleep 1
 puts "Creating questions for section #{section22.name}..."
 
-question22_1 = Question.create!(content: "How do you append an element to an array?", answer: '.push', possible_answers: ['.append', '>>'], section: section22)
+# question22_1 = Question.create!(content: "How do you append an element to an array?", answer: '.push', possible_answers: ['.append', '>>'], section: section22)
 
-question22_2 = Question.create!(content: "How do you write code that runs only if a condition is satisfied?", answer: 'if', possible_answers: ['.condition', '.if'], section: section22)
+# question22_2 = Question.create!(content: "How do you write code that runs only if a condition is satisfied?", answer: 'if', possible_answers: ['.condition', '.if'], section: section22)
 
-question22_3 = Question.create!(content: "How can you get the first item of an array?", answer: '.first', possible_answers: ['array[1]', 'array[first]'], section: section22)
+# question22_3 = Question.create!(content: "How can you get the first item of an array?", answer: '.first', possible_answers: ['array[1]', 'array[first]'], section: section22)
 
-question22_4 = Question.create!(content: "How can you get the last item of an array?", answer: '.last', possible_answers: ['array[last]', '.to_last'], section: section22)
+# question22_4 = Question.create!(content: "How can you get the last item of an array?", answer: '.last', possible_answers: ['array[last]', '.to_last'], section: section22)
 
-question22_5 = Question.create!(content: "How can you delete an item from an array?", answer: '.delete', possible_answers: ['.destroy', 'array[-1]'], section: section22)
+# question22_5 = Question.create!(content: "How can you delete an item from an array?", answer: '.delete', possible_answers: ['.destroy', 'array[-1]'], section: section22)
 
-question22_6 = Question.create!(content: "What is the opposite of while?", answer: 'until', possible_answers: ['.not_while', '.until'], section: section22)
+# question22_6 = Question.create!(content: "What is the opposite of while?", answer: 'until', possible_answers: ['.not_while', '.until'], section: section22)
 
-question22_7 = Question.create!(content: "How can you test the opposite of a given condition?", answer: '!', possible_answers: ['?', '^'], section: section22)
+# question22_7 = Question.create!(content: "How can you test the opposite of a given condition?", answer: '!', possible_answers: ['?', '^'], section: section22)
 
-question22_8 = Question.create!(content: "Do you know how to test if condition_1 AND condition_2 are satisfied?", answer: '&&', possible_answers: ['==', '$$'], section: section22)
+# question22_8 = Question.create!(content: "Do you know how to test if condition_1 AND condition_2 are satisfied?", answer: '&&', possible_answers: ['==', '$$'], section: section22)
 
 sleep 1
 puts "Creating questions for section #{section23.name}..."
 
-question23_1 = Question.create!(content: "How do you clean an Array from items matching a condition?", answer: '.reject', possible_answers: ['.choose', '.clean'], section: section23)
+# question23_1 = Question.create!(content: "How do you clean an Array from items matching a condition?", answer: '.reject', possible_answers: ['.choose', '.clean'], section: section23)
 
-question23_2 = Question.create!(content: "How can you compute the sum of integers stored in an Array?", answer: '.sum', possible_answers: ['.add', '++'], section: section23)
+# question23_2 = Question.create!(content: "How can you compute the sum of integers stored in an Array?", answer: '.sum', possible_answers: ['.add', '++'], section: section23)
 
-question23_3 = Question.create!(content: "How do you define a method that can accept a block as an argument?", answer: 'yield', possible_answers: ['block', '.yield'], section: section23)
+# question23_3 = Question.create!(content: "How do you define a method that can accept a block as an argument?", answer: 'yield', possible_answers: ['block', '.yield'], section: section23)
 
-question23_4 = Question.create!(content: "What is the simplest way to iterate through the items of an Array?", answer: '.each', possible_answers: ['.forEach', '.iterate'], section: section23)
+# question23_4 = Question.create!(content: "What is the simplest way to iterate through the items of an Array?", answer: '.each', possible_answers: ['.forEach', '.iterate'], section: section23)
 
-question23_5 = Question.create!(content: "What is a destructive method? Give an example.", answer: '.map!', possible_answers: ['.destructive', '.each'], section: section23)
+# question23_5 = Question.create!(content: "What is a destructive method? Give an example.", answer: '.map!', possible_answers: ['.destructive', '.each'], section: section23)
 
-question23_6 = Question.create!(content: "How would you sort an Array with a given sorting criteria?", answer: '.sort_by', possible_answers: ['.reject', '.order'], section: section23)
+# question23_6 = Question.create!(content: "How would you sort an Array with a given sorting criteria?", answer: '.sort_by', possible_answers: ['.reject', '.order'], section: section23)
 
 sleep 1
 puts "Creating questions for section #{section24.name}..."
 
-question24_1 = Question.create!(content: "How can you get all the values of a Hash in an array?", answer: '.values', possible_answers: ['.reveal', '.keys'], section: section24)
+# question24_1 = Question.create!(content: "How can you get all the values of a Hash in an array?", answer: '.values', possible_answers: ['.reveal', '.keys'], section: section24)
 
-question24_2 = Question.create!(content: "What method should you use on a Hash if you just need to iterate over its keys?", answer: '.each_key', possible_answers: ['.each', '.key'], section: section24)
+# question24_2 = Question.create!(content: "What method should you use on a Hash if you just need to iterate over its keys?", answer: '.each_key', possible_answers: ['.each', '.key'], section: section24)
 
-question24_3 = Question.create!(content: "How can you tell if a key is present in a Hash", answer: '.key?', possible_answers: ['.key_present?', '.key'], section: section24)
+# question24_3 = Question.create!(content: "How can you tell if a key is present in a Hash", answer: '.key?', possible_answers: ['.key_present?', '.key'], section: section24)
 
-question24_4 = Question.create!(content: "How can you tell if a value is present in a Hash?", answer: '.value?', possible_answers: ['.values?', '.value_present?'], section: section24)
+# question24_4 = Question.create!(content: "How can you tell if a value is present in a Hash?", answer: '.value?', possible_answers: ['.values?', '.value_present?'], section: section24)
 
-question24_5 = Question.create!(content: "How can you retrieve all the keys of a Hash into an array?", answer: '.keys', possible_answers: ['.all_keys', '.values'], section: section24)
+# question24_5 = Question.create!(content: "How can you retrieve all the keys of a Hash into an array?", answer: '.keys', possible_answers: ['.all_keys', '.values'], section: section24)
 
-question24_6 = Question.create!(content: "Which ruby module included in Array is also included in Hash?", answer: 'Enumerable', possible_answers: ['Inumerables', 'Models'], section: section24)
+# question24_6 = Question.create!(content: "Which ruby module included in Array is also included in Hash?", answer: 'Enumerable', possible_answers: ['Inumerables', 'Models'], section: section24)
 
 sleep 1
 puts ""
@@ -224,39 +259,90 @@ section33 = Section.create!(name: 'Cookbook', length: 33, description: "We don�
 sleep 1
 puts "Creating questions for section #{section31.name}..."
 
-question31_1 = Question.create!(content: "What does OOP stand for?", answer: 'Object-Oriented Programming', possible_answers: ['Ooga Ooga Pooga', 'Object-Oriental-Person'], section: section31)
+question31_1 = Question.create!(content: "What does OOP stand for?", answer: 'Object-Oriented Programming', section: section31)
 
-question31_2 = Question.create!(content: "What defines behavior in a ruby class?", answer: 'Instance methods', possible_answers: ['Behavior methods', 'Instance variables'], section: section31)
+['Ooga Ooga Pooga', 'Object-Oriental-Person'].each do |wrong_answer|
+  WrongAnswer.create!(question: question31_1, content: wrong_answer)
+end
 
-question31_3 = Question.create!(content: "What defines state in a ruby class?", answer: 'Instance variables', possible_answers: ['Instance methods', 'State methods'], section: section31)
+question31_2 = Question.create!(content: "What defines behavior in a ruby class?", answer: 'Instance methods', section: section31)
 
-question31_4 = Question.create!(content: "Suppose we have a Car class with a @color instance variable and an attr_reader :color. Let’s consider an instance of Car called my_car, how can you get its color?", answer: 'my_car.color', possible_answers: ['car.color', 'color.my_car'], section: section31)
+['Behavior methods', 'Instance variables'].each do |wrong_answer|
+  WrongAnswer.create!(question: question31_2, content: wrong_answer)
+end
 
-question31_5 = Question.create!(content: "What’s the class constructor method name in ruby?", answer: '.new', possible_answers: ['.constructor', '.make'], section: section31)
+question31_3 = Question.create!(content: "What defines state in a ruby class?", answer: 'Instance variables', section: section31)
 
-question31_6 = Question.create!(content: "Do you know how to set both a getter and a setter in one line?", answer: 'attr_accessor', possible_answers: ['set_getter', 'getter_setter'], section: section31)
+['Instance methods', 'State methods'].each do |wrong_answer|
+  WrongAnswer.create!(question: question31_3, content: wrong_answer)
+end
 
+question31_4 = Question.create!(content: "Suppose we have a Car class with a @color instance variable and an attr_reader :color. Let’s consider an instance of Car called my_car, how can you get its color?", answer: 'my_car.color', section: section31)
+
+['car.color', 'color.my_car'].each do |wrong_answer|
+  WrongAnswer.create!(question: question31_4, content: wrong_answer)
+end
+
+question31_5 = Question.create!(content: "What’s the class constructor method name in ruby?", answer: '.new', section: section31)
+
+['.constructor', '.make'].each do |wrong_answer|
+  WrongAnswer.create!(question: question31_5, content: wrong_answer)
+end
+
+question31_6 = Question.create!(content: "Do you know how to set both a getter and a setter in one line?", answer: 'attr_accessor', section: section31)
+
+['set_getter', 'getter_setter'].each do |wrong_answer|
+  WrongAnswer.create!(question: question31_6, content: wrong_answer)
+end
 
 sleep 1
 puts "Creating questions for section #{section32.name}..."
 
-question32_1 = Question.create!(content: "The destroy_all method is an instance method. True or False?", answer: 'False', possible_answers: ['True'], section: section32)
+question32_1 = Question.create!(content: "The destroy_all method is an instance method. True or False?", answer: 'False', section: section32)
 
-question32_2 = Question.create!(content: "The destroy method is an instance method. True or False?", answer: 'True', possible_answers: ['False'], section: section32)
+['True'].each do |wrong_answer|
+  WrongAnswer.create!(question: question32_1, content: wrong_answer)
+end
 
-question32_3 = Question.create!(content: "The destroy method is a class method. True or False?", answer: 'False', possible_answers: ['True'], section: section32)
+question32_2 = Question.create!(content: "The destroy method is an instance method. True or False?", answer: 'True', section: section32)
 
-question32_4 = Question.create!(content: "Name the parent class of Employee class. | class Employee < Person |", answer: 'Person', possible_answers: ['No parent class', 'Employee'], section: section32)
+['False'].each do |wrong_answer|
+  WrongAnswer.create!(question: question32_2, content: wrong_answer)
+end
+
+question32_3 = Question.create!(content: "The destroy method is a class method. True or False?", answer: 'False', section: section32)
+
+['True'].each do |wrong_answer|
+  WrongAnswer.create!(question: question32_3, content: wrong_answer)
+end
+
+question32_4 = Question.create!(content: "Name the parent class of Employee class. | class Employee < Person |", answer: 'Person', section: section32)
+
+['No parent class', 'Employee'].each do |wrong_answer|
+  WrongAnswer.create!(question: question32_4, content: wrong_answer)
+end
 
 sleep 1
 puts "Creating questions for section #{section33.name}..."
 
 
-question33_1 = Question.create!(content: "In a 1-model Task manager in ruby, what class / file plays the role of the DB?", answer: 'TaskRepository', possible_answers: ['TaskManager', 'Task'], section: section33)
+question33_1 = Question.create!(content: "In a 1-model Task manager in ruby, what class / file plays the role of the DB?", answer: 'TaskRepository', section: section33)
 
-question33_2 = Question.create!(content: "What does MVC stand for?", answer: 'Model-View-Controller', possible_answers: ['Model-Video-Controller', 'Movie-Visual-Control'], section: section33)
+['TaskManager', 'Task'].each do |wrong_answer|
+  WrongAnswer.create!(question: question33_1, content: wrong_answer)
+end
 
-question33_3 = Question.create!(content: "What type of data should the TaskRepository’s @tasks Array store?", answer: 'Instances', possible_answers: ['Models', 'Integers'], section: section33)
+question33_2 = Question.create!(content: "What does MVC stand for?", answer: 'Model-View-Controller',section: section33)
+
+['Model-Video-Controller', 'Movie-Visual-Control'].each do |wrong_answer|
+  WrongAnswer.create!(question: question33_2, content: wrong_answer)
+end
+
+question33_3 = Question.create!(content: "What type of data should the TaskRepository’s @tasks Array store?", answer: 'Instances', section: section33)
+
+['Models', 'Integers'].each do |wrong_answer|
+  WrongAnswer.create!(question: question33_3, content: wrong_answer)
+end
 
 sleep 1
 puts ""
@@ -281,20 +367,10 @@ section44 = Section.create!(name: 'Associations & Validations', length: 11, desc
 sleep 1
 puts "Creating questions for section #{section41.name}..."
 
-question41_1 = Question.create!(content: "What is the SQL keyword to retrieve content from the DB?", answer: 'SELECT', possible_answers: ['RETRIEVE', 'CHOOSE'], section: section41)
-
-question41_2 = Question.create!(content: "What do you need to link two N:N related tables?", answer: 'Join table', possible_answers: ['Seperate table', 'A cable'], section: section41)
-
-question41_3 = Question.create!(content: "What is the SQL keyword to specify a filtering condition clause in a query?", answer: 'WHERE', possible_answers: ['FILTER', 'REJECT'], section: section41)
 
 sleep 1
 puts "Creating questions for section #{section42.name}..."
 
-question42_1 = Question.create!(content: "How would you establish a connection and send a query to a Sqlite DB with Ruby?", answer: '.execute', possible_answers: ['.conect', '.query'], section: section42)
-
-question42_2 = Question.create!(content: "Whose responsibility is it to set the id of a new model instance?", answer: 'The database', possible_answers: ['The user', 'The developer'], section: section42)
-
-question42_3 = Question.create!(content: "How do you Read (CRUD) in SQL?", answer: 'SELECT', possible_answers: ['READ', 'CHOOSE'], section: section42)
 
 sleep 1
 puts ""
@@ -325,11 +401,23 @@ section57 = Section.create!(name: 'JavaScript Plugins', length: 22, description:
 sleep 1
 puts "Creating questions for section #{section51.name}..."
 
-question52_1 = Question.create!(content: "How do you set the background color to red on the whole page?", answer: 'body { background-color: red; }', possible_answers: ['.body { background-color: red; }', 'page { background-color: red; }'], section: section51)
+question51_1 = Question.create!(content: "How do you set the background color to red on the whole page?", answer: 'body { background-color: red; }', section: section51)
 
-question52_2 = Question.create!(content: "What is the naming convention of a CSS class?", answer: '.class', possible_answers: ['#class', 'class'], section: section51)
+['.body { background-color: red; }', 'page { background-color: red; }'].each do |wrong_answer|
+  WrongAnswer.create!(question: question51_1, content: wrong_answer)
+end
 
-question52_3 = Question.create!(content: "What are the three languages your browser speaks?", answer: 'HTML, CSS & JavaScript', possible_answers: ['HTML, Ruby & Python', 'HTML, CSS & Java'], section: section51)
+question51_2 = Question.create!(content: "What is the naming convention of a CSS class?", answer: '.class', section: section51)
+
+['#class', 'class'].each do |wrong_answer|
+  WrongAnswer.create!(question: question51_2, content: wrong_answer)
+end
+
+question51_3 = Question.create!(content: "What are the three languages your browser speaks?", answer: 'HTML, CSS & JavaScript', section: section51)
+
+['HTML, Ruby & Python', 'HTML, CSS & Java'].each do |wrong_answer|
+  WrongAnswer.create!(question: question51_3, content: wrong_answer)
+end
 
 sleep 1
 puts "**** THE OTHER SECTIONS HAVE NO QUESTIONS ****"
