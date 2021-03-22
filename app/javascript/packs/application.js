@@ -10,6 +10,7 @@ require("channels")
 require("jquery")
 require("@nathanvda/cocoon")
 
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -30,6 +31,7 @@ import { initQuizSteps } from 'components/initQuizSteps'
 import Chart from 'chart.js';
 import { mainChart, regChart, progChart } from 'plugins/chart.js'
 import { displayPreview } from 'plugins/video_preview'
+import { initSelect2 } from 'components/init_select2';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -44,4 +46,6 @@ document.addEventListener('turbolinks:load', () => {
   regChart();
   progChart();
   displayPreview();
+  initSelect2();
+
 });

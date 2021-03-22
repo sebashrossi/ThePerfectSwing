@@ -1,6 +1,9 @@
 class TrainingsController < ApplicationController
   def index
     @trainings = current_user.trainings
+    @alltrainings = Training.all
+    @users =  User.all.where.not(id: current_user.id, admin: true)
+    @training_user = TrainingUser.new
   end
 
   def show
@@ -23,14 +26,14 @@ class TrainingsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @training = Training.find(params[:id])
-  # end
+  def edit
+    @training = Training.find(params[:id])
+  end
 
-  # def update
-  #   @training = Training.find(params[:id])
-  #   @training.update(training_params)
-  # end
+  def update
+    @training = Training.find(params[:id])
+    @training.update(training_params)
+  end
 
   # def destroy
   #   @training = Training.find(params[:id])
