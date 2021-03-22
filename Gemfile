@@ -29,10 +29,12 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'faker'
 gem 'devise'
-
+gem "cocoon"
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem "select2-rails"
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

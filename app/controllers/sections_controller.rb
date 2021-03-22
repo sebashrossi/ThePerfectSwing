@@ -4,6 +4,7 @@ class SectionsController < ApplicationController
   end
 
   def show
+    # TODO : REFACTOR
     @section = Section.find(params[:id])
     @questions = @section.questions
     @company = current_user.company
@@ -14,14 +15,17 @@ class SectionsController < ApplicationController
   end
 
   def new
+    @t = Time.now
+    @training = Training.find(params[:training_id])
     @section = Section.new
   end
 
   def create
-    @section = Section.new
-    @section.user = current_user
+    @training = Training.find(params[:training_id])
+    @section = Section.new(section_params)
+    @section.training = @training
     if @section.save!
-      redirect_to section_path(@training)
+      redirect_to section_path(@section)
     else
       render :new
     end
@@ -52,13 +56,15 @@ class SectionsController < ApplicationController
   end
 
   def calc_quiz_score
-    
+
 
   end
 
   private
 
   def section_params
-    params.require(:section).permit(:name, :length, :description, :video_url)
+    params.require(:section).permit(
+      :name, :length, :description, :video_url,
+      questions_attributes: [:id, :_destroy, :content, :answer, wrong_answers_attributes: [:id, :_destroy, :content]])
   end
 end

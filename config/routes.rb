@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     root to: 'devise/sessions#new'
   end
   resources :trainings do
+    resources :sections, only: [:new, :create]
     resources :training_users, only: :create
   end
-  resources :sections do
+ resources :sections, except: [:new, :create] do
     member do
       get :quiz
     end

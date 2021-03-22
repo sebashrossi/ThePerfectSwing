@@ -1,6 +1,10 @@
 <div class="section-show">
   <div class="quiz-page d-flex">
-    <%= render 'shared/sidebar' %>
+    <% if current_user.admin? %>
+      <%= render 'shared/adminsidebar' %>
+      <% else %>
+      <%= render 'shared/sidebar' %>
+      <% end %>
    <div class="top-section">
     <p class="mb-4">Keep it up <%= current_user.first_name %> <%= current_user.last_name %>!</p>
     <div class="text-score d-flex justfiy-content-between">
@@ -10,9 +14,11 @@
         <p><%= @section.description %></p>
       </div>
       <div class="score">
+      <% if !current_user.admin? %>
         <h3>Previous score</h3>
         <h2><%= ((@section_user.quiz_score  / 100.0) * @questions.length).round %> / <%= @questions.length %></h2>
         <%= link_to "previous attempt results", section_path(@section_user.section), id: "previous-quiz-result", info: "Your score was #{@section_user.quiz_score}" %>
+      <% end %>
       </div>
       </div>
           <div>
@@ -21,27 +27,10 @@
         <div class="quiz-section">
           <div class="quiz-form quiz-content">
           <h3 class= "mb-4">Quiz</h3>
-            <%= simple_form_for :answers, url: section_user_path(@section_user), method: :patch do |f| %>
-                <% @questions.each_with_index do |question, index| %>
-                <div class="mb-2 <%= @questions.first == question ? "" : "d-none"%>" data-step="<%= index %>">
-                  <div class="d-flex">
-                  <p style="width: 80%"><%= question.content %></p>
-                  <p><%= index + 1 %>/<%= @questions.length %></p>
-                  </div>
-                  <%= f.simple_fields_for "question_#{question.id}".to_sym do |z| %>
-                  <div class="answers">
-                  <%= z.collection_radio_buttons :selected_answer, question.shuffle_answers, :first, :last %>
-                  </div>
-                  <% end %>
-                  <div class="buttons d-flex">
-                  <% if question != @questions.last %>
-                    <button class="next-btn" type="button" data-next-step="<%= index + 1 %>">Next</button>
-                  <% else %>
-                    <%= f.submit 'Submit', class: 'submit-btn' %>
-                  <% end %>
-                  </div>
-                </div>
-                <% end %>
+          <% if current_user.admin? %>
+            <%= render 'section_quiz_preview' %>
+            <% else %>
+            <%= render 'section_quiz' %>
             <% end %>
           </div>
         </div>
