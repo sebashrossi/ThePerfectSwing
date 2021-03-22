@@ -13,6 +13,9 @@ puts "Seeding started..."
 puts "------------------"
 puts ""
 sleep 3
+puts "Deleting all wrong answers"
+WrongAnswer.destroy_all
+sleep 1
 puts "Deleting all questions..."
 Question.destroy_all
 sleep 1
