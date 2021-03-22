@@ -1,2 +1,20 @@
-<h1>Training#new</h1>
-<p>Find me in app/views/training/new.html.erb</p>
+<div class="d-flex">
+  <%= render 'shared/adminsidebar' %>
+  <div class="main-content" style="margin-left: 40px;">
+    <div class="top-message d-flex justify-content-between">
+      <h4>Create a training</h4>
+      <h4><%= Time.now.strftime("%A, %b %d") %></h4>
+    </div>
+  <div class="train-form">
+    <%= simple_form_for @training do |f| %>
+  <%= f.input :name, label: 'Name of your training:'%>
+  <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 }, label: 'Description:' %>
+  <%= f.input :department, placeholder: 'Software Engineering', label: 'Department' %>
+  <%= f.input :company, placeholder: 'Netflix', disabled: true %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+  </div>
+  </div>
+
+
+</div>
