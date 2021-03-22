@@ -34,4 +34,8 @@ class User < ApplicationRecord
     end
     return (hours_done.to_f / total_length.to_f) * 100
   end
+
+  def self.options_for_select
+    User.all.map{|user| [user.email, user.id]}
+  end
 end
