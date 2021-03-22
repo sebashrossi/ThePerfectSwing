@@ -1,0 +1,13 @@
+<div class="nested-fields ques">
+  <%= f.input :content, label: 'What is your question?:' %>
+  <%= f.input :answer, label: 'Correct answer:' %>
+    <div class="wrong_answers">
+      <%= f.simple_fields_for :wrong_answers do |wrong_answer| %>
+        <%= render 'wrong_answer_fields', f: wrong_answer %>
+      <% end %>
+    </div>
+  <div id="links" class="d-flex justify-content-between mb-4">
+  <%= link_to_add_association 'Add Possible answer', f, :wrong_answers, class: 'btn btn-outline-primary' %>
+    <%= link_to_remove_association "Remove question", f, class: 'btn btn-outline-danger' %>
+  </div>
+</div>

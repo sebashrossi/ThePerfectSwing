@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: 'devise/sessions#new'
   end
-  resources :trainings
-  resources :sections do
+  resources :trainings do
+    resources :sections, only: [:new, :create]
+  end
+  resources :sections, except: [:new, :create] do
     member do
       get :quiz
     end

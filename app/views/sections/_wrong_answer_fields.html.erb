@@ -1,0 +1,6 @@
+ <div class="nested-fields d-flex justify-content-between wrong">
+ <%= f.input :content, label: 'Write a possible answer: ', class: 'wrong' %>
+<%= link_to_remove_association f, style: 'color: red' do %>
+  <i class="far fa-trash-alt"></i>
+  <% end %>
+</div>

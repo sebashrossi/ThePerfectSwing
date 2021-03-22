@@ -1,2 +1,31 @@
-<h1>Section#new</h1>
-<p>Find me in app/views/section/new.html.erb</p>
+<div class="d-flex">
+  <%= render 'shared/adminsidebar' %>
+  <div class="main-content" style="margin-left: 40px;">
+    <div class="top-message d-flex justify-content-between">
+      <h4>Create a Section</h4>
+      <h4><%= @t.strftime("%A, %b %d") %></h4>
+    </div>
+    <div class="form-card">
+      <%= simple_form_for [@training, @section] do |f| %>
+      <%= f.input :name, label: 'Name' %>
+      <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 }, label: 'Description:' %>
+      <%= f.input :video_url, label: 'Video URL:'%>
+      <div class="hidden">
+        <iframe id="preview" width="560" height="300" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <%= f.input :length, label: 'Length (min):', class: 'length' %>
+      <div id="questions">
+        <%= f.simple_fields_for :questions do |question| %>
+        <%= render 'question_fields', f: question %>
+        <% end %>
+      </div>
+      <div class="links">
+        <%= link_to_add_association 'Add question', f, :questions, class: 'btn add' %>
+      </div>
+      <div class="submit text-center mt-5">
+        <%= f.button :submit, :disable_with => 'Please wait ...' , class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
