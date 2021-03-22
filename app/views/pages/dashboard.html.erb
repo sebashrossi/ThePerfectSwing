@@ -22,7 +22,6 @@
       </div>
     </div>
     <!-- CARDS -->
-    <h4 class="my-3" style="color: #C7D6FB;">Basic trainings</h4>
     <div class="cards mb-5">
       <% @trainings.each do |training| %>
       <% if training.progress_of(current_user) != 100 %>

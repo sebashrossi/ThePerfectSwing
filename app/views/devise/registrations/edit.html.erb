@@ -43,7 +43,11 @@
       </div>
       <div class="profile-info">
         <div class="info-header">
-          <img src="https://www.thinkingheads.com/wp-content/uploads/2018/04/jordan-belfort-conferenciante-1.jpg" alt="profile-pic">
+          <% if current_user.admin? %>
+            <img src='https://philanthropynewsdigest.org/var/ezflow_site/storage/images/site_pnd/news/reed-hastings-creates-100-million-education-fund/14439051-2-eng-US/reed-hastings-creates-100-million-education-fund_full_image.jpg' class="avatar-large" />
+          <% else %>
+            <img src="https://www.thinkingheads.com/wp-content/uploads/2018/04/jordan-belfort-conferenciante-1.jpg" alt="profile-pic">
+          <% end %>
         </div>
         <div class="info-body mt-4">
           <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
@@ -51,7 +55,7 @@
         </div>
         <div class="info-footer text-center mt-3">
           <h4><%= current_user.company.name %></h4>
-          <h5>Software Engineer</h5>
+          <h5><%= current_user.admin? ? 'Head of Training' : 'Software Engineer' %></h5>
           <label>Member since: <%= current_user.created_at %></label>
         </div>
         <div class="stats d-flex justify-content-between">
@@ -60,11 +64,11 @@
           <p>Trainings assigned</p>
         </div>
         <div class="item">
-          <h1 style="color: #FF8DE6;"><%= User.all.where.not(id: current_user.id).count %></h1>
+          <h1 style="color: #FF8DE6;"><%= User.all.where.not(id: current_user.id, admin: true).count %></h1>
           <p>Peers</p>
         </div>
         <div class="item">
-        <h1 style="color: #FFCB65">20+</h1>
+        <h1 style="color: #FFCB65">200+</h1>
         <p>Connections</p>
       </div>
         </div>
