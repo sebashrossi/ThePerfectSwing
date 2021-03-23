@@ -146,7 +146,7 @@ if (document.getElementById('trainChart')) {
       },
     }
   });
-  }
+  };
 };
 
 const progChart = () => {

@@ -72,7 +72,11 @@
           <p>Peers</p>
         </div>
         <div class="item">
+          <% if current_user.admin? %>
         <h1 style="color: #FFCB65">200+</h1>
+        <% else %>
+        <h1 style="color: #FFCB65">0</h1>
+        <% end %>
         <p>Connections</p>
       </div>
         </div>
