@@ -104,10 +104,10 @@
 
 .table-item {
   border-bottom: 1px solid rgba(208, 213, 225, 0.22);
-  margin-bottom: 16px;
   line-height: 1;
   p {
     color: #E8EDFF;
+    margin: 0;
   }
   i {
     color: rgba(208, 213, 225, 0.33);
@@ -116,6 +116,12 @@
     i:hover {
       color: #4EE4C1;
     }
+  th {
+    border: 0;
+  }
+  td {
+    border: 0;
+  }
 }
 
 .todolist {
