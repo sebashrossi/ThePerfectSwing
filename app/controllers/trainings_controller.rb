@@ -13,6 +13,7 @@ class TrainingsController < ApplicationController
 
   def new
     @training = Training.new
+    @quote = [['“Leadership and learning are indispensable to each other.”', '― John F. Kennedy' ], ['“In learning you will teach, and in teaching you will learn.”', '― Phil Collins'], ['“I am always doing that which I cannot do, in order that I may learn how to do it.”', '― Pablo Picasso'], ['“The beautiful thing about learning is that nobody can take it away from you.”','― B.B. King']].sample
   end
 
   def create
