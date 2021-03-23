@@ -107,3 +107,47 @@
 .hidden {
   display: none;
 }
+
+.quote {
+  color: $cool-text;
+  margin-left: 50px;
+  .quote-content {
+    width: 80%;
+   h4 {
+     margin-bottom: 50px;
+   }
+  }
+}
+
+.employee-badge {
+  color: #C7D6FB;
+  margin-bottom: 10px;
+  border: 1px solid #C7D6FB;
+  display: inline-block;
+  padding: 8px;
+  border-radius: 4px;
+}
+.modal-content {
+  background-color: #121832;
+  h2, h4, label, h6 {
+    color: $cool-text
+  }
+  h5 {
+    font-weight: bold;
+    color: $cool-text;
+  }
+}
+.modal-body {
+  margin-bottom: -30px;
+  h6 {
+    margin-bottom: 15px;
+  }
+  label {
+    margin-top: 20px;
+  }
+}
+.modal-header {
+  span {
+    color: $cool-text;
+  }
+}

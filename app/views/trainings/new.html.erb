@@ -5,15 +5,23 @@
       <h4>Create a training</h4>
       <h4><%= Time.now.strftime("%A, %b %d") %></h4>
     </div>
-  <div class="train-form">
-    <%= simple_form_for @training do |f| %>
-  <%= f.input :name, label: 'Name of your training:'%>
-  <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 }, label: 'Description:' %>
-  <%= f.input :department, placeholder: 'Software Engineering', label: 'Department' %>
-  <%= f.input :company, placeholder: 'Netflix', disabled: true %>
-   <button type="button" id="fake-btn" class="btn btn-primary" data-loader="true">Create Training</button>
-<% end %>
-  </div>
+    <div class="d-flex justify-content-around mt-3">
+      <div class="train-form">
+          <%= simple_form_for @training do |f| %>
+            <%= f.input :name, label: 'Name of your training:'%>
+            <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 }, label: 'Description:' %>
+            <%= f.input :department, placeholder: 'Software Engineering', label: 'Department' %>
+            <%= f.input :company, placeholder: 'Netflix', disabled: true %>
+               <button type="button" id="fake-btn" class="btn btn-primary" data-loader="true">Create Training</button>
+          <% end %>
+      </div>
+      <div class="quote">
+        <div class="quote-content">
+          <h3><%= @quote[0] %></h3>
+          <h4 class="pl-4 "><%= @quote[1] %></h4>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

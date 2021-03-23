@@ -69,7 +69,7 @@
 }
 
 .trainings-card {
-  width: 68%;
+  width: 100%;
   height: 473px;
   background: #1B2235;
   border: 1px solid #121832;
@@ -96,7 +96,6 @@
     }
 }
 
-
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
@@ -104,9 +103,9 @@
 .table-item {
   border-bottom: 1px solid rgba(208, 213, 225, 0.22);
   line-height: 1;
+  margin-bottom: 16px;
   p {
     color: #E8EDFF;
-    margin: 0;
   }
   i {
     color: rgba(208, 213, 225, 0.33);
