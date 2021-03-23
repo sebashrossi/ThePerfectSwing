@@ -1,56 +1,96 @@
 <% if current_user.admin %>
   <div class="d-flex">
+
+    <!-- ADMIN SIDEBAR ON THE LEFT -->
     <%= render 'shared/adminsidebar' %>
+
+    <!-- ALL THE CONTENT RIGHT TO THE SIDEBAR -->
     <div class="main-content" style="margin-left: 40px;">
+
+      <!-- TOP MESSAGE WITH DATE AND TIME -->
       <div class="top-message d-flex justify-content-end">
         <h4><%= @t.strftime("%A, %b %d") %></h4>
       </div>
-        <h4 class="mb-4" style="color:#C7D6FB;">Employees:</h4>
-        <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
-          <% @peers.each do |peer| %>
-          <div class="table-item d-flex justify-content-sm-between">
-          <div class="name" style="width: 15%">
-            <p><%= peer.first_name %> <%= peer.last_name %></p>
-            </div>
-            <p style="width: 20%"><%= peer.email %></p>
-            <p>Software Engineering</p>
-            <div class="icons">
-            <i class="fas fa-pen mr-3"></i>
-            <i class="fas fa-trash-alt mr-3"></i>
-            <i class="fas fa-envelope"></i>
-           </div>
-          </div>
-          <% end %>
-        </div>
+
+      <h4 class="mb-4" style="color:#C7D6FB;">Employees:</h4>
+
+      <!-- CARD CONTAINING THE EMPLOYEE'S TABLE -->
+      <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
+
+        <!-- TABLE WITH ALL THE EMPLOYEES -->
+        <table class="table table-item">
+          <!-- HEADERS -->
+          <thead>
+            <tr>
+              <th scope="col"><p><strong>Name</strong></p></th>
+              <th scope="col"><p><strong>Email-address</strong></p></th>
+              <th scope="col"><p><strong>Department</strong></p></th>
+              <th scope="col"><p></p></th>
+            </tr>
+          </thead>
+          <!-- BODY ITERATING ON PEERS -->
+          <tbody>
+            <% @peers.each do |peer| %>
+            <tr>
+              <td><p><%= peer.first_name %> <%= peer.last_name %></p></td>
+              <td><p><%= peer.email %></p></td>
+              <td><p>Software Engineering</p></td>
+              <td>
+                <div class="icons">
+                  <i class="fas fa-pen mr-3"></i>
+                  <i class="fas fa-trash-alt mr-3"></i>
+                  <i class="fas fa-envelope"></i>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+
+<!-- EMPLOYEE SIDE -->
 <% else  %>
   <div class="d-flex">
+
+    <!-- USER SIDEBAR ON THE LEFT -->
     <%= render 'shared/sidebar' %>
+
+    <!-- ALL THE CONTENT RIGHT TO THE SIDEBAR -->
     <div class="main-content" style="margin-left: 40px;">
+
+      <!-- TOP MESSAGE WITH DATE AND TIME -->
       <div class="top-message d-flex justify-content-end">
         <h4><%= @t.strftime("%A, %b %d") %></h4>
       </div>
-        <h4 class="mb-4" style="color:#C7D6FB;">Head of Training:</h4>
-        <div class="notification">
-          <img src='https://philanthropynewsdigest.org/var/ezflow_site/storage/images/site_pnd/news/reed-hastings-creates-100-million-education-fund/14439051-2-eng-US/reed-hastings-creates-100-million-education-fund_full_image.jpg' class="avatar-large" />
-          <div class="notification-content">
-            <p><%= @admin[0].first_name %> <%= @admin[0].last_name %></p>
-          </div>
-          <div class="notification-actions">
-            <a href="#" class="btn">Contact<i class="far fa-comments ml-2"></i></a>
-          </div>
+
+      <h4 class="mb-4" style="color:#C7D6FB;">Head of Training:</h4>
+
+      <!-- NOTIFICATION ?? -->
+      <div class="notification">
+        <img src='https://philanthropynewsdigest.org/var/ezflow_site/storage/images/site_pnd/news/reed-hastings-creates-100-million-education-fund/14439051-2-eng-US/reed-hastings-creates-100-million-education-fund_full_image.jpg' class="avatar-large" />
+        <div class="notification-content">
+          <p><%= @admin[0].first_name %> <%= @admin[0].last_name %></p>
         </div>
-        <h4 class="mb-4" style="color:#C7D6FB;">Peers:</h4>
-        <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
-          <% @peers.each do |peer| %>
-          <div class="table-item d-flex justify-content-sm-between">
-            <p><%= peer.first_name %> <%= peer.last_name %></p>
-            <p><%= peer.email %></p>
-            <a href="#" style="color: #504BFF; text-decoration: none;">Contact</a>
-          </div>
-          <% end %>
+        <div class="notification-actions">
+          <a href="#" class="btn">Contact<i class="far fa-comments ml-2"></i></a>
         </div>
       </div>
+
+      <h4 class="mb-4" style="color:#C7D6FB;">Peers:</h4>
+
+      <!-- LIST OF PEERS FOR A SPECIFIC USER -->
+      <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
+        <% @peers.each do |peer| %>
+        <div class="table-item d-flex justify-content-sm-between">
+          <p><%= peer.first_name %> <%= peer.last_name %></p>
+          <p><%= peer.email %></p>
+          <a href="#" style="color: #504BFF; text-decoration: none;">Contact</a>
+        </div>
+        <% end %>
+      </div>
+
     </div>
- <% end %>
+  </div>
+<% end %>
