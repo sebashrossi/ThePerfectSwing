@@ -107,3 +107,13 @@
 .hidden {
   display: none;
 }
+.quote {
+  color: $cool-text;
+  margin-left: 50px;
+  .quote-content {
+    width: 80%;
+   h4 {
+     margin-bottom: 50px;
+   }
+  }
+}
