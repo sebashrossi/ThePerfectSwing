@@ -11,10 +11,10 @@
   <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 }, label: 'Description:' %>
   <%= f.input :department, placeholder: 'Software Engineering', label: 'Department' %>
   <%= f.input :company, placeholder: 'Netflix', disabled: true %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
+   <button type="button" id="fake-btn" class="btn btn-primary" data-loader="true">Create Training</button>
 <% end %>
   </div>
   </div>
-
-
 </div>
+
+<%= render 'shared/modal' %>

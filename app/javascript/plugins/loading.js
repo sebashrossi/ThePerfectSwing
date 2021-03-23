@@ -13,8 +13,6 @@ const btns = document.querySelectorAll('[data-loader]');
     });
 
   };
-
-
 };
 
 export { fakeLoader };

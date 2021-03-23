@@ -91,7 +91,7 @@ if (document.getElementById('trainChart')) {
     data: {
       labels: ['OB', 'RUB', 'OOP', 'DB', 'FE', 'RA', 'DJS', 'BE', 'API', 'GH'],
       datasets: [{
-        data: [21, 19, 16, 8, 14, 6, 4, 17, 15, 18],
+        data: [21, 19, 16, 8, 14, 6, 10, 17, 15, 18],
         backgroundColor: [
           'rgba(172, 170, 255, 0.2)',
           'rgba(172, 170, 255, 0.2)',

@@ -25,25 +25,25 @@ class User < ApplicationRecord
     completed
   end
 
-  def overall_progress_of(user)
+  def overall_progress_of
     hours_done = 0
     total_length = 0
-    user.trainings.each do |training|
+    trainings.each do |training|
       total_length += training.training_length
-      hours_done += (training.progress_of(user) / 100) * training.training_length
+      hours_done += (training.progress_of(self) / 100) * training.training_length
     end
     return (hours_done.to_f / total_length.to_f) * 100
   end
-  
+
   def full_name
     "#{first_name} #{last_name}"
   end
 
   def self.available_trainees(training)
-    User.all.reject{|user| user.trainings.include?(training)}
+    User.all.reject{ |user| user.trainings.include?(training) }
     # self.where.not(training: training)
   end
   def self.options_for_select
-    User.all.map{|user| [user.email, user.id]}
+    User.all.map{ |user| [user.email, user.id] }
   end
 end
