@@ -33,23 +33,39 @@
     </div>
     <!-- TABLES -->
     <div class="tables d-flex justify-content-around">
-      <div class="todolist" style="width: 47.5%">
-        <div class="header d-flex justify-content-between">
-          <h3>Tasks</h3>
-          <button class="btn btn-primary">Add</button>
-        </div>
-        <div class="tasks-content d-flex">
-          <i class="far fa-check-circle task completed"></i>
-          <p>Finish Programming basics of Ruby training</p>
-        </div>
-        <div class="tasks-content d-flex">
-          <i class="far fa-check-circle task"></i>
-          <p>Email Claire from HR</p>
-        </div>
-        <div class="tasks-content d-flex">
-          <i class="far fa-check-circle task"></i>
-          <p>Complete banking info on profile</p>
-        </div>
+      <div class="todolist scrollbar-hidden" style="width: 47.5%; overflow: scroll">
+        <table class="table table-item">
+          <!-- HEADERS -->
+          <thead>
+            <tr>
+              <th scope="col"><p><strong>Name</strong></p></th>
+              <th scope="col"><p><strong>Department</strong></p></th>
+              <th scope="col"><p><strong>Progress</strong></p></th>
+              <th scope="col"><p></p></th>
+            </tr>
+          </thead>
+          <!-- BODY ITERATING ON PEERS -->
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td><p><%= user.first_name %> <%= user.last_name %></p></td>
+              <td><p>Software Engineering</p></td>
+              <td>
+                <div class="icons d-flex justify-content-between">
+                  <div class="d-flex justify-content-between">
+                    <p style="line-height: 1.5rem"><%= user.trainings.count %></p>
+                    <i class="fas fa-book-open ml-2" style="color: rgba(172, 170, 255, 1)"></i>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <p style="line-height: 1.5rem"><%= user.trainings_completed_by(user) %></p>
+                    <i class="far fa-check-circle ml-2" style="color: rgba(172, 170, 255, 1)"></i>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
       <div class="trainings-card scrollbar-hidden" style="width: 46.5%">
         <h3 class="mb-5">Timeline</h3>
@@ -59,16 +75,16 @@
         <div class="timeline-item" date-is='20-03-2021'>
           <p>Spencer Schaefer shared a file</p>
           <div class="file d-flex">
-          <img class="mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="file icon">
-          <div class="actions d-flex">
-            <i class="fas fa-file-download"></i>
-            <i class="fas fa-external-link-alt"></i>
-          </div>
-          <div>
-          <h6>Netflix Analytics</h6>
-          <p style="font-size: 12px; margin: 0;">analytics.pdf</p>
-          <p style="font-size: 10px;">88 KB</p>
-          </div>
+            <img class="mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="file icon">
+            <div class="actions d-flex">
+              <i class="fas fa-file-download"></i>
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+            <div>
+              <h6>Netflix Analytics</h6>
+              <p style="font-size: 12px; margin: 0;">analytics.pdf</p>
+              <p style="font-size: 10px;">88 KB</p>
+            </div>
           </div>
         </div>
         <div class="timeline-item" date-is='21-03-2021'>

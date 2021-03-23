@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @t = Time.now
+    @users = User.all.where.not(id: current_user.id, admin: true)
     @company = current_user.company
     @trainings = []
     current_user.trainings.each do |training|

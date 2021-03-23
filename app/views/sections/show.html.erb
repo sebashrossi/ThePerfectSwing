@@ -6,7 +6,16 @@
       <%= render 'shared/sidebar' %>
       <% end %>
    <div class="top-section">
+    <% if !current_user.admin? %>
+    <div class="top-message d-flex justify-content-between">
     <p class="mb-4">Keep it up <%= current_user.first_name %> <%= current_user.last_name %>!</p>
+      <h4><%= Time.now.strftime("%A, %b %d") %></h4>
+    </div>
+    <% else %>
+    <div class="top-message d-flex justify-content-end">
+      <h4><%= Time.now.strftime("%A, %b %d") %></h4>
+    </div>
+    <% end %>
     <div class="text-score d-flex justfiy-content-between">
       <div class="text-section mb-4">
         <h2><%= @training.name %></h2>

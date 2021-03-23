@@ -18,10 +18,9 @@ class TrainingsController < ApplicationController
 
   def create
     @training = Training.new
-    @training.user = current_user
     @training.company = current_user.company
     if @training.save!
-      redirect_to trainings_path
+      redirect_to new_training_section_path(@training)
     else
       render :new
     end

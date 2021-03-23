@@ -14,9 +14,11 @@
     <% if question != @questions.last %>
     <button class="next-btn" type="button" data-next-step="<%= index + 1 %>">Next</button>
     <% else %>
-    <%= f.submit 'Submit', class: 'submit-btn' %>
+    <button type="button" id="fake-btn" class="next-btn" data-loader="true">Submit Results</button>
     <% end %>
   </div>
 </div>
 <% end %>
 <% end %>
+
+<%= render 'shared/modal' %>
