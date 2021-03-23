@@ -1,7 +1,8 @@
 class Training < ApplicationRecord
   belongs_to :company
   has_many :sections
-  has_many :users, through: :training_user
+  has_many :training_users
+  has_many :users, through: :training_users
 
   def progress_of(user)
     count = self.sections.count do |section|

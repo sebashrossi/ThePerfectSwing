@@ -1,6 +1,6 @@
 class TrainingUsersController < ApplicationController
   def create
-    array_of_ids = params[:training_user][:user_id].reject { |c| c.empty? }
+    array_of_ids = params[:training_user][:users].reject { |c| c.empty? }
     @training = Training.find(params[:training_id])
     array_of_ids.each do |id|
       user = User.find(id)
