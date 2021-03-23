@@ -17,7 +17,7 @@ class TrainingsController < ApplicationController
   end
 
   def create
-    @training = Training.new
+    @training = Training.new(training_params)
     @training.company = current_user.company
     if @training.save!
       redirect_to new_training_section_path(@training)
@@ -41,7 +41,7 @@ class TrainingsController < ApplicationController
 
   # private
 
-  # def training_params
-  #   params.require(:training).permit(:name, :description, :department)
-  # end
+  def training_params
+    params.require(:training).permit(:name, :description, :department)
+  end
 end
