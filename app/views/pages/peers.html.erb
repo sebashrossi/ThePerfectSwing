@@ -8,14 +8,13 @@
     <div class="main-content" style="margin-left: 40px;">
 
       <!-- TOP MESSAGE WITH DATE AND TIME -->
-      <div class="top-message d-flex justify-content-end">
+      <div class="top-message d-flex justify-content-between">
+        <h4 class="mb-4" style="color:#C7D6FB;">Employees</h4>
         <h4><%= @t.strftime("%A, %b %d") %></h4>
       </div>
 
-      <h4 class="mb-4" style="color:#C7D6FB;">Employees:</h4>
-
       <!-- CARD CONTAINING THE EMPLOYEE'S TABLE -->
-      <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
+      <div class="trainings-card scrollbar-hidden mt-2" style="width: 98%; height: 70%;">
 
         <!-- TABLE WITH ALL THE EMPLOYEES -->
         <table class="table table-item">
@@ -36,7 +35,7 @@
               <td><p><%= peer.email %></p></td>
               <td><p>Software Engineering</p></td>
               <td>
-                <div class="icons">
+                <div class="icons d-flex d-flex justify-content-between">
                   <i class="fas fa-pen mr-3"></i>
                   <i class="fas fa-trash-alt mr-3"></i>
                   <i class="fas fa-envelope"></i>
