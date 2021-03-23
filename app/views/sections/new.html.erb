@@ -23,9 +23,15 @@
         <%= link_to_add_association 'Add question', f, :questions, class: 'btn add' %>
       </div>
       <div class="submit text-center mt-5">
-        <%= f.button :submit, :disable_with => 'Please wait ...' , class: 'btn btn-primary' %>
+        <button type="button" id="fake-btn" class="btn btn-primary" data-loader="true">Create Section</button>
       </div>
       <% end %>
     </div>
   </div>
+</div>
+<!-- MODAL -->
+<div id="loadingModal" class="load-modal d-none">
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
 </div>

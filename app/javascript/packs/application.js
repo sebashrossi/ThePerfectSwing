@@ -32,6 +32,7 @@ import Chart from 'chart.js';
 import { mainChart, regChart, progChart } from 'plugins/chart.js'
 import { displayPreview } from 'plugins/video_preview.js'
 import { initSelect2 } from 'components/init_select2';
+import { fakeLoader } from 'plugins/loading';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -47,5 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   progChart();
   displayPreview();
   initSelect2();
-
+  fakeLoader();
 });

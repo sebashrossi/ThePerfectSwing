@@ -81,8 +81,8 @@ const regChart = () => {
   }
 };
 
-if (document.getElementById('trainChart')) {
 const mainChart = () => {
+if (document.getElementById('trainChart')) {
   const ctx2 = document.getElementById('trainChart').getContext("2d");
   ctx2.canvas.parentNode.style.height = '150px';
   ctx2.canvas.parentNode.style.width = '565px';
@@ -146,7 +146,7 @@ const mainChart = () => {
       },
     }
   });
-  }
+  };
 };
 
 const progChart = () => {
