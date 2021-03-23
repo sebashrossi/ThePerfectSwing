@@ -34,7 +34,15 @@ class User < ApplicationRecord
     end
     return (hours_done.to_f / total_length.to_f) * 100
   end
+  
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
+  def self.available_trainees(training)
+    User.all.reject{|user| user.trainings.include?(training)}
+    # self.where.not(training: training)
+  end
   def self.options_for_select
     User.all.map{|user| [user.email, user.id]}
   end

@@ -7,10 +7,11 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import 'select2/dist/css/select2';
+@import "selectize/dist/css/selectize.bootstrap3.css";
+
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "components/quiz";
-@import 'select2/dist/css/select2';
+
