@@ -1,13 +1,15 @@
 const displayPreview = () => {
-  const input = $('#section_video_url');
-  const videoDiv = $('.video-div')
-  const video = $('#preview');
+  const input = document.querySelector('#section_video_url');
+  const prev = document.querySelector('#preview');
+  const length = document.querySelector('#section_length');
 
   input.addEventListener('change', (event) => {
-    video.src = event.currentTarget.value;
-    videoDiv.classList.remove('hidden');
+    prev.src = event.target.value.replace("watch?v=", "embed/");
+    prev.classList.remove('hidden');
   });
 }
 
 
+
 export { displayPreview };
+

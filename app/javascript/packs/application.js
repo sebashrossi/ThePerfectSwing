@@ -30,7 +30,7 @@ import { completedTasks } from 'plugins/tasks.js';
 import { initQuizSteps } from 'components/initQuizSteps'
 import Chart from 'chart.js';
 import { mainChart, regChart, progChart } from 'plugins/chart.js'
-import { displayPreview } from 'plugins/video_preview'
+import { displayPreview } from 'plugins/video_preview.js'
 import { initSelect2 } from 'components/init_select2';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -42,10 +42,14 @@ document.addEventListener('turbolinks:load', () => {
   });
   initQuizSteps();
   completedTasks();
+  if ( document.URL.includes("dashboard")) {
   mainChart();
   regChart();
   progChart();
+  }
+  if (document.URL.includes("sections/new")) {
   displayPreview();
+  }
   initSelect2();
 
 });

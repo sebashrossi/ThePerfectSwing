@@ -8,7 +8,7 @@
       <li class="<%= 'active' if current_page?(dashboard_path) %>"><%= link_to 'Dashboard', dashboard_path %></li>
       <li class="<%= 'active' if current_page?(edit_user_registration_path(current_user)) %>"><%= link_to 'Profile', edit_user_registration_path(current_user) %></li>
       <li class="<%= 'active' if current_page?(peers_path) %>"><%= link_to 'Employees', peers_path %></li>
-      <li><%= link_to 'Trainings', root_path %></li>
+      <li class="<%= 'active' if current_page?(trainings_path) %>"><%= link_to 'Trainings', trainings_path %></li>
       <div class="d-flex align-items-start">
         <li class="mr-3"><%= link_to 'Internal Memos', root_path %></li>
         <span class="badge">2</span>
