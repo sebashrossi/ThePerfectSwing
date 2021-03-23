@@ -1,5 +1,9 @@
 <div class="d-flex">
+  <% if current_user.admin? %>
+  <%= render 'shared/adminsidebar' %>
+  <% else %>
   <%= render 'shared/sidebar' %>
+  <% end %>
   <div class="main-content" style="margin-left: 40px;">
     <div class="top-message d-flex justify-content-between">
       <h4>Profile</h4>

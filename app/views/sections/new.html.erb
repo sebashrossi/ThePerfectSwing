@@ -8,10 +8,10 @@
     <div class="form-card">
       <%= simple_form_for [@training, @section] do |f| %>
       <%= f.input :name, label: 'Name' %>
-      <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 }, label: 'Description:' %>
+      <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 4 }, label: 'Description:' %>
       <%= f.input :video_url, label: 'Video URL:'%>
-      <div class="hidden">
-        <iframe id="preview" width="560" height="300" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-div mb-3">
+        <iframe class="hidden" id="preview" width="560" height="300" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <%= f.input :length, label: 'Length (min):', class: 'length' %>
       <div id="questions">
