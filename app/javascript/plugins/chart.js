@@ -1,4 +1,5 @@
-  const regChart = () => {
+const regChart = () => {
+  if (document.getElementById('regChart')){
     const ctx = document.getElementById('regChart').getContext("2d");
     ctx.canvas.parentNode.style.height = '400px';
     ctx.canvas.parentNode.style.width = '600px';
@@ -77,10 +78,12 @@
         },
       }
     });
-  };
-  
-  const mainChart = () => {
-    const ctx2 = document.getElementById('trainChart').getContext("2d");
+  }
+};
+
+if (document.getElementById('trainChart')) {
+const mainChart = () => {
+  const ctx2 = document.getElementById('trainChart').getContext("2d");
   ctx2.canvas.parentNode.style.height = '150px';
   ctx2.canvas.parentNode.style.width = '565px';
   const myChart = new Chart(ctx2, {
@@ -143,9 +146,11 @@
       },
     }
   });
+  }
 };
 
 const progChart = () => {
+  if (document.getElementById('progChart')){
   const ctx3 = document.getElementById('progChart').getContext("2d");
   ctx3.canvas.parentNode.style.height = '180px';
   ctx3.canvas.parentNode.style.width = '580px';
@@ -208,6 +213,7 @@ const progChart = () => {
       },
     }
   });
+  }
 };
 
 

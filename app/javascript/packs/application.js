@@ -42,14 +42,10 @@ document.addEventListener('turbolinks:load', () => {
   });
   initQuizSteps();
   completedTasks();
-  if ( document.URL.includes("dashboard")) {
   mainChart();
   regChart();
   progChart();
-  }
-  if (document.URL.includes("sections/new")) {
   displayPreview();
-  }
   initSelect2();
 
 });
