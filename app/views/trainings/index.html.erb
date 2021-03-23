@@ -1,42 +1,56 @@
 <div class="d-flex">
+
+  <!-- ADMIN SIDEBAR ON THE LEFT -->
   <%= render 'shared/adminsidebar' %>
+
+  <!-- ALL THE CONTENT RIGHT TO THE SIDEBAR -->
   <div class="main-content" style="margin-left: 40px;">
+
+    <!-- TOP MESSAGE WITH DATE AND TIME -->
     <div class="top-message d-flex justify-content-between">
       <h4>Trainings</h4>
       <h4><%= Time.now.strftime("%A, %b %d") %></h4>
     </div>
-      <div class="tables-admin d-flex justify-content-between">
-        <div class="trainings-card-admin scrollbar-hidden">
-        <div class="d-flex justify-content-between">
+
+    <!-- CARD CONTAINING THE TABLE -->
+    <div class="trainings-card-admin scrollbar-hidden">
+
+      <!-- TITLE AND LINK TO ADD A TRAINING -->
+      <div class="d-flex justify-content-between">
           <h3 class="mb-5">All trainings</h3>
           <%= link_to "New Training", new_training_path, class: "btn training-btn mr-0", style: "height: 50%" %>
-        </div>
-          <div class="table-item d-flex justify-content-sm-between mb-4">
-            <p style="width: 5%">Name</p>
-            <p class="pl-2" style="width: 10%">Number of Sections</p>
-            <p style="width: 15%">Department</p>
-            <p class="pl-3" style="width: 20%">Length of Training</p>
-            <div class="icons">
-              <i class=""></i>
-              <i class=""></i>
-              <i class=""></i>
-            </div>
-          </div>
+      </div>
+
+      <!-- TABLE WITH ALL THE TRAININGS -->
+      <table class="table table-item">
+        <!-- HEADERS -->
+        <thead>
+          <tr>
+            <th scope="col"><p><strong>Name</strong></p></th>
+            <th scope="col"><p><strong>Number of Sections</strong></p></th>
+            <th scope="col"><p><strong>Department</strong></p></th>
+            <th scope="col"><p><strong>Length of Trainings</strong></p></th>
+            <th scope="col"><p></p></th>
+          </tr>
+        </thead>
+        <!-- BODY ITERATING ON TRAININGS -->
+        <tbody>
           <% @alltrainings.each do |training| %>
-          <%# add modal to iteration here %>
-            <div class="table-item d-flex justify-content-sm-between mb-4">
-              <p style="width: 10%"><%= training.name %></p>
-              <p style="width: 5%"><%= training.sections.length %></p>
-                <p style="width: 20%"><%= training.department %></p>
-                <p style="width: 10%"><%= training.training_length / 60%>h<%= training.training_length % 60%>min</p>
-                <div class="icons">
-                  <%= link_to edit_training_path(training) do %>
-                    <i class="fas fa-pen mr-3"></i>
-                  <% end %>
-                  <i class="fas fa-trash-alt mr-3"></i>
-                  <i  data-toggle="modal" data-target="#modal_training_<%= training.id %>" id="edit-<%training%>" class="fas fa-plus"></i>
-                </div>
-            </div>
+          <tr>
+            <td><p><%= training.name %></p></td>
+            <td><p><%= training.sections.length %></p></td>
+            <td><p><%= training.department %></p></td>
+            <td><p><%= training.training_length / 60%>h<%= training.training_length % 60%>min</p></td>
+            <td>
+              <div class="icons d-flex d-flex justify-content-between">
+                <%= link_to edit_training_path(training) do %>
+                  <i class="fas fa-pen mr-3"></i>
+                <% end %>
+                <i class="fas fa-trash-alt mr-3"></i>
+                <i  data-toggle="modal" data-target="#modal_training_<%= training.id %>" id="edit-<%training%>" class="fas fa-plus"></i>
+              </div>
+            </td>
+            <!-- MODAL -->
             <div class="modal fade" id="modal_training_<%= training.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -45,12 +59,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                  </div>  
+                  </div>
                   <div class="modal-body">
                     <h6>Assigned Employees</h6>
-                  <% training.users.each do |user| %>
-                    <span class="employee-badge mr-2"><%= user.full_name %></span>
-                  <% end %>
+                    <% training.users.each do |user| %>
+                      <span class="employee-badge mr-2"><%= user.full_name %></span>
+                    <% end %>
                     <%= simple_form_for [training, @training_user] do |f|%>
                       <%= f.input :users,
                                   label: "Assign Employees",
@@ -65,9 +79,11 @@
                 </div>
               </div>
             </div>
+          </tr>
           <% end %>
-        </div>
-      </div>
+        </tbody>
+      </table>
+
+    </div>
   </div>
 </div>
-
