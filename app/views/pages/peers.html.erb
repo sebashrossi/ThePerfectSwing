@@ -7,10 +7,15 @@
       </div>
         <h4 class="mb-4" style="color:#C7D6FB;">Employees:</h4>
         <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
+          <div class="table-item d-flex ">
+            <p style="width: 26%"><strong>Name</strong></p>
+            <p style="width: 31%"><strong>Email address</strong></p>
+            <p><strong>Department</strong></p>
+          </div>
           <% @peers.each do |peer| %>
           <div class="table-item d-flex justify-content-sm-between">
-          <div class="name" style="width: 15%">
-            <p><%= peer.first_name %> <%= peer.last_name %></p>
+            <div class="name" style="width: 15%">
+              <p><%= peer.first_name %> <%= peer.last_name %></p>
             </div>
             <p style="width: 20%"><%= peer.email %></p>
             <p>Software Engineering</p>
