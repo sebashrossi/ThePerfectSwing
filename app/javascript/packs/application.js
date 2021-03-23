@@ -31,7 +31,6 @@ import { initQuizSteps } from 'components/initQuizSteps'
 import Chart from 'chart.js';
 import { mainChart, regChart, progChart } from 'plugins/chart.js'
 import { displayPreview } from 'plugins/video_preview.js'
-import { initSelect2 } from 'components/init_select2';
 import { fakeLoader } from 'plugins/loading';
 import { initSelectize } from 'plugins/init_selectize';
 // Internal imports, e.g:
@@ -48,7 +47,6 @@ document.addEventListener('turbolinks:load', () => {
   regChart();
   progChart();
   displayPreview();
-  initSelect2();
   fakeLoader();
   initSelectize();
 });
