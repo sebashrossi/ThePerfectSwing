@@ -7,7 +7,10 @@
     </div>
       <div class="tables-admin d-flex justify-content-between">
         <div class="trainings-card-admin scrollbar-hidden">
+        <div class="d-flex justify-content-between">
           <h3 class="mb-5">All trainings</h3>
+          <%= link_to "New Training", new_training_path, class: "btn training-btn mr-0", style: "height: 50%" %>
+        </div>
           <div class="table-item d-flex justify-content-sm-between mb-4">
             <p style="width: 5%">Name</p>
             <p class="pl-2" style="width: 10%">Number of Sections</p>
