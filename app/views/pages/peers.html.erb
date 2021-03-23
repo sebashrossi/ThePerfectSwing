@@ -16,6 +16,12 @@
       <!-- CARD CONTAINING THE EMPLOYEE'S TABLE -->
       <div class="trainings-card scrollbar-hidden mt-2" style="width: 98%; height: 70%;">
 
+        <!-- TITLE AND LINK TO ADD A TRAINING -->
+        <div class="d-flex justify-content-between">
+            <h3 class="mb-5">All employees</h3>
+            <%= link_to "New Employee", peers_path, class: "btn training-btn mr-0", style: "height: 50%" %>
+        </div>
+
         <!-- TABLE WITH ALL THE EMPLOYEES -->
         <table class="table table-item">
           <!-- HEADERS -->
