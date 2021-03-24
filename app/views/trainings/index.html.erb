@@ -12,14 +12,13 @@
       <h4><%= Time.now.strftime("%A, %b %d") %></h4>
     </div>
 
-    <!-- CARD CONTAINING THE TABLE -->
-    <div class="trainings-card-admin scrollbar-hidden" style="width: 98%;">
+    <div style="margin-bottom: 15px;">
+      <%= link_to "New Training", new_training_path, class: "btn training-btn mr-0", style: "height: 50%; margin-left: 0;" %>
+    </div>
 
-      <!-- TITLE AND LINK TO ADD A TRAINING -->
-      <div class="d-flex justify-content-between">
-          <h3 class="mb-5">All trainings</h3>
-          <%= link_to "New Training", new_training_path, class: "btn training-btn mr-0", style: "height: 50%" %>
-      </div>
+    <!-- CARD CONTAINING THE TABLE -->
+    <!-- <div class="trainings-card-admin scrollbar-hidden" style="width: 98%;"> -->
+    <div class="trainings-card mt-2" style="width: 98%;">
 
       <!-- TABLE WITH ALL THE TRAININGS -->
       <table class="table table-item w-100">
@@ -38,7 +37,7 @@
           </tr>
           <tr>
             <td>
-              <div style="height:70vh; overflow:auto;">
+              <div class="scrollbar-hidden" style="height:70vh; overflow:auto;">
                 <table class="w-100">
                   <% @alltrainings.each do |training| %>
                     <tr>
