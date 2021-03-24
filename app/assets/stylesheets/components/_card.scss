@@ -1,9 +1,9 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 0 2%;
+  grid-gap: 0 8%;
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
   a {
     text-decoration: none;
   }
@@ -15,7 +15,6 @@
   border-radius: 8px;
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.35);
   transition: all 0.3s ease;
-  margin-right: 4rem;
   p, i {
     color: rgba(199, 214, 251, 0.6);
   }
@@ -61,15 +60,11 @@
 // TABLES
 
 .tables {
-  padding: 20px 20px 20px 0px;
-}
-
-.tables-admin {
-  padding: 20px 20px 20px 0px;
+  padding: 20px 0;
 }
 
 .trainings-card {
-  width: 100%;
+  width: calc(35vw + 32px);
   height: 473px;
   background: #1B2235;
   border: 1px solid #121832;
@@ -82,19 +77,7 @@
     color: white;
     }
 }
-.trainings-card-admin {
-  width: 100%;
-  background: #1B2235;
-  border: 1px solid #121832;
-  box-sizing: border-box;
-  border-radius: 8px;
-  padding: 20px;
-  overflow: scroll;
-    h3 {
-    font-size: 24px;
-    color: white;
-    }
-}
+
 
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
@@ -123,7 +106,7 @@
 }
 
 .todolist {
-  width: 28%;
+  width: calc(35vw + 32px);
   height: 473px;
   background: #273353;
   border-radius: 8px;
@@ -168,13 +151,13 @@
 
 .profile-card {
   background-color: #121832;
-  width: 50%;
+  width: 40vw;
   border-radius: 8px;
   box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.35);
 }
 
 .profile-info {
-  width: 45%;
+  width: 35vw;
   height: 50%;
   background: #1B2235;
   box-sizing: border-box;
@@ -190,6 +173,7 @@
   img {
     width: 26%;
     height: 200%;
+    object-fit: cover;
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);

@@ -40,7 +40,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .item {
-  padding: 30px;
+  padding: 30px 30px 0px 30px;
   text-align: center;
 
   h1 {
@@ -54,8 +54,3 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.card-footer {
-  p {
-    padding-left: 20px;
-  }
-}
