@@ -1,6 +1,6 @@
 <div class="d-flex">
   <%= render 'shared/adminsidebar' %>
-  <div class="main-content" style="margin-left: 40px;">
+  <div class="main-content mx-4">
     <!-- TOP MESSAGE -->
     <div class="top-message d-flex justify-content-between">
       <h4>Welcome <%= current_user.first_name %> <%= current_user.last_name %></h4>
@@ -10,30 +10,30 @@
     <div class="d-flex justify-content-around">
       <!-- MAIN CHART -->
       <div class="reg-chart">
-        <div class="main ml-2">
-          <canvas id="regChart" width="600" height="400"></canvas>
+        <div class="main">
+          <canvas id="regChart"></canvas>
         </div>
       </div>
-      <div class="right-charts">
+      <div class="right-charts d-flex justify-content-between">
         <div class="train-chart">
           <div class="train">
             <div class="d-flex justify-content-center">
               <p class="mr-3"><i class="far fa-user mr-2"></i>Users</p>
               <p><i class="fas fa-chart-line mr-2"></i>Trainings</p>
             </div>
-            <canvas id="trainChart" width="400" height="200"></canvas>
+            <canvas id="trainChart"></canvas>
           </div>
         </div>
         <div class="prog-chart">
           <div class="prog">
-            <canvas id="progChart" width="400" height="200"></canvas>
+            <canvas id="progChart"></canvas>
           </div>
         </div>
       </div>
     </div>
     <!-- TABLES -->
     <div class="tables d-flex justify-content-around">
-      <div class="todolist scrollbar-hidden" style="width: 47.5%; overflow: scroll">
+      <div class="todolist scrollbar-hidden" style="overflow: scroll">
         <table class="table table-item">
           <!-- HEADERS -->
           <thead>
@@ -67,7 +67,7 @@
           </tbody>
         </table>
       </div>
-      <div class="trainings-card scrollbar-hidden" style="width: 46.5%">
+      <div class="trainings-card scrollbar-hidden">
         <h3 class="mb-5">Timeline</h3>
         <div class="timeline-item" date-is='23-03-2021'>
           <p>Andrew stopped crying.</p>
