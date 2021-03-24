@@ -14,7 +14,7 @@
     <% if question != @questions.last %>
     <button class="next-btn" type="button" data-next-step="<%= index + 1 %>">Next</button>
     <% else %>
-    <%= f.submit 'Submit', class: 'submit-btn' %>
+    <%= f.submit 'Submit', class: 'submit-btn', disabled: true %>
     <% end %>
   </div>
 </div>
