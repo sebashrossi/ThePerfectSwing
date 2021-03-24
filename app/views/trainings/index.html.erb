@@ -22,67 +22,75 @@
       </div>
 
       <!-- TABLE WITH ALL THE TRAININGS -->
-      <table class="table table-item">
-        <!-- HEADERS -->
-        <thead>
+      <table class="table table-item w-100">
           <tr>
-            <th scope="col"><p><strong>Name</strong></p></th>
-            <th scope="col"><p><strong>Number of Sections</strong></p></th>
-            <th scope="col"><p><strong>Department</strong></p></th>
-            <th scope="col"><p><strong>Length of Trainings</strong></p></th>
-            <th scope="col"><p></p></th>
-          </tr>
-        </thead>
-        <!-- BODY ITERATING ON TRAININGS -->
-        <tbody>
-          <% @alltrainings.each do |training| %>
-          <tr>
-            <td><p><%= training.name %></p></td>
-            <td><p><%= training.sections.length %></p></td>
-            <td><p><%= training.department %></p></td>
-            <td><p><%= training.training_length / 60%>h<%= training.training_length % 60%>min</p></td>
             <td>
-              <div class="icons d-flex d-flex justify-content-between">
-                <%= link_to edit_training_path(training) do %>
-                  <i class="fas fa-pen mr-3"></i>
-                <% end %>
-                <i class="fas fa-trash-alt mr-3"></i>
-                <i  data-toggle="modal" data-target="#modal_training_<%= training.id %>" id="edit-<%training%>" class="fas fa-plus"></i>
+              <table class="w-100" >
+                <tr class="border-bottom border-white">
+                  <th style="width: 20%;" ><p><strong>Name</strong></p></th>
+                  <th style="width: 20%; text-align: center;" ><p><strong>Number of Sections</strong></p></th>
+                  <th style="width: 20%; text-align: center;" ><p><strong>Department</strong></p></th>
+                  <th style="width: 20%; text-align: center;" ><p><strong>Length of Trainings</strong></p></th>
+                  <th style="width: 20%; text-align: center;" ><p></p></th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div style="height:70vh; overflow:auto;">
+                <table class="w-100">
+                  <% @alltrainings.each do |training| %>
+                    <tr>
+                      <td style="width: 20%;"><p><%= training.name %></p></td>
+                      <td style="width: 20%; text-align: center;"><p><%= training.sections.length %></p></td>
+                      <td style="width: 20%; text-align: center;"><p><%= training.department %></p></td>
+                      <td style="width: 20%; text-align: center;"><p><%= training.training_length / 60%>h<%= training.training_length % 60%>min</p></td>
+                      <td style="width: 20%; text-align: center;">
+                        <div class="icons d-flex d-flex justify-content-between">
+                          <%= link_to edit_training_path(training) do %>
+                            <i class="fas fa-pen mr-3"></i>
+                          <% end %>
+                          <i class="fas fa-trash-alt mr-3"></i>
+                          <i  data-toggle="modal" data-target="#modal_training_<%= training.id %>" id="edit-<%training%>" class="fas fa-plus"></i>
+                        </div>
+                      </td>
+                      <!-- MODAL -->
+                      <div class="modal fade" id="modal_training_<%= training.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header ">
+                              <h5 class="modal-title" id="exampleModalLongTitle"><%= training.name %></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <h6>Assigned Employees</h6>
+                              <% training.users.each do |user| %>
+                                <span class="employee-badge mr-2"><%= user.full_name %></span>
+                              <% end %>
+                              <%= simple_form_for [training, @training_user] do |f|%>
+                                <%= f.input :users,
+                                            label: "Assign Employees",
+                                            label_method: :full_name,
+                                            collection: User.available_trainees(training),
+                                            input_html: {multiple: true, class: 'multiple-select'} %>
+                              <div class="modal-footer mt-0 border-0 ">
+                                    <%= f.submit "Assign training", class: "btn training-btn mr-1" %>
+                              </div>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </tr>
+                  <% end %>
+                </table>
               </div>
             </td>
-            <!-- MODAL -->
-            <div class="modal fade" id="modal_training_<%= training.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header ">
-                    <h5 class="modal-title" id="exampleModalLongTitle"><%= training.name %></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <h6>Assigned Employees</h6>
-                    <% training.users.each do |user| %>
-                      <span class="employee-badge mr-2"><%= user.full_name %></span>
-                    <% end %>
-                    <%= simple_form_for [training, @training_user] do |f|%>
-                      <%= f.input :users,
-                                  label: "Assign Employees",
-                                  label_method: :full_name,
-                                  collection: User.available_trainees(training),
-                                  input_html: {multiple: true, class: 'multiple-select'} %>
-                    <div class="modal-footer mt-0 border-0 ">
-                          <%= f.submit "Assign training", class: "btn training-btn mr-1" %>
-                    </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
           </tr>
-          <% end %>
-        </tbody>
-      </table>
+        </table>
 
     </div>
   </div>
