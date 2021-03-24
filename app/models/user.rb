@@ -40,7 +40,7 @@ class User < ApplicationRecord
   end
 
   def self.available_trainees(training)
-    User.all.reject{ |user| user.trainings.include?(training) }
+    User.all.reject{ |user| user.trainings.include?(training) || user.admin? }
     # self.where.not(training: training)
   end
   def self.options_for_select

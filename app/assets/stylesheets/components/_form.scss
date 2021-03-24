@@ -111,8 +111,14 @@
 .quote {
   color: $cool-text;
   margin-left: 50px;
+  width: 50%;
+  position: relative;
   .quote-content {
     width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    margin: -50px -50px;
    h4 {
      margin-bottom: 50px;
    }
