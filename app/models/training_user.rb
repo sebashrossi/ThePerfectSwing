@@ -1,8 +1,9 @@
 class TrainingUser < ApplicationRecord
+  attr_accessor :users
+
   belongs_to :user
   belongs_to :training
   after_create :create_section_users
-  attr_accessor :users
   validates :training, uniqueness: { scope: :user }
 
   def create_section_users

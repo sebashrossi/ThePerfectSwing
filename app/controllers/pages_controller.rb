@@ -11,6 +11,7 @@ class PagesController < ApplicationController
       @trainings << training if training.progress_of(current_user) != 100 && @trainings.count < 4
     end
     @alltrainings = current_user.trainings
+    @timeline_items = TrainingUser.all.shuffle.last(10)
     if current_user.admin?
       render 'admin_dashboard'
     end
