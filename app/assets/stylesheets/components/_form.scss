@@ -140,8 +140,10 @@
   padding: 8px;
   border-radius: 4px;
 }
+
 .modal-content {
   background-color: #121832;
+  border-radius: 8px;
   h2, h4, label, h6 {
     color: $cool-text
   }
@@ -150,6 +152,7 @@
     color: $cool-text;
   }
 }
+
 .modal-body {
   margin-bottom: -30px;
   h6 {
@@ -158,9 +161,27 @@
   label {
     margin-top: 20px;
   }
+  span {
+    color: $cool-text;
+    transition: all ease-in-out 0.3s;
+    &:hover{
+      color: #b40c0c;
+      border-color: #b40c0c;
+      transition: all ease-in-out 0.3s;
+      cursor: pointer;
+    }
+  }
 }
+
 .modal-header {
   span {
     color: $cool-text;
   }
+}
+
+.modal-footer {
+  margin-right: -15px;
+}
+.form-group {
+  margin-bottom: 0;
 }
