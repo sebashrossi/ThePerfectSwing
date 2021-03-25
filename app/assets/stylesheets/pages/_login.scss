@@ -1,5 +1,6 @@
 .centered {
     display: flex;
+    position: relative;
     align-items: center;
     height: 100vh;
 
@@ -11,12 +12,22 @@
         line-height: 90px;
         color: #C7D6FB;
     }
+    h3 {
+      color: $cool-text;
+      position: absolute;
+      top: 2vh;
+      left: 2vw;
+    }
   }
 
     .title {
         width: 55vh;
         height: 18vh;
-        margin-top: 70px;
+        margin-top: 50px;
+        h5 {
+          color: $cool-text;
+          font-weight: italic;
+        }
     }
 
   .login {
