@@ -69,10 +69,10 @@
       </div>
       <div class="trainings-card scrollbar-hidden">
         <h3 class="mb-5">Timeline</h3>
-        <div class="timeline-item" date-is='23-03-2021'>
+        <div class="timeline-item" date-is='<%= Time.now.strftime("%d-%m-%Y") %>'>
           <p>Andrew stopped crying.</p>
         </div>
-        <div class="timeline-item" date-is='20-03-2021'>
+        <div class="timeline-item" date-is='<%= (Time.now - 1.day).strftime("%d-%m-%Y") %>'>
           <p>Spencer Schaefer shared a file</p>
           <div class="file d-flex">
             <img class="mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="file icon">
@@ -87,7 +87,7 @@
             </div>
           </div>
         </div>
-        <div class="timeline-item" date-is='21-03-2021'>
+        <div class="timeline-item" date-is='<%= (Time.now - 2.day).strftime("%d-%m-%Y") %>'>
           <p>Jordan Belfort has finished OOP training successfully.</p>
         </div>
       </div>
