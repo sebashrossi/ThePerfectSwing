@@ -97,13 +97,40 @@
 
       <!-- LIST OF PEERS FOR A SPECIFIC USER -->
       <div class="trainings-card scrollbar-hidden mt-2" style="width: 90%; height: 70%;">
-        <% @peers.each do |peer| %>
-        <div class="table-item d-flex justify-content-sm-between">
-          <p><%= peer.first_name %> <%= peer.last_name %></p>
-          <p><%= peer.email %></p>
-          <a href="#" style="color: #504BFF; text-decoration: none;">Contact</a>
-        </div>
-        <% end %>
+
+        <table class="table table-item w-100">
+          <!-- HEADERS -->
+          <tr>
+            <td>
+              <table class="w-100" >
+                <tr class="border-bottom border-white">
+                  <th style="width: 20%;" ><p><strong>Name</strong></p></th>
+                  <th style="width: 20%; text-align: left;" ><p><strong>Email-address</strong></p></th>
+                  <th style="width: 20%;"></th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- BODY ITERATING ON PEERS -->
+          <tr>
+            <td>
+              <div class="scrollbar-hidden" style="height:50vh; overflow:auto;">
+                <table class="w-100 scrollbar-hidden">
+                  <% @peers.each do |peer| %>
+                    <tr>
+                      <td style="width: 20%;"><p><%= peer.first_name %> <%= peer.last_name %></p></td>
+                      <td style="width: 20%; text-align: left;"><p><%= peer.email %></p></td>
+                      <td style="width: 20%; text-align: left;"><a href="#" style="color: #504BFF; text-decoration: none;"><i class="fas fa-envelope mr-3"></i></a></td>
+                    </tr>
+                  <% end %>
+                </table>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+
       </div>
 
     </div>
