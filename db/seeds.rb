@@ -43,7 +43,7 @@ puts ""
 
 puts "Creating Admin..."
 
-admin = User.create!(first_name: 'Wilmot Reed', last_name: 'Hastings Jr.', email: 'reedhastings@netflix.com', password: '123456', admin: true)
+admin = User.create!(first_name: 'Wilmot Reed', last_name: 'Hastings Jr.', email: 'reedhastings@giraffe.com', password: '123456', admin: true)
 puts ""
 puts "-------------------------------------"
 puts "Admin #{admin.first_name} #{admin.last_name} has been created."
@@ -51,7 +51,7 @@ puts "-------------------------------------"
 puts ""
 
 puts "Creating company..."
-company = Company.create!(name: 'Netflix', address: '123 Fake Street', user: admin)
+company = Company.create!(name: 'Giraffe Corp', address: '123 Fake Street', user: admin)
 
 puts ""
 puts "---------------------------------"
@@ -61,7 +61,7 @@ puts ""
 
 puts "Creating Employee..."
 
-user = User.create!(first_name: 'Jordan', last_name: 'Belfort', email: 'jordanbelfort@netflix.com', password: '123456', admin: false)
+user = User.create!(first_name: 'Jordan', last_name: 'Belfort', email: 'jordanbelfort@giraffe.com', password: '123456', admin: false)
 puts ""
 puts "-------------------------------------"
 puts "Employee #{user.first_name} #{user.last_name} has been created."
@@ -84,7 +84,7 @@ puts ""
 puts ""
 puts "Creating batchmates for #{user.first_name} #{user.last_name}..."
 20.times do
-  peer = User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: "#{Faker::Name.unique.first_name}@netflix.com", password: '123456', admin: false )
+  peer = User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: "#{Faker::Name.unique.first_name}@giraffe.com", password: '123456', admin: false )
 end
 
 puts ""
@@ -682,7 +682,7 @@ training_user9 = TrainingUser.create!(user: user, training: training9)
 training_user10 = TrainingUser.create!(user: user, training: training10)
 training_user11 = TrainingUser.create!(user: user, training: training11)
 
-User.where.not(email: 'jordanbelfort@netflix.com', admin: true).each do |user|
+User.where.not(email: 'jordanbelfort@giraffe.com', admin: true).each do |user|
   trainings = Training.all.sample((1..(Training.count - 1)).to_a.sample)
   trainings.each do |training|
   TrainingUser.create!(user: user, training: training)
@@ -693,8 +693,8 @@ end
 TrainingUser.where.not(user: user).sample((TrainingUser.count * 0.5).round).each do |traininguser|
   traininguser.user.user_sections_of(traininguser.training).each do |su|
     su.update!(quiz_score: 100)
-    puts "#{traininguser.user.full_name} has completed #{traininguser.training.name} training."
   end
+    puts "#{traininguser.user.full_name} has completed #{traininguser.training.name} training."
 end
 
 
