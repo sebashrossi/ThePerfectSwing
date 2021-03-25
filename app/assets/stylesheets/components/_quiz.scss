@@ -14,31 +14,35 @@
     h3 {
         font-size: 24px;
         color: $cool-text;
+        font-weight: bold;
     }
 
     p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    label {
         font-size: 18px;
     }
-
     input[type='radio']:after {
-        width: 15px;
+        width: 16px;
         height: 15px;
         border-radius: 15px;
-        top: -2px;
+        top: -3px;
         left: -1px;
         position: relative;
         background-color: #1B2235;
         content: '';
         display: inline-block;
         visibility: visible;
-        border: 2px solid $cool-text;
+        border: 2px solid #C7D6FB;
     }
 
     input[type='radio']:checked:after {
         width: 15px;
         height: 15px;
         border-radius: 15px;
-        top: -2px;
+        top: -3px;
         left: -1px;
         position: relative;
         background-color: $cool-lightsaber;
