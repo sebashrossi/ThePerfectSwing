@@ -33,7 +33,7 @@
     </div>
     <!-- TABLES -->
     <div class="tables d-flex justify-content-around">
-      <div class="todolist scrollbar-hidden" style="overflow: scroll">
+      <div class="todolist h-70vh scrollbar-hidden" style="overflow: scroll">
         <table class="table table-item">
           <!-- HEADERS -->
           <thead>
@@ -67,29 +67,13 @@
           </tbody>
         </table>
       </div>
-      <div class="trainings-card scrollbar-hidden">
+      <div class="trainings-card h-70vh scrollbar-hidden">
         <h3 class="mb-5">Timeline</h3>
-        <div class="timeline-item" date-is='23-03-2021'>
-          <p>Andrew stopped crying.</p>
+        <% @timeline_items.each_with_index do |item, index| %>
+        <div class="timeline-item" date-is='<%= (Date.today - index).strftime("%d-%m-%Y") %>'>
+          <p><%= item.user.full_name %> has <%= [true, false].sample ? 'completed' : 'started' %> <%= item.training.name %></p>
         </div>
-        <div class="timeline-item" date-is='20-03-2021'>
-          <p>Spencer Schaefer shared a file</p>
-          <div class="file d-flex">
-            <img class="mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" alt="file icon">
-            <div class="actions d-flex">
-              <i class="fas fa-file-download"></i>
-              <i class="fas fa-external-link-alt"></i>
-            </div>
-            <div>
-              <h6>Netflix Analytics</h6>
-              <p style="font-size: 12px; margin: 0;">analytics.pdf</p>
-              <p style="font-size: 10px;">88 KB</p>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item" date-is='21-03-2021'>
-          <p>Jordan Belfort has finished OOP training successfully.</p>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

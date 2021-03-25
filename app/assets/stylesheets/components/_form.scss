@@ -38,6 +38,18 @@
   }
 }
 
+.nested-fields {
+  position: relative;
+  .form-group {
+  width: 100%;
+  }
+}
+
+.wrong a {
+  position: absolute;
+  right: 0;
+}
+
 .form-card {
   margin: 0 auto;
   width: 60%;
@@ -98,11 +110,6 @@
   margin-bottom: 40px;
 }
 
-.wrong {
-  input {
-    width: 383%;
-  }
-}
 
 .hidden {
   display: none;

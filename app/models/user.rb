@@ -39,6 +39,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def user_sections_of(training)
+    self.section_users.select { |su| su.section.training == training }
+  end
+
   def self.available_trainees(training)
     User.all.reject{ |user| user.trainings.include?(training) || user.admin? }
     # self.where.not(training: training)
@@ -46,4 +50,5 @@ class User < ApplicationRecord
   def self.options_for_select
     User.all.map{ |user| [user.email, user.id] }
   end
+
 end

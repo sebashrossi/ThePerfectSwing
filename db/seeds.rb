@@ -12,96 +12,96 @@ puts "------------------"
 puts "Seeding started..."
 puts "------------------"
 puts ""
-sleep 3
+
 puts "Deleting all wrong answers"
 WrongAnswer.destroy_all
-sleep 1
+
 puts "Deleting all questions..."
 Question.destroy_all
-sleep 1
+
 puts "Deleting all user sections..."
 SectionUser.destroy_all
-sleep 1
+
 puts "Deleting all Sections...."
 Section.destroy_all
-sleep 1
+
 puts "Deleting all user trainings..."
 TrainingUser.destroy_all
-sleep 1
+
 puts "Deleting all Trainings...."
 Training.destroy_all
-sleep 1
+
 puts "Deleting all Companies..."
 Company.destroy_all
-sleep 1
+
 puts "Deleting all Users..."
 User.destroy_all
-sleep 1
+
 puts ""
 puts "Database is empty."
 puts ""
-sleep 2
+
 puts "Creating Admin..."
-sleep 1
+
 admin = User.create!(first_name: 'Wilmot Reed', last_name: 'Hastings Jr.', email: 'reedhastings@netflix.com', password: '123456', admin: true)
 puts ""
 puts "-------------------------------------"
 puts "Admin #{admin.first_name} #{admin.last_name} has been created."
 puts "-------------------------------------"
 puts ""
-sleep 2
+
 puts "Creating company..."
 company = Company.create!(name: 'Netflix', address: '123 Fake Street', user: admin)
-sleep 1
+
 puts ""
 puts "---------------------------------"
 puts "Company #{company.name} has been created."
 puts "---------------------------------"
 puts ""
-sleep 2
+
 puts "Creating Employee..."
-sleep 1
+
 user = User.create!(first_name: 'Jordan', last_name: 'Belfort', email: 'jordanbelfort@netflix.com', password: '123456', admin: false)
 puts ""
 puts "-------------------------------------"
 puts "Employee #{user.first_name} #{user.last_name} has been created."
 puts "-------------------------------------"
 puts ""
-sleep 2
+
 puts ""
 puts "#{admin.first_name} #{admin.last_name} is assigning #{user.first_name} #{user.last_name} to #{company.name}..."
 user.company = company
 user.save!
 admin.company = company
 admin.save!
-sleep 1
+
 puts ""
 puts "--------------------------------------------"
 puts "#{user.first_name} #{user.last_name} has been assigned to #{company.name}."
 puts "--------------------------------------------"
 puts ""
-sleep 2
+
 puts ""
 puts "Creating batchmates for #{user.first_name} #{user.last_name}..."
 20.times do
   peer = User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: "#{Faker::Name.unique.first_name}@netflix.com", password: '123456', admin: false )
 end
-sleep 1
+
 puts ""
 puts "Batchmates have been created."
 puts ""
-sleep 1
+
 # TRAINING 1 COMPLETE
 puts "Creating 1st training..."
 training1 = Training.create!(name: 'Onboarding', description: 'Welcome to the Complete Web Development Training, the only training you need to learn to code and become a full-stack web developer. We\'ll take you step-by-step through engaging video tutorials and teach you everything you need to know to succeed as a web developer. The course includes over 50 hours of HD video tutorials and builds your programming knowledge while making real-world websites and web apps.', department: 'Software engineer', company: company)
-sleep 2
+
 puts "Creating training sections for #{training1.name}..."
 section11 = Section.create!(name: 'IDE', length: 60, description: "An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development. An IDE normally consists of at least a source code editor, build automation tools and a debugger. We are going to be using Visual Studio Code.", video_url: 'https://www.youtube.com/watch?v=fnPhJHN0jTE', training: training1)
 
 section12 = Section.create!(name: 'Terminal 101', length: 72, description: "As a terminal emulator, the application provides text-based access to the operating system, in contrast to the mostly graphical nature of the user experience of macOS, by providing a command-line interface to the operating system when used in conjunction with a Unix shell, such as zsh. The user can choose other shells available with macOS, such as the KornShell, tcsh, and bash.", video_url: 'https://www.youtube.com/watch?v=oxuRxtrO2Ag', training: training1)
-sleep 2
+
 puts "Creating questions for section #{section11.name}..."
-sleep 1
+
 question11_1 = Question.create!(content: "How do you open your project in Visual Studio Code?", answer: 'File -> Open', section: section11)
 
 ['Edit -> Copy', 'File -> Save'].each do |wrong_answer|
@@ -157,13 +157,13 @@ question12_6 = Question.create!(content: "How do you print in the terminal the l
   WrongAnswer.create!(question: question12_6, content: wrong_answer)
 end
 
-sleep 1
+
 puts ""
 # TRAINING 2 COMPLETE
 puts "Creating 2nd training..."
 training2 = Training.create!(name: 'Ruby', description: "This is the introduction to Ruby programming language.", department: 'Software engineer', company: company)
 
-sleep 2
+
 puts "Creating training sections for #{training2.name}..."
 
 section21 = Section.create!(name: 'Programming basics', length: 16, description: "Play with IRB, launch a ruby script from the terminal. Learn about variables, methods and built-in objects.", video_url: "https://www.youtube.com/watch?v=lkkYoRXd6Dw", training: training2)
@@ -174,7 +174,7 @@ section23 = Section.create!(name: 'Iterators & Blocks', length: 10, description:
 
 section24 = Section.create!(name: 'Hash & Symbols', length: 6, description: "Finally, let’s introduce hashes - data stuctures designed to store key-value pairs like dictionaries. Define and manipulate your own hashes. Understand symbols - objects a bit similar to strings but more adpated for storing “keywords” of your code. You’ll often see symbols as hash keys, so get used to it!", video_url: "https://www.youtube.com/watch?v=QdJQcN8XPMw", training: training2)
 
-sleep 2
+
 puts "Creating questions for section #{section21.name}..."
 
 question21_1 = Question.create!(content: "Do you know a shortcut to define an array of strings?", answer: '%w', section: section21)
@@ -217,7 +217,7 @@ question21_8 = Question.create!(content: "How do you use interpollation?", answe
   WrongAnswer.create!(question: question21_8, content: wrong_answer)
 end
 
-sleep 1
+
 puts "Creating questions for section #{section22.name}..."
 
 question22_1 = Question.create!(content: "How do you append an element to an array?", answer: '.push', section: section22)
@@ -260,7 +260,7 @@ question22_8 = Question.create!(content: "Do you know how to test if condition_1
   WrongAnswer.create!(question: question22_8, content: wrong_answer)
 end
 
-sleep 1
+
 puts "Creating questions for section #{section23.name}..."
 
 question23_1 = Question.create!(content: "How do you clean an Array from items matching a condition?", answer: '.reject', section: section23)
@@ -293,7 +293,7 @@ question23_6 = Question.create!(content: "How would you sort an Array with a giv
   WrongAnswer.create!(question: question23_6, content: wrong_answer)
 end
 
-sleep 1
+
 puts "Creating questions for section #{section24.name}..."
 
 question24_1 = Question.create!(content: "How can you get all the values of a Hash in an array?", answer: '.values', section: section24)
@@ -326,7 +326,7 @@ question24_6 = Question.create!(content: "Which ruby module included in Array is
   WrongAnswer.create!(question: question24_6, content: wrong_answer)
 end
 
-sleep 1
+
 puts ""
 # TRAINING 3 COMPLETE
 
@@ -334,16 +334,15 @@ puts "Creating 3rd training..."
 
 training3 = Training.create!(name: 'OOP', description: "Object-oriented programming (OOP) is a programming paradigm based on the concept of 'objects', which can contain data and code: data in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods).", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training3.name}..."
 
 section31 = Section.create!(name: "Classes & Instances", length: 3, description: "o far, you’ve played with lots of built-in objects in ruby (Integer, Hash, Date, etc.). But what about defining your own classes? During this first day you’ll learn to manipulate classes, instances, instance variables and instance methods. You’ll also learn about constructors and accessors. Let’s build your first classes!", video_url: "https://www.youtube.com/watch?v=qNldIKw7rGU", training: training3)
 
 section32 = Section.create!(name: 'Inheritance & Self', length: 8, description: "More advanced OOP concepts, such as inheritance, class methods, and the meaning of the self keyword.", video_url: "https://www.youtube.com/watch?v=Zkk7whVb3f4", training: training3)
 
-section33 = Section.create!(name: 'Cookbook', length: 33, description: "We don’t just use classes because they are fun :) They are also key for structuring our code (and therefore building smart software). So let’s start with a bit about software architecture and introduce the MVC pattern by coding a to-do manager. This is a really important morning lecture - don’t miss it! After this, you’ll work on a cookbook app for 2 days. Let’s start today and sleep on it during the weekend.", video_url: "https://www.youtube.com/watch?v=KlyObpu0rVc", training: training3)
+section33 = Section.create!(name: 'Cookbook', length: 33, description: "We don’t just use classes because they are fun :) They are also key for structuring our code (and therefore building smart software). So let’s start with a bit about software architecture and introduce the MVC pattern by coding a to-do manager. This is a really important morning lecture - don’t miss it! After this, you’ll work on a cookbook app for 2 days.", video_url: "https://www.youtube.com/watch?v=KlyObpu0rVc", training: training3)
 
-sleep 1
 puts "Creating questions for section #{section31.name}..."
 
 question31_1 = Question.create!(content: "What does OOP stand for?", answer: 'Object-Oriented Programming', section: section31)
@@ -382,7 +381,7 @@ question31_6 = Question.create!(content: "Do you know how to set both a getter a
   WrongAnswer.create!(question: question31_6, content: wrong_answer)
 end
 
-sleep 1
+
 puts "Creating questions for section #{section32.name}..."
 
 question32_1 = Question.create!(content: "The destroy_all method is an instance method. True or False?", answer: 'False', section: section32)
@@ -409,7 +408,7 @@ question32_4 = Question.create!(content: "Name the parent class of Employee clas
   WrongAnswer.create!(question: question32_4, content: wrong_answer)
 end
 
-sleep 1
+
 puts "Creating questions for section #{section33.name}..."
 
 
@@ -431,7 +430,7 @@ question33_3 = Question.create!(content: "What type of data should the TaskRepos
   WrongAnswer.create!(question: question33_3, content: wrong_answer)
 end
 
-sleep 1
+
 puts ""
 
 # TRAINING 4 COMPLETED
@@ -440,7 +439,7 @@ puts "Creating 4th training..."
 
 training4 = Training.create!(name: 'Databases', description: "Time to learn about relational databases, discover the different relationships between tables (1:n, n:n) and how to draw a database scheme. Then, we’ll get started on SQL - the language used to make queries to our database structured with keywords (SELECT, FROM, WHERE, JOIN etc.). We will start with simple “read queries” (SELECT) on day one.", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training4.name}..."
 
 section41 = Section.create!(name: 'Schema Design & SQL', length: 5, description: "Time to learn about relational databases, discover the different relationships between tables (1:n, n:n) and how to draw a database scheme. Then, we’ll get started on SQL - the language used to make queries to our database structured with keywords (SELECT, FROM, WHERE, JOIN etc.). We will start with simple “read queries” (SELECT) on day one.", video_url: "https://www.youtube.com/watch?v=3BZz8R7mqu0", training: training4)
@@ -451,7 +450,7 @@ section43 = Section.create!(name: 'Active Record Basics', length: 56, descriptio
 
 section44 = Section.create!(name: 'Associations & Validations', length: 11, description: "Time to go deeper into Active Record and learn about validations and associations.", video_url: "https://www.youtube.com/watch?v=c3hoXWO_6ao", training: training4)
 
-sleep 1
+
 puts "Creating questions for section #{section41.name}..."
 
 question41_1 = Question.create!(content: "What is the SQL keyword to retrieve content from the DB?", answer: 'SELECT', section: section41)
@@ -470,7 +469,7 @@ question41_3 = Question.create!(content: "What is the SQL keyword to specify a f
 end
 
 
-sleep 1
+
 puts "Creating questions for section #{section42.name}..."
 
 question42_1 = Question.create!(content: "How would you establish a connection and send a query to a Sqlite DB with Ruby?", answer: '.execute', section: section42)
@@ -489,7 +488,7 @@ question42_3 = Question.create!(content: "How do you Read (CRUD) in SQL?", answe
 end
 
 
-sleep 1
+
 puts ""
 
 # TRAINING 5 COMPLETED
@@ -498,7 +497,7 @@ puts "Creating 5th training..."
 
 training5 = Training.create!(name: 'Front-End', description: "The frontend of a software program or website is everything with which the user interacts. From a user standpoint, the frontend is synonymous with the user interface. From a developer standpoint, it is the interface design and the programming that makes the interface function.", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training5.name}..."
 
 section51 = Section.create!(name: 'HTML & CSS', length: 660, description: "You’ll cover a lot of HTML & CSS such as: HTML skeleton and common tags (in <head> and <body>), CSS simple and advanced selectors, Web-design resources for fonts & colors (google fonts, fontawesome, etc.)", video_url: "https://www.youtube.com/watch?v=mU6anWqZJcc", training: training5)
@@ -515,7 +514,7 @@ section56 = Section.create!(name: 'HTTP & AJAX', length: 10, description: "Let�
 
 section57 = Section.create!(name: 'JavaScript Plugins', length: 22, description: "In this lecture, we will download external JavaScript packages with Yarn and use them in our interfaces. We’ll also see how to organise our code in several files in a frontend app.", video_url: "https://www.youtube.com/watch?v=g9_6KmiBISk", training: training5)
 
-sleep 1
+
 puts "Creating questions for section #{section51.name}..."
 
 question51_1 = Question.create!(content: "How do you set the background color to red on the whole page?", answer: 'body { background-color: red; }', section: section51)
@@ -536,17 +535,17 @@ question51_3 = Question.create!(content: "What are the three languages your brow
   WrongAnswer.create!(question: question51_3, content: wrong_answer)
 end
 
-sleep 1
+
 puts "**** THE OTHER SECTIONS HAVE NO QUESTIONS ****"
 puts ""
-sleep 1
+
 # TRAINING 6 COMPLETED
 
 puts "Creating 6th training..."
 
 training6 = Training.create!(name: 'Rails', description: "Ruby on Rails, or Rails, is a server-side web application framework written in Ruby under the MIT License. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages. It encourages and facilitates the use of web standards such as JSON or XML for data transfer and HTML, CSS and JavaScript for user interfacing. In addition to MVC, Rails emphasizes the use of other well-known software engineering patterns and paradigms, including convention over configuration (CoC), don't repeat yourself (DRY), and the active record pattern.", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training6.name}..."
 
 section61 = Section.create!(name: 'Routing, Controllers & Views', length: 6, description: "Your first day will introduce the standard Rails flow of routing > controller > view without adding the model layer and explaining params. Over the course of the day, you’ll be transforming old ruby challenges from Week 1 into Rails apps.", video_url: "https://www.youtube.com/watch?v=mRJSovhdzWc", training: training6)
@@ -568,10 +567,10 @@ section68 = Section.create!(name: 'Geocoding', length: 14, description: "Lecture
 section69 = Section.create!(name: 'Search', length: 16, description: "This lecture covers the search topic, from the search 101 using ActiveRecord to stronger solutions like ElasticSearch or Algolia.", video_url: "https://www.youtube.com/watch?v=s88Uc0InOAM", training: training6)
 
 section610 = Section.create!(name: 'AJAX in Rails', length: 26, description: "Once you understand CRUD and can quickly re-create a rails scaffold, it’s time to add some extra wizardry using AJAX. You’ll be able to talk to the server without reloading the page (adding new comments to posts / clicking on star ratings / removing something from a list, etc.)", video_url: "https://www.youtube.com/watch?v=2Il7PPhen3o", training: training6)
-sleep 1
+
 puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
 puts ""
-sleep 1
+
 
 # TRAINING 7 COMPLETED
 
@@ -580,7 +579,7 @@ puts "Creating 7th training..."
 
 training7 = Training.create!(name: 'Deeper JavaScript', description: "We already taought you a basic understanding of Javascript. On these training we will go deeper into intermideate and advanced concepts.", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training7.name}..."
 
 section71 = Section.create!(name: 'jQuery', length: 8, description: "jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.It is free, open-source software using the permissive MIT License. As of May 2019, jQuery is used by 73% of the 10 million most popular websites. Web analysis indicates that it is the most widely deployed JavaScript library by a large margin, having at least 3 to 4 times more usage than any other JavaScript library.", video_url: "https://www.youtube.com/watch?v=hMxGhHNOkCU", training: training7)
@@ -591,26 +590,26 @@ section73 = Section.create!(name: 'Callbacks', length: 25, description: "In comp
 
 section74 = Section.create!(name: 'React.js', length: 610, description: "React (also known as React.js or ReactJS) is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing. React Router is an example of such a library. And also large and complicated applications are required to make AJAX calls to fetch or mutate data. You can use any library you like with React such as Axios, JQuery AJAX or the browser built-in window.fetch.", video_url: "https://www.youtube.com/watch?v=4UZrsTqkcW4", training: training7)
 
-sleep 1
+
 puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
 puts ""
-sleep 1
+
 # TRAINING 8 COMPLETED
 
 puts "Creating 8th training..."
 
 training8 = Training.create!(name: 'Alternate back end', description: "On this training we will teach you other back end languages such as Node.js and Express.js", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training8.name}..."
 
 section81 = Section.create!(name: 'Node.js', length: 420, description: "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a 'JavaScript everywhere' paradigm, unifying web-application development around a single programming language, rather than different languages for server-side and client-side scripts.", video_url: "https://www.youtube.com/watch?v=JnvKXcSI7yk", training: training8)
 
 section82 = Section.create!(name: 'Expresss.js', length: 74, description: "Express.js, or simply Express, is a back end web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js.", video_url: "https://www.youtube.com/watch?v=L72fhGm1tfE", training: training8)
-sleep 1
+
 puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
 puts ""
-sleep 1
+
 
 # TRAINING 9 COMPLETED
 
@@ -618,14 +617,14 @@ puts "Creating 9th training..."
 
 training9 = Training.create!(name: 'API', description: "An application programming interface (API) is a computing interface that defines interactions between multiple software applications or mixed hardware-software intermediaries.[1] It defines the kinds of calls or requests that can be made, how to make them, the data formats that should be used, the conventions to follow, etc. It can also provide extension mechanisms so that users can extend existing functionality in various ways and to varying degrees. An API can be entirely custom, specific to a component, or designed based on an industry-standard to ensure interoperability. Through information hiding, APIs enable modular programming, allowing users to use the interface independently of the implementation.", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training9.name}..."
 
 section91 = Section.create!(name: 'Build your API', length: 60, description: "Build an iOS app, provide service to customers, build a platform, etc.", video_url: "https://www.youtube.com/watch?v=vjf774RKrLc", training: training9)
-sleep 1
+
 puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
 puts ""
-sleep 1
+
 
 # TRAINING 10 COMPLETED
 
@@ -633,17 +632,17 @@ puts "Creating 10th training..."
 
 training10 = Training.create!(name: 'Git, GitHub, Version Control', description: "Git is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different systems).", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training10.name}..."
 
 section101 = Section.create!(name: "Git", length: 3, description: "For each document version, we need to know: When the file was modified, What changed, Why it was modified, Who did the change. In a nutshell, We want a tool which: tracks document versions, keeps an history of document changes, foster team work. Git.", video_url: "https://www.youtube.com/watch?v=2ReR1YJrNOM", training: training10)
 
 section102 = Section.create!(name: 'GitHub', length: 70, description: "GitHub, Inc. is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management (SCM) functionality of Git, plus its own features. It provides access control and several collaboration features such as bug tracking, feature requests, task management, continuous integration and wikis for every project. Headquartered in California, it has been a subsidiary of Microsoft since 2018.", video_url: "https://www.youtube.com/watch?v=RGOj5yH7evk", training: training10)
 
-sleep 1
+
 puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
 puts ""
-sleep 1
+
 
 
 # TRAINING 11 COMPLETED
@@ -652,7 +651,7 @@ puts "Creating 11th training..."
 
 training11 = Training.create!(name: 'Authentification & Security', description: "Authentication software is a means of authenticating users through a software application or mobile app, instead of a hardware device. This can also be referred to as mobile authentication, soft token authentication, or phone-as-a-token authentication. Authentication software is used to validate your identity when you’re logging into your account, either on your desktop or mobile device, or when you’re doing a banking transaction. It relieves you of having to carry a hardware authenticator.", department: 'Software engineer', company: company)
 
-sleep 1
+
 puts "Creating training sections for #{training11.name}..."
 
 section111 = Section.create!(name: 'DB Encryption', length: 7, description: "Database encryption can generally be defined as a process that uses an algorithm to transform data stored in a database into 'cipher text' that is incomprehensible without first being decrypted. It can therefore be said that the purpose of database encryption is to protect the data stored in a database from being accessed by individuals with potentially 'malicious' intentions. The act of encrypting a database also reduces the incentive for individuals to hack the aforementioned database as 'meaningless' encrypted data is of little to no use for hackers. There are multiple techniques and technologies available for database encryption, the most important of which will be detailed in this article.", video_url: "https://www.youtube.com/watch?v=5idL-f5ofmo", training: training11)
@@ -664,12 +663,12 @@ section113 = Section.create!(name: 'Bcrypt', length: 7, description: "bcrypt is 
 section114 = Section.create!(name: 'Passport.js', length: 27, description: "Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.", video_url: "https://www.youtube.com/watch?v=fGrSmBk9v-4", training: training11)
 
 section115 = Section.create!(name: 'OAuth 2.0', length: 11, description: "The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service, either onbehalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP service, or by allowing the third-party application to obtain access on its own behalf.", video_url: "https://www.youtube.com/watch?v=t4-416mg6iU", training: training11)
-sleep 1
+
 puts "**** THIS SECTIONS HAVE NO QUESTIONS ****"
 puts ""
-sleep 2
+
 puts ""
-puts "Assigning trainings to #{user.first_name} #{user.last_name}..."
+puts "Assigning trainings to #{user.first_name} #{user.last_name} and his batchmates..."
 
 training_user1 = TrainingUser.create!(user: user, training: training1)
 training_user2 = TrainingUser.create!(user: user, training: training2)
@@ -682,13 +681,29 @@ training_user8 = TrainingUser.create!(user: user, training: training8)
 training_user9 = TrainingUser.create!(user: user, training: training9)
 training_user10 = TrainingUser.create!(user: user, training: training10)
 training_user11 = TrainingUser.create!(user: user, training: training11)
-sleep 2
+
+User.where.not(email: 'jordanbelfort@netflix.com', admin: true).each do |user|
+  trainings = Training.all.sample((1..(Training.count - 1)).to_a.sample)
+  trainings.each do |training|
+  TrainingUser.create!(user: user, training: training)
+  puts "#{training.name} has been assigned to #{user.full_name}"
+  end
+end
+
+TrainingUser.where.not(user: user).sample((TrainingUser.count * 0.5).round).each do |traininguser|
+  traininguser.user.user_sections_of(traininguser.training).each do |su|
+    su.update!(quiz_score: 100)
+    puts "#{traininguser.user.full_name} has completed #{traininguser.training.name} training."
+  end
+end
+
+
 puts ""
 puts "Trainings have been assigned."
 puts ""
-sleep 2
+
 puts "Completed. Seeds have been updated."
-sleep 2
+
 puts ""
 puts "#############################################"
 puts ""
